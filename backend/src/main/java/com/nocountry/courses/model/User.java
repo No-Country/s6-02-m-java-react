@@ -1,5 +1,6 @@
 package com.nocountry.courses.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
@@ -31,6 +32,10 @@ public class User implements Serializable {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id"))
     private Set<Course> courses;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private Set<Note> notes;
 
     @PrePersist
     public void prePersist(){
