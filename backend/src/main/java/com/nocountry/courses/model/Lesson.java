@@ -2,6 +2,10 @@ package com.nocountry.courses.model;
 
 import lombok.Data;
 
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 
@@ -23,5 +27,9 @@ public class Lesson {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "course_id")
     private Course course;
+
+    @OneToMany(mappedBy = "lesson")
+    @JsonIgnore
+    private Set<Note> notes;
 
 }
