@@ -1,6 +1,5 @@
 package com.nocountry.courses.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import jakarta.persistence.*;
