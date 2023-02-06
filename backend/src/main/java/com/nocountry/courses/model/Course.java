@@ -24,7 +24,9 @@ public class Course {
     private String difficulty;
     private int totalDuration;
     private Set<String> tags;
-    private Enum<Category> categories;
+
+    @Enumerated(EnumType.STRING)
+    private Category categories;
 
     @JsonBackReference
     @ManyToMany(mappedBy = "courses")

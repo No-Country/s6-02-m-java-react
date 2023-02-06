@@ -15,6 +15,12 @@ public class Note {
     private Long id;
     private String title;
     private String content;
-/*    private User user;
-    private Lesson lesson;*/
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "lesson_id")
+    private Lesson lesson;
 }
