@@ -1,5 +1,8 @@
 package com.nocountry.courses.dto.request;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public class NoteRequestDto {
 
     @NotBlank
