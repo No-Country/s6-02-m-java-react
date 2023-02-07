@@ -4,17 +4,21 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nocountry.courses.model.enums.Category;
 
+import com.nocountry.courses.model.enums.CourseDifficulty;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import java.util.Set;
 
 @Entity
 @Table(name = "courses")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class Course {
 
     @Id
@@ -23,12 +27,13 @@ public class Course {
     
     private String title;
 
-    @Column(name = "course_description")
     private String description;
 
+    @Column(name = "image_url")
     private String imageUrl;
 
-    private String difficulty;
+    @Enumerated(EnumType.STRING)
+    private CourseDifficulty difficulty;
 
     @Column(name = "total_duration")
     private int totalDuration;
@@ -36,13 +41,13 @@ public class Course {
     private Set<String> tags;
 
     @Enumerated(EnumType.STRING)
-    private Category categories;
+    private Category category;
 
     @JsonBackReference
     @ManyToMany(mappedBy = "courses")
     private Set<User> users;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<Lesson> lessons;
 
