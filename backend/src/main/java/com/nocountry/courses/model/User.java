@@ -2,6 +2,8 @@ package com.nocountry.courses.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import lombok.Builder;
 import lombok.Data;
 
 import jakarta.persistence.*;
@@ -13,6 +15,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 @Data
+@Builder
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
