@@ -1,5 +1,7 @@
 import React from "react";
 import { Progress } from "flowbite-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 
 const progressCardsInfo = [
   {
@@ -41,7 +43,7 @@ const ProgressCards = () => {
         </div>
       ))}
       <div className="flex items-center">
-     ▶️
+        <FontAwesomeIcon icon={faChevronRight} className="h-8"/>
       </div>
     </div>
   );
