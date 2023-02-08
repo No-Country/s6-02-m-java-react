@@ -38,7 +38,10 @@ const Sidebar = () => {
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-          <a href="https://flowbite.com/" className="flex items-center pl-2.5 mb-5">
+          <a
+            href="https://flowbite.com/"
+            className="flex items-center pl-2.5 mb-5"
+          >
             <img
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-6 mr-3 sm:h-7"
@@ -91,7 +94,9 @@ const Sidebar = () => {
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <VscSignIn className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-                <span className="flex-1 ml-3 whitespace-nowrap">Registrarse</span>
+                <span className="flex-1 ml-3 whitespace-nowrap">
+                  Registrarse
+                </span>
               </a>
             </li>
             <li>
@@ -108,7 +113,6 @@ const Sidebar = () => {
           </ul>
         </div>
       </aside>
-      
 
       <div className="p-4 sm:ml-52">
         <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
@@ -125,12 +129,10 @@ const Sidebar = () => {
             </div>
           </div>
 
-
           {/* Segunda Seccion de cuadrados, mover Flex para cambiar el estilo */}
           <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
             <p className="text-2xl text-gray-400 dark:text-gray-500">+</p>
           </div>
-
 
           {/* Tercer Seccion de cuadrados, mover grid-cols para cambiar el estilo */}
           <div className="grid grid-cols-2 gap-4 mb-4">
@@ -147,13 +149,11 @@ const Sidebar = () => {
               <p className="text-2xl text-gray-400 dark:text-gray-500">+</p>
             </div>
 
-
             {/* Cuarta Seccion de cuadrados, mover Flex para cambiar el estilo */}
           </div>
           <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
             <p className="text-2xl text-gray-400 dark:text-gray-500">+</p>
           </div>
-
 
           {/* Ultima Seccion de cuadrados, mover grid-cols para cambiar el estilo */}
           <div className="grid grid-cols-2 gap-4">
