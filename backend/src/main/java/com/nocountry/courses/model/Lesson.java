@@ -1,5 +1,6 @@
 package com.nocountry.courses.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import java.util.Set;
@@ -7,9 +8,15 @@ import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "lessons")
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class Lesson {
 
     @Id
