@@ -13,7 +13,7 @@ public class ErrorDetail {
 
     public ErrorDetail(Exception e){
         this.name = e.getClass().getName();
-        this.name = e.getMessage();
+        this.message = e.getMessage();
     }
     
 }
