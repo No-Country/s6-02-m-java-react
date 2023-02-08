@@ -61,7 +61,6 @@ public class ExceptionHandlerController {
     }
 
     @ResponseStatus(INTERNAL_SERVER_ERROR)
-    @ExceptionHandler({ Exception.class })
     public ResponseEntity<?> internalServerErrorHandler(HttpServletRequest request, Exception exception) {
         return responseBuilder(INTERNAL_SERVER_ERROR, request.getRequestURI(), new ErrorDetail(exception));
     }
