@@ -48,7 +48,7 @@ public class UserServiceImpl implements IUserService  {
     }
 
     @Override
-    public UserResponseDto update(UserRequestDto request) {
+    public UserResponseDto update(Long id, UserRequestDto request) {
         // TODO Auto-generated method stub
         return null;
     }
