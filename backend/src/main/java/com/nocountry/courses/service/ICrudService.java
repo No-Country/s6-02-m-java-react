@@ -6,7 +6,7 @@ public interface ICrudService <R, D>{
     
     R create(D request);
 
-    R update(D request);
+    R update(Long id,D request);
 
     void delete(Long id);
 
