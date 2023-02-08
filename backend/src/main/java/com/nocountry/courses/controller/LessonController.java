@@ -1,5 +1,6 @@
 package com.nocountry.courses.controller;
 
+import com.nocountry.courses.handler.ResponseBuilder;
 import com.nocountry.courses.service.ILessonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +15,13 @@ public record LessonController(ILessonService service) {
 
     @GetMapping
     public ResponseEntity<?> getAll(){
-        return new ResponseEntity<>(service.findAll(),HttpStatus.OK);
+
+        return ResponseBuilder.responseBuilder(HttpStatus.OK,service.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id){
-        return new ResponseEntity<>(service.findById(id),HttpStatus.OK);
+        return ResponseBuilder.responseBuilder(HttpStatus.OK,service.findById(id));
     }
 
 }
