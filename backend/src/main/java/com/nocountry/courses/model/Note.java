@@ -1,12 +1,15 @@
 package com.nocountry.courses.model;
 
-import lombok.Data;
+import lombok.*;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "notes")
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Note {
 
     @Id
