@@ -1,8 +1,12 @@
 import "./App.css";
+import { Search } from "./components";
 
 function App() {
   return <div className="App">
-    Hola!
+    <div className="flex gap-8 w-full items-center">
+      <span>Logo</span>
+      <Search />
+    </div> 
   </div>;
 }
 
