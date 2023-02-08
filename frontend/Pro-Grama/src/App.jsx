@@ -3,10 +3,12 @@ import { Sidebar } from "./components";
 
 function App() {
   return (
-    <div className="App">
-      Hola!
-      <Sidebar />
-    </div>
+    <>
+      <div className="App container">
+        <Sidebar />
+        Hola!
+      </div>
+    </>
   );
 }
 
