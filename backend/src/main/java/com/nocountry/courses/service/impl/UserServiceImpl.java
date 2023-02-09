@@ -1,8 +1,9 @@
 package com.nocountry.courses.service.impl;
 
-import java.util.List;
+import java.util.*;
 
-import org.modelmapper.ModelMapper;
+import com.nocountry.courses.handler.exception.ResourceNotFoundException;
+import com.nocountry.courses.mapper.GenericMapper;
 import org.springframework.stereotype.Service;
 
 import com.nocountry.courses.dto.request.UserRequestDto;
@@ -17,40 +18,44 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserServiceImpl implements IUserService  {
 
-    private final ModelMapper mapper;
-    private final UserRepository repository;
+    private final GenericMapper mapper;
+    private final UserRepository userRepository;
 
     @Override
     public UserResponseDto create(UserRequestDto request) {
         User user = mapper.map(request, User.class);
-
-        user.setPassword("encoder.encode(request.getPassword)");
-        //repositor.save(user);
-
-        return mapper.map(repository.save(user), UserResponseDto.class);
+        if (Objects.nonNull(userRepository.findByEmail(request.getEmail()))) {
+            //Change the exception
+            throw new ResourceNotFoundException("User already exists");
+        }
+        return mapper.map(userRepository.save(user), UserResponseDto.class);
     }
 
     @Override
     public void delete(Long id) {
-        
+        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        userRepository.deleteById(id);
     }
 
     @Override
     public List<UserResponseDto> findAll() {
-        
-        return null;
+        List<User> users = userRepository.findAll();
+        return Collections.singletonList(mapper.map(users, UserResponseDto.class));
     }
 
     @Override
     public UserResponseDto findById(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        return mapper.map(user, UserResponseDto.class);
     }
 
     @Override
     public UserResponseDto update(Long id, UserRequestDto request) {
-        // TODO Auto-generated method stub
-        return null;
+        User userFound = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        userFound.setName(request.getName());
+        userFound.setEmail(request.getEmail());
+        userFound.setPassword(request.getPassword());
+        return mapper.map(userFound, UserResponseDto.class);
     }
 
     @Override
@@ -58,7 +63,5 @@ public class UserServiceImpl implements IUserService  {
         // TODO Auto-generated method stub
         return false;
     }
-    
-
 }
 

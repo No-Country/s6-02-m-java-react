@@ -2,6 +2,7 @@ package com.nocountry.courses.service.impl;
 
 import com.nocountry.courses.dto.request.LessonRequestDto;
 import com.nocountry.courses.dto.response.LessonResponseDto;
+import com.nocountry.courses.handler.exception.ResourceNotFoundException;
 import com.nocountry.courses.mapper.GenericMapper;
 import com.nocountry.courses.model.Lesson;
 import com.nocountry.courses.repository.LessonRepository;
@@ -28,7 +29,7 @@ public class LessonServiceImpl implements ILessonService {
     @Override
     public LessonResponseDto findById(Long id) {
         Lesson lesson = repository.findById(id)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(() -> new ResourceNotFoundException("LESSON NOT FOUND"));
        return mapper.map(lesson, LessonResponseDto.class);
     }
 
