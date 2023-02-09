@@ -2,6 +2,7 @@ package com.nocountry.courses.service.impl;
 
 import com.nocountry.courses.dto.request.CourseRequestDto;
 import com.nocountry.courses.dto.response.CourseResponseDto;
+import com.nocountry.courses.handler.exception.ResourceNotFoundException;
 import com.nocountry.courses.mapper.GenericMapper;
 import com.nocountry.courses.model.Course;
 import com.nocountry.courses.repository.CourseRepository;
@@ -54,10 +55,8 @@ public class CourseServiceImpl implements ICourseService {
 
     @Override
     public CourseResponseDto findById(Long id) {
-        Course course = courseRepository.findById(id).orElse(null);
-
-        if(course==null)
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "course Not Found");
+        Course course = courseRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Course Not Found"));
 
         return mapper.map(course, CourseResponseDto.class);
     }
