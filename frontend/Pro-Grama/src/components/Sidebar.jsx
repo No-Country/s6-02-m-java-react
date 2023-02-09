@@ -1,6 +1,6 @@
 import { Sections, SidebarItems } from "./";
 export { SidebarItems } from "./";
-import {Header} from "./";
+import { Header } from "./";
 
 const Sidebar = () => {
   return (
@@ -47,7 +47,6 @@ const Sidebar = () => {
               Pro-Grama
             </span>
           </a>
-
 
           {/* Separador  */}
           <SidebarItems />
