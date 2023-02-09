@@ -1,5 +1,7 @@
 package com.nocountry.courses.service;
 
+import org.springframework.data.crossstore.ChangeSetPersister;
+
 import java.util.List;
 
 public interface ICrudService <R, D>{
@@ -8,7 +10,7 @@ public interface ICrudService <R, D>{
 
     R update(Long id,D request);
 
-    void delete(Long id);
+    void delete(Long id) throws ChangeSetPersister.NotFoundException;
 
     List<R> findAll();
     
