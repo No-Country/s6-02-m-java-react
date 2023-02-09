@@ -1,5 +1,5 @@
 import "./App.css";
-import { Sidebar } from "./components";
+import { Sidebar, CardContainer} from "./components";
 import ProgressCards from "./ProgressCards/ProgressCards";
 import { Search } from "./components";
 
@@ -13,6 +13,7 @@ function App() {
           <Search />
         </div>
         <ProgressCards />
+        <CardContainer/>
       </div>
     </>
   );
