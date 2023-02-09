@@ -4,15 +4,15 @@ INSERT INTO `courses_db`.`users` (`id`, `email`, `name`, `password`, `register_d
 INSERT INTO `courses_db`.`users` (`id`, `email`, `name`, `password`, `register_date`) VALUES ('3', 'lucas@lopez.com', 'Lucas', 'lucas123', '2022-01-28');
 
 --#COURSE TABLE
-INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('1', 'Java', 'description_course', 'BASIC', 'image_url', 'Java desde 0', '45');
-INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('2', 'JavaScript', 'description_course', 'BASIC', 'image_url', 'JavaScript desde 0', '12');
-INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('3', 'Phyton', 'description_course', 'BASIC', 'image_url', 'Phyton desde 0', '22');
-INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('4', 'Java Advanced', 'description_course', 'INTERMEDIATE', 'image_url', 'Java avanzado', '35');
-INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('5', 'SQL', 'description_course', 'INTERMEDIATE', 'image_url', 'SQL Nativo', '15');
-INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('6', 'No-SQL', 'description_course', 'INTERMEDIATE', 'image_url', 'Base de datos no-relacionales', '60');
-INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('7', 'Ruby', 'description_course', 'ADVANCED', 'image_url', 'Aprender Ruby', '22');
-INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('8', 'Kotlin', 'description_course', 'BASIC', 'image_url', 'Kotlin para principiantes', '24');
-INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('9', 'React', 'description_course', 'ADVANCED', 'image_url', 'React avanzado', '18');
+INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('1', 'BACK_END', 'description_course', 'BASIC', 'image_url', 'Java desde 0', '45');
+INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('2', 'FRONT_END', 'description_course', 'BASIC', 'image_url', 'JavaScript desde 0', '12');
+INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('3', 'BACK_END', 'description_course', 'BASIC', 'image_url', 'Phyton desde 0', '22');
+INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('4', 'BACK_END', 'description_course', 'INTERMEDIATE', 'image_url', 'Java avanzado', '35');
+INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('5', 'BACK_END', 'description_course', 'INTERMEDIATE', 'image_url', 'SQL Nativo', '15');
+INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('6', 'BACK_END', 'description_course', 'INTERMEDIATE', 'image_url', 'Base de datos no-relacionales', '60');
+INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('7', 'BACK_END', 'description_course', 'ADVANCED', 'image_url', 'Aprender Ruby', '22');
+INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('8', 'BACK_END', 'description_course', 'BASIC', 'image_url', 'Kotlin para principiantes', '24');
+INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('9', 'FRONT_END', 'description_course', 'ADVANCED', 'image_url', 'React avanzado', '18');
 
 --#USER_COURSE TABLE
 INSERT INTO `courses_db`.`users_courses` (`user_id`, `course_id`) VALUES ('1', '1');
