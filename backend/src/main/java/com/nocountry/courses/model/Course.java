@@ -49,6 +49,7 @@ public class Course {
 
     @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
     @JsonIgnore
+    @JsonBackReference
     private Set<Lesson> lessons;
 
 }

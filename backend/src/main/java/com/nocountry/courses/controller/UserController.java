@@ -10,13 +10,13 @@ import com.nocountry.courses.dto.request.UserRequestDto;
 import com.nocountry.courses.dto.response.UserResponseDto;
 import com.nocountry.courses.service.IUserService;
 
-
 @RestController
 @RequestMapping("/user")
 public record UserController (IUserService service) {
-    
+
     @PostMapping("/create")
-    public ResponseEntity<UserResponseDto> create(@RequestBody UserRequestDto user){                
+    public ResponseEntity<UserResponseDto> create(@RequestBody UserRequestDto user){
         return ResponseEntity.ok(service.create(user));
     }
+
 }

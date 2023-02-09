@@ -2,6 +2,7 @@ package com.nocountry.courses.controller;
 
 import com.nocountry.courses.dto.request.CourseRequestDto;
 import com.nocountry.courses.dto.response.CourseResponseDto;
+import com.nocountry.courses.handler.ResponseBuilder;
 import com.nocountry.courses.service.ICourseService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -18,11 +19,11 @@ import java.util.List;
 public record CourseController (ICourseService courseService){
 
     @PostMapping("/")
-    public ResponseEntity<CourseResponseDto> create(@Valid @RequestBody CourseRequestDto course, BindingResult result){
+    public ResponseEntity<?> create(@Valid @RequestBody CourseRequestDto course, BindingResult result){
         if(result.hasErrors()){
-            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST,result.getAllErrors().toString());
+            return ResponseBuilder.responseBuilder(HttpStatus.BAD_REQUEST,result);
         }
-        return ResponseEntity.ok(courseService.create(course));
+        return ResponseBuilder.responseBuilder(HttpStatus.CREATED,courseService.create(course));
     }
 
     @GetMapping()
