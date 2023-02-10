@@ -5,14 +5,14 @@ import { CardContainer } from "./";
 
 const Sections = () => {
   return (
-    <div className="p-auto m-auto sm:ml-52">
-      <div className=" rounded-lg dark:border-gray-700">
+    <div className="min-w-screen min-h-screen absolute right-auto left-[16rem] top-0 bottom-0 border-red-500 border-dashed ">
+      <div className="rounded-sm dark:border-gray-700">
         {/* Primer Seccion de cuadrados, mover grid-cols para cambiar el estilo */}
-        <Header/>
+        <Header />
 
         {/* Segunda Seccion de cuadrados, mover Flex para cambiar el estilo */}
         <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-          <ProgressCards/>
+          <ProgressCards />
         </div>
 
         {/* Tercer Seccion de cuadrados, mover grid-cols para cambiar el estilo */}
@@ -33,7 +33,7 @@ const Sections = () => {
           {/* Cuarta Seccion de cuadrados, mover Flex para cambiar el estilo */}
         </div>
         <div className="flex items-center justify-center mb-4 rounded bg-gray-50 dark:bg-gray-800">
-        <CardContainer />
+          <CardContainer />
         </div>
 
         {/* Ultima Seccion de cuadrados, mover grid-cols para cambiar el estilo */}
