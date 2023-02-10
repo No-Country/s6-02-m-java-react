@@ -1,5 +1,5 @@
 import { SearchedCourse } from '.';
-import data from '../../helpers/datacourses.json'
+import data from '../../../helpers/datacourses.json'
 
 function SearchedListCourses({ courseName = ''}) {
 

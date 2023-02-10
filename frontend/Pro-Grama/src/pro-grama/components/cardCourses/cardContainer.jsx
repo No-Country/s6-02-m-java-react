@@ -1,5 +1,5 @@
 import React from 'react'
-import { courses } from '../../helpers'
+import { courses } from '../../../helpers'
 import { Card } from './card'
 export const CardContainer = () => {
   return (

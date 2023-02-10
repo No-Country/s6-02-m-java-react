@@ -1,7 +1,8 @@
 import React from "react";
-import { Header } from "./";
-import ProgressCards from "../ProgressCards/ProgressCards";
-import { CardContainer } from "./";
+import { CardContainer } from "./cardCourses/cardContainer";
+import Header from "./Header";
+import ProgressCards from "./ProgressCards/ProgressCards";
+
 
 const Sections = () => {
   return (
