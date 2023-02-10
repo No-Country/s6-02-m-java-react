@@ -1,0 +1,5 @@
+//para eliminar la instancia actual (borra base de datos)
+docker compose rm db -s -f -v
+
+// inicializar y levantar base de datos
+docker compose up db -d

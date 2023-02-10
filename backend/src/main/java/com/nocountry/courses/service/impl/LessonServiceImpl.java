@@ -10,15 +10,20 @@ import com.nocountry.courses.service.ILessonService;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Locale;
+
+import static com.nocountry.courses.model.enums.EMessageCode.LESSON_NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor
 public class LessonServiceImpl implements ILessonService {
 
     private final LessonRepository repository;
+    private final MessageSource messenger;
     private final GenericMapper mapper;
 
     @Override
@@ -29,7 +34,8 @@ public class LessonServiceImpl implements ILessonService {
     @Override
     public LessonResponseDto findById(Long id) {
         Lesson lesson = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("LESSON NOT FOUND"));
+                .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(LESSON_NOT_FOUND.name(),
+                        new Object[] { id }, Locale.getDefault())));
        return mapper.map(lesson, LessonResponseDto.class);
     }
 
@@ -39,7 +45,9 @@ public class LessonServiceImpl implements ILessonService {
     }
 
     @Override
+
     public LessonResponseDto update(Long id, LessonRequestDto request) {
+
         return null;
     }
 
