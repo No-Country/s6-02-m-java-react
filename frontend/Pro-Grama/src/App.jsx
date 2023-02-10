@@ -1,11 +1,13 @@
 import "./App.css";
-import { Sidebar} from "./components";
+import { Sidebar } from "./components";
+import { Sections } from "./components";
 
 function App() {
   return (
     <>
-      <div className="App container">
+      <div className="App">
         <Sidebar />
+        <Sections />
       </div>
     </>
   );
