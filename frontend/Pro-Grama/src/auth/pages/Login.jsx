@@ -1,7 +1,10 @@
-
+import { Sidebar } from "../../pro-grama/components";
 
 export const Login = () => {
   return (
-    <div>Login</div>
-  )
-}
+    <>
+      <Sidebar />
+      <div className="text-center">Login</div>
+    </>
+  );
+};
