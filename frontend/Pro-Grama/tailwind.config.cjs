@@ -6,19 +6,20 @@ module.exports = {
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    // colors: {
-    //   BlueDark: "#000C18",
-    //   Blue: "#011627",
-    //   BlueLink: "#E9F9FF",
-    //   GreenLight: "#BCF0C0",
-    //   Green: "#6BFF81",
-    //   GrayDark: "#161616",
-    //   GrayLight: "#F4F4F4",
-    // },
     // fontFamily: {
     //   Lato: ["Lato", "OpenSans"],
     // },
-    extend: {},
+    extend: {
+      colors: {
+        BlueDark: "#000C18",
+        Blue: "#011627",
+        BlueLink: "#E9F9FF",
+        GreenLight: "#BCF0C0",
+        Green: "#6BFF81",
+        GrayDark: "#161616",
+        GrayLight: "#F4F4F4",
+      },
+    },
   },
   plugins: [],
 };
