@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Search } from "./search";
 
-const Header = () => {
+const HeaderBSide = () => {
   return (
-    <div className="grid grid-cols-1 gap-4 mb-4">
-      <div className="flex items-center justify-between h-28 bg-gray-50 ">
+    <div className="grid grid-cols-1 gap-4">
+      <div className="flex items-center justify-between h-20 bg-gray-50 ">
         <Link to="/">
           {/* LOGO SCV PATH */}
           <svg
@@ -60,10 +59,9 @@ const Header = () => {
             </defs>
           </svg>
         </Link>
-        <Search />
       </div>
     </div>
   );
 };
 
-export default Header;
+export default HeaderBSide;
