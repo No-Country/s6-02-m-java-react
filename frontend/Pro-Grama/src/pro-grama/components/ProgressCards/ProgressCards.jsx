@@ -26,7 +26,7 @@ const progressCardsInfo = [
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80",
     title: "JavaScript",
     paragraph: "Clase 3: Bucles",
-    progress: 76,
+    progress: 40,
   },
 ];
 
@@ -37,7 +37,7 @@ const ProgressCards = () => {
         {progressCardsInfo.map((cards) => (
           <>
             <div
-              className="pr-24 rounded-3xl flex gap-6 items-center border border-gray-300"
+              className="ml-4 pr-20 rounded-3xl flex gap-6 items-center border border-gray-300"
               key={cards.id}
             >
               <div className="flex justify-start mr-4">
