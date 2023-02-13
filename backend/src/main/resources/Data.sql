@@ -1,7 +1,11 @@
 --#USER TABLE
-INSERT INTO `courses_db`.`users` (`id`, `email`, `name`, `password`, `register_date`) VALUES ('1', 'admin@admin.com', 'admin', 'admin123', '2020-01-24');
-INSERT INTO `courses_db`.`users` (`id`, `email`, `name`, `password`, `register_date`) VALUES ('2', 'user@user.com', 'user', 'user123', '2019-05-24');
-INSERT INTO `courses_db`.`users` (`id`, `email`, `name`, `password`, `register_date`) VALUES ('3', 'lucas@lopez.com', 'Lucas', 'lucas123', '2022-01-28');
+INSERT INTO `courses_db`.`users` (`id`, `email`, `username`, `password`, `register_date`) VALUES ('1', 'admin@admin.com', 'admin', 'admin123', '2020-01-24');
+INSERT INTO `courses_db`.`users` (`id`, `email`, `username`, `password`, `register_date`) VALUES ('2', 'user@user.com', 'user', 'user123', '2019-05-24');
+INSERT INTO `courses_db`.`users` (`id`, `email`, `username`, `password`, `register_date`) VALUES ('3', 'lucas@lopez.com', 'Lucas', 'lucas123', '2022-01-28');
+
+--#ROLE TABLE
+INSERT INTO `courses_db`.`user_role` (`id`, `name`) VALUES ('1', 'ADMIN');
+INSERT INTO `courses_db`.`user_role` (`id`, `name`) VALUES ('2', 'USER');
 
 --#COURSE TABLE
 INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('1', 'BACK_END', 'description_course', 'BASIC', 'image_url', 'Java desde 0', '45');
