@@ -1,10 +1,12 @@
 import { Sections, Sidebar } from "../components";
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
-    <div className="App">
-      <Sidebar />
+    // <div className="App">
+    //   <Sidebar />
       <Sections />
-    </div>
+    // </div>
   );
 };
+
+export default HomePage

@@ -5,9 +5,10 @@ import ProgressCards from "./ProgressCards/ProgressCards";
 
 const Sections = () => {
   return (
-    <div className="sm:min-w-screen sm:min-h-screen sm:absolute right-auto sm:left-[16rem] top-0 bottom-0 border-red-500 border-dashed ">
-      <Header />
-      <div className=" dark:border-gray-700 px-12">
+    // <div className="sm:min-w-screen sm:min-h-screen sm:absolute right-auto sm:left-[16rem] top-0 bottom-0 border-red-500 border-dashed">
+    <div>
+    {/* <Header /> */}
+      <div className=" dark:border-gray-700">
         {/* Primer Seccion de cuadrados, mover grid-cols para cambiar el estilo */}
         <h1 className="text-5xl my-2">Bienvenido! @User!</h1>
         <span className="text-2xl mb-5">¿Qué vamos a aprender hoy?</span>
