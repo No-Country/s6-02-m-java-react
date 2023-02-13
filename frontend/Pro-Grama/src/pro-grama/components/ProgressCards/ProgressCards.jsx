@@ -37,19 +37,21 @@ const ProgressCards = () => {
         {progressCardsInfo.map((cards) => (
           <>
             <div
-              className="p-4 px-10 rounded-3xl flex gap-6 items-center border border-red-400"
+              className="pr-24 rounded-3xl flex gap-6 items-center border border-gray-300"
               key={cards.id}
             >
-              <img
-                src={cards.image}
-                className="w-24 h-fit rounded-x ring-white"
-              />
-              <div className="border border-red-400">
-                <h4 className="text-xl text-start">{cards.title}</h4>
-                <p className="text-sm text-start mt-1 mb-2">
-                  {cards.paragraph}
-                </p>
-                <Progress progress={cards.progress} color="dark" />
+              <div className="flex justify-start mr-4">
+                <img
+                  src={cards.image}
+                  className="w-[6.5rem] h-fit rounded ring-white"
+                />
+                <div className="items-center px-4 py-4">
+                  <h4 className="text-xl text-start">{cards.title}</h4>
+                  <p className="text-sm text-start mt-1 mb-2">
+                    {cards.paragraph}
+                  </p>
+                  <Progress progress={cards.progress} color="dark" />
+                </div>
               </div>
             </div>
           </>
