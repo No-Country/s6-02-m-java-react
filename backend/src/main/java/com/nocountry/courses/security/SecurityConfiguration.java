@@ -15,34 +15,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfiguration {
 
+    @Autowired
     private JwtAuthEntryPoint jwtAuthEntryPoint;
+    @Autowired
     private CustomUserDetailsService userDetailsService;
-
-    @Autowired
-    public SecurityConfiguration(JwtAuthEntryPoint jwtAuthEntryPoint, CustomUserDetailsService userDetailsService) {
-        this.jwtAuthEntryPoint = jwtAuthEntryPoint;
-        this.userDetailsService = userDetailsService;
-    }
-
-    @Autowired
-
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-/*
-        http.headers().frameOptions().disable();
-        http
-                .csrf().disable()
-                .exceptionHandling()
-                .authenticationEntryPoint(jwtAuthEntryPoint)
-                .and()
-                .authorizeHttpRequests()
-                .requestMatchers("/user/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic();
-        return http.build();
-*/
 
         http.headers().frameOptions().disable();
         http.exceptionHandling()
@@ -60,27 +39,6 @@ public class SecurityConfiguration {
                 .disable();
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
-
-/*
-        return http.csrf(csrf -> csrf.disable())
-                .authorizeRequests(auth -> {
-                    auth.requestMatchers("/", "static/**").permitAll();
-                    auth.requestMatchers("/admin").hasRole("ADMIN");
-                    auth.requestMatchers("/vistaAdmin.html").hasRole("ADMIN");
-                    auth.requestMatchers("/odontologos").hasRole("ADMIN");
-                    auth.requestMatchers("/pacientes").hasRole("ADMIN");
-                    //.antMatchers(HttpMethod.GET, "/**").hasAnyRole(UsuarioRole.USER.name(), UsuarioRole.ADMIN.name())
-                    auth.requestMatchers("/user").hasRole("USER");
-                    auth.requestMatchers("/vistaUsuario.html").hasRole("USER");
-                    auth.requestMatchers("/turnos").hasRole("USER")
-                            //.antMatchers("/turnos").permitAll()
-                            .anyRequest()
-                            .authenticated().and()
-                            .formLogin().permitAll()
-                            .and().logout().permitAll();
-                });
-*/
-
     }
 
     @Bean
@@ -90,7 +48,7 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    public JwtAuthenticationFilter jwtAuthenticationFilter(){
+    public JwtAuthenticationFilter jwtAuthenticationFilter() {
         return new JwtAuthenticationFilter();
     }
 
