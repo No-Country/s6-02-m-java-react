@@ -21,7 +21,8 @@ module.exports = {
       },
       gridTemplateColumns: {
         // added new 4 column grid as new4
-        'courses': 'repeat(3, minmax(100px, 400px))'
+        'courses': 'repeat(3, minmax(100px, 400px))',
+        'layout': 'auto 1fr'
         }
     },
   },

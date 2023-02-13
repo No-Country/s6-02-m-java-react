@@ -30,7 +30,7 @@ function CoursesPage() {
           ))}
         </select>
       </div>
-      <div className="grid gap-6 w-full grid-cols-1 sm:grid-cols-2 justify-items-center md:grid-cols-courses justify-center">
+      <div className="grid gap-6 w-full grid-cols-1 sm:grid-cols-2 justify-items-center md:justify-items-start md:grid-cols-courses justify-center">
        { courses().length? courses().map((course) => 
        
         <div className="flex flex-col gap-6 max-w-sm" key={course.name}>

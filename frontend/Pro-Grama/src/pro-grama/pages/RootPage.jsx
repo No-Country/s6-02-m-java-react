@@ -3,13 +3,14 @@ import { Header, Sidebar } from "../components";
 
 const Root = () =>{
     return(
-      <div className="">
-        {/* <Sidebar /> */}
-        
-        <Header />
-        <main className="px-12">
-          <Outlet />
-        </main>
+      <div className="grid grid-cols-layout h-screen">
+        <Sidebar />
+        <div>
+          <Header />
+          <main className="px-12">
+            <Outlet />
+          </main>
+        </div>    
       </div>
     )
 }
