@@ -1,14 +1,16 @@
 package com.nocountry.courses.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "token")
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class AuthToken {
+public class TokenFavList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

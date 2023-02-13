@@ -2,33 +2,62 @@ package com.nocountry.courses.service.impl;
 
 import java.util.*;
 
+import com.nocountry.courses.dto.user.LoginDto;
+import com.nocountry.courses.handler.exception.ResourceAlreadyExistsException;
 import com.nocountry.courses.handler.exception.ResourceNotFoundException;
 import com.nocountry.courses.mapper.GenericMapper;
-import org.springframework.stereotype.Service;
-
-import com.nocountry.courses.dto.request.UserRequestDto;
-import com.nocountry.courses.dto.response.UserResponseDto;
 import com.nocountry.courses.model.User;
+import com.nocountry.courses.model.UserRole;
+import com.nocountry.courses.repository.RoleRepository;
+import com.nocountry.courses.security.PasswordEncoder;
+import com.nocountry.courses.service.IUserAuthService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.nocountry.courses.dto.user.RegisterDto;
 import com.nocountry.courses.repository.UserRepository;
-import com.nocountry.courses.service.IUserService;
 
 import lombok.RequiredArgsConstructor;
 
+
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements IUserService  {
+@Transactional
+public class UserServiceImpl implements IUserAuthService {
 
-    private final GenericMapper mapper;
-    private final UserRepository userRepository;
+    private GenericMapper mapper;
+    private UserRepository userRepository;
+    private PasswordEncoder passwordEncoder;
+    private RoleRepository roleRepository;
+
+    @Autowired
+    public UserServiceImpl(GenericMapper mapper,
+                           UserRepository userRepository,
+                           PasswordEncoder passwordEncoder,
+                           RoleRepository roleRepository) {
+        this.mapper = mapper;
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.roleRepository = roleRepository;
+    }
 
     @Override
-    public UserResponseDto create(UserRequestDto request) {
+    public LoginDto create(RegisterDto request) {
         User user = mapper.map(request, User.class);
-        if (Objects.nonNull(userRepository.findByEmail(request.getEmail()))) {
-            //Change the exception
-            throw new ResourceNotFoundException("User already exists");
+        if(userRepository.existsByUsername(request.getEmail())){
+            throw new ResourceAlreadyExistsException("User already exists");
         }
-        return mapper.map(userRepository.save(user), UserResponseDto.class);
+
+        user.setEmail(request.getEmail());
+        user.setUsername(request.getUsername());
+        user.setPassword(passwordEncoder.bCryptPasswordEncoder().encode(request.getPassword()));
+
+        UserRole roles = roleRepository.findByName("USER").get();
+        user.setRoles(Collections.singletonList(roles));
+
+        return mapper.map(userRepository.save(user), LoginDto.class);
     }
 
     @Override
@@ -38,30 +67,24 @@ public class UserServiceImpl implements IUserService  {
     }
 
     @Override
-    public List<UserResponseDto> findAll() {
+    public List<LoginDto> findAll() {
         List<User> users = userRepository.findAll();
-        return Collections.singletonList(mapper.map(users, UserResponseDto.class));
+        return mapper.mapAll(users, LoginDto.class);
     }
 
     @Override
-    public UserResponseDto findById(Long id) {
+    public LoginDto findById(Long id) {
         User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
-        return mapper.map(user, UserResponseDto.class);
+        return mapper.map(user, LoginDto.class);
     }
 
     @Override
-    public UserResponseDto update(Long id, UserRequestDto request) {
+    public LoginDto update(Long id, RegisterDto request) {
         User userFound = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
-        userFound.setName(request.getName());
+        userFound.setUsername(request.getUsername());
         userFound.setEmail(request.getEmail());
         userFound.setPassword(request.getPassword());
-        return mapper.map(userFound, UserResponseDto.class);
-    }
-
-    @Override
-    public boolean authenticate(String username) {
-        // TODO Auto-generated method stub
-        return false;
+        return mapper.map(userFound, LoginDto.class);
     }
 }
 
