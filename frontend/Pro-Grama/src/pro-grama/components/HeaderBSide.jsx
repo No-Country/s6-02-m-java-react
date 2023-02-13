@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const HeaderBSide = () => {
   return (
-    <div className="">
-      <div className="flex items-center justify-between h-20 bg-gray-50 ">
+    <div className="ml-[7rem]">
+      <div className="flex items-center justify-between h-20 ">
         <Link to="/">
           {/* LOGO SCV PATH */}
           <svg
