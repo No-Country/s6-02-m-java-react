@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "users2")
+@Table(name = "users")
 @Getter
 @Setter
 @RequiredArgsConstructor
