@@ -14,7 +14,6 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class UserLessonRequestDto {
 
-    private Long id;
     @NotNull
     private Long userId;
     @NotNull

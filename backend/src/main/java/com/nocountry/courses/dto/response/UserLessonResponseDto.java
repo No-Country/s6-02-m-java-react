@@ -12,8 +12,6 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class UserLessonResponseDto {
 
-    private Long id;
-
     private Lesson lesson;
 
     private User user;

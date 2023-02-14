@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 import static com.nocountry.courses.model.enums.Status.INICIO;
 
 @Entity
@@ -15,16 +17,14 @@ import static com.nocountry.courses.model.enums.Status.INICIO;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@IdClass(UserLesson.PrimaryKey.class)
 public class UserLesson {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @ManyToOne
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
 
+    @Id
     @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
@@ -41,5 +41,14 @@ public class UserLesson {
     public UserLesson(Lesson lesson, User user) {
         this.lesson = lesson;
         this.user = user;
+    }
+
+    static class PrimaryKey implements Serializable {
+
+        private static final long serialVersionUID = 1L;
+
+        private Lesson lesson;
+        private User user;
+
     }
 }

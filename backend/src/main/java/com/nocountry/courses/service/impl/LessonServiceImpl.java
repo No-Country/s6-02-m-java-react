@@ -21,9 +21,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
 
-import static com.nocountry.courses.model.enums.EMessageCode.LESSON_NOT_FOUND;
+import static com.nocountry.courses.model.enums.EMessageCode.*;
 
 @Service
 @RequiredArgsConstructor
@@ -50,7 +49,8 @@ public class LessonServiceImpl implements ILessonService {
 
     @Override
     public UserLessonResponseDto addLessonToUser(Long userId, Long lessonId){
-        User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(USER_NOT_FOUND.name(),
+                new Object[] { userId }, Locale.getDefault())));
         Lesson lesson = lessonRepository.findById(lessonId).orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(LESSON_NOT_FOUND.name(),
                 new Object[] { lessonId }, Locale.getDefault())));
 
@@ -60,7 +60,9 @@ public class LessonServiceImpl implements ILessonService {
     @Override
     public UserLessonResponseDto changeStatus(UserLessonRequestDto lessonDto){
 
-        UserLesson userLesson = userLessonRepository.findByUserIdAndLessonId(lessonDto.getUserId(), lessonDto.getLessonId());
+        UserLesson userLesson = userLessonRepository.findByUserIdAndLessonId(lessonDto.getUserId(), lessonDto.getLessonId())
+                .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(USER_LESSON_NOT_FOUND.name(),
+                        new Object[] { lessonDto.getLessonId(), lessonDto.getUserId() }, Locale.getDefault())));
         userLesson.setStatus(lessonDto.getStatus());
 
         return mapper.map(userLessonRepository.save(userLesson), UserLessonResponseDto.class);
@@ -72,9 +74,7 @@ public class LessonServiceImpl implements ILessonService {
     }
 
     @Override
-
     public LessonResponseDto update(Long id, LessonRequestDto request) {
-
         return null;
     }
 
