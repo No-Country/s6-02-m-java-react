@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usercourse")
+@RequestMapping("/user-course")
 public record UserCourseController (IUserCourseService userCourseService){
 
     @GetMapping("/all")
@@ -43,6 +43,11 @@ public record UserCourseController (IUserCourseService userCourseService){
     @PostMapping("/course/{courseId}")
     public ResponseEntity<?> create(@PathVariable("courseId") Long courseId){
         return ResponseBuilder.responseBuilder(HttpStatus.CREATED,userCourseService.create(courseId));
+    }
+
+    @PutMapping("/course/{courseId}/{progress}")
+    public ResponseEntity<?> updateProgress(@PathVariable("courseId") Long courseId, @PathVariable("progress") Double progress){
+        return ResponseBuilder.responseBuilder(HttpStatus.CREATED,userCourseService.updateProgress(courseId, progress));
     }
 
 }

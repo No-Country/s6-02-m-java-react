@@ -46,7 +46,7 @@ public class UserCourseServiceImpl implements IUserCourseService {
         Long userId = getUserId();
         UserCourse userCourse =  repository.getByUserAndCourse(userId,courseId)
                 .orElse(UserCourse.builder()
-                        .course(courseRepository.findById(courseId).orElseThrow(()-> new ResourceNotFoundException("")))
+                        .course(Course.builder().id(courseId).build())//.course(courseRepository.findById(courseId).orElseThrow(()-> new ResourceNotFoundException("")))
                         .user(userRepository.findById(userId).orElseThrow(()-> new ResourceNotFoundException("")))
                         .progress(Double.valueOf(0))
                         .build());
@@ -83,11 +83,11 @@ public class UserCourseServiceImpl implements IUserCourseService {
     }
 
     @Override
-    public UserCourseResponseDto updateProgress(Long courseId, double progress) {
+    public UserCourseResponseDto updateProgress(Long courseId, Double progress) {
         Long userId = getUserId();
         UserCourse userCourse =  repository.getByUserAndCourse(userId,courseId)
                 .orElse(UserCourse.builder()
-                        .course(Course.builder().id(courseId).build())//TODO
+                        .course(Course.builder().id(courseId).build())
                         .user(userRepository.findById(userId).orElseThrow(()-> new ResourceNotFoundException("")))
                         .status(CourseStatus.InProgress)
                         .build());
@@ -96,6 +96,8 @@ public class UserCourseServiceImpl implements IUserCourseService {
 
         if(userCourse.getCourse().getLessons().size()<=progress){
             userCourse.setStatus(CourseStatus.Completed);
+        }else{
+            userCourse.setStatus(CourseStatus.InProgress);
         }
         return mapper.map(repository.save(userCourse),UserCourseResponseDto.class);
     }

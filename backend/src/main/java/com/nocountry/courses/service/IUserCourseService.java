@@ -13,5 +13,5 @@ public interface IUserCourseService extends ICrudService<UserCourseResponseDto, 
 
     List<UserCourseResponseDto> findByUser();
 
-    UserCourseResponseDto updateProgress(Long courseId, double progress);
+    UserCourseResponseDto updateProgress(Long courseId, Double progress);
 }
