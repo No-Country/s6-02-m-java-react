@@ -3,6 +3,7 @@ package com.nocountry.courses.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +21,7 @@ public class JwtGenerator {
                 .setSubject(username)
                 .setIssuedAt(new Date())
                 .setExpiration(expirationDate)
-                .signWith(SignatureAlgorithm.HS256, SecurityConstants.JWT_SECRET)
+                .signWith(SignatureAlgorithm.HS512, SecurityConstants.JWT_SECRET)
                 .compact();
         return token;
     }
@@ -34,12 +35,15 @@ public class JwtGenerator {
     }
 
     public boolean validateToken(String token) {
-/*        try {*/
+       try {
+
             Jwts.parser().setSigningKey(SecurityConstants.JWT_SECRET).parseClaimsJws(token);
             return true;
-/*        } catch (Exception e) {
+
+        } catch (Exception e) {
             throw new AuthenticationCredentialsNotFoundException("JWT was expired or incorrect");
-        }*/
+        }
+
     }
 
 }
