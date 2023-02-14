@@ -23,6 +23,6 @@ public class Roadmap {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
-    private Roadmap user;
+    private User user;
 
 }
