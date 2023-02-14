@@ -11,6 +11,7 @@ import { Button } from "flowbite-react";
 import ReactPlayer from "react-player";
 import "./curso.css";
 import { Link } from "react-router-dom";
+import { ListaVideos } from "./ListaVideos";
 
 const courseJsData = {
   title: "Javascript",
@@ -31,11 +32,10 @@ export const Description = () => {
 
   return (
     <>
-      {/* Texto Header  */}
-      <div className="flex items-center px-32 my-6 justify-between max-md:flex-col">
+      <div className="flex items-center max-md:px-8 px-32 my-6 justify-between max-md:flex-col">
         <div
-          className="flex justify-between items-center"
-          style={{ width: "54rem" }}
+          className="flex justify-between items-center  w-8/12 max-md:w-full "
+         
         >
           <h2 className="text-3xl">{`Curso de ${courseJsData.title}`}</h2>
           <Button color="white" onClick={handleHearth}>
@@ -47,26 +47,29 @@ export const Description = () => {
           </Button>
         </div>
         <div className="flex justify-end">
-          <Button className="h-8 text-black hover:bg-slate-300 bg-slate-400">
+          <Button
+            className="h-8 text-black hover:bg-slate-300  max-md:w-full max-md:mt-4"
+            style={{ backgroundColor: "grey" }}
+          >
             <GrPlay className="mr-2" />
             Comenzar curso
           </Button>
         </div>
       </div>
-
-      {/* Div del Player junto con el lado derecho */}
-      <div className="flex px-32">
-        <div className="flex-col">
-          <ReactPlayer
-            url={courseJsData.video}
-            controls
-            volume="0.5"
-            width={"54rem"}
-            height={"32rem"}
-          />
-
-          {/* Textos debajo del reproductor / Informacion del curso */}
-          <div className="flex justify-between p-4" style={{ width: "54rem" }}>
+      <div className="flex px-32 max-md:px-8 justify-between gap-8 max-lg:flex-wrap">
+        <div className="flex-col w-8/12 max-lg:w-full  ">
+          <div className="player-wrapper rounded-xl">
+            <ReactPlayer
+              url={courseJsData.video}
+              className="react-player rounded-xl"
+              controls
+              
+              volume="0.5"
+              width={"100%"}
+              height={"100%"}
+            />
+          </div>
+          <div className="flex justify-between p-4" >
             <p className="py-4 flex items-center gap-2">
               {" "}
               <AiOutlineUnorderedList /> {`${courseJsData.lessons} lecciones`}
@@ -79,9 +82,7 @@ export const Description = () => {
               {courseJsData.level}
             </p>
           </div>
-
-          {/* Descripcion del curso */}
-          <div style={{ width: "54rem" }}>
+          <div>
             <p>{courseJsData.description}</p>
           </div>
           <Button color="gray" className="h-8 mt-6">
@@ -89,13 +90,8 @@ export const Description = () => {
             Agregar a la hoja de ruta
           </Button>
         </div>
-
-        {/* Div de la derecha */}
-        <div>
-          <button>
-            <Link to="/">VOLVER AL INICIO</Link>
-          </button>
-          <p>lista de videos</p>
+        <div className="max-lg:w-full w-4/12">
+          <ListaVideos />
         </div>
       </div>
     </>

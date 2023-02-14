@@ -1,0 +1,19 @@
+.player-wrapper {
+    position: relative;
+    padding-top: 56.25%; 
+  }
+  
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0.25rem;
+    overflow: hidden;
+  }
+
+  .list-video{
+    height: 41rem;
+  }
+  .list-video_scroll{
+    height: 36rem;
+  }
