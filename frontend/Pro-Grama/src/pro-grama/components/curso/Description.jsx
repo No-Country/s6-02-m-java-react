@@ -19,6 +19,7 @@ const courseJsData = {
   level: "Avanzado",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro illum blanditiis, debitis vero accusamus dolor nesciunt enim quos rem impedit quae! Obcaecati, alias. Saepe, delectus voluptas quam ipsum recusandae consequatur!",
+  video: "https://www.youtube.com/watch?v=rbuYtrNUxg4&ab_channel=Fazt"
 };
 
 export const Description = () => {
@@ -30,9 +31,8 @@ export const Description = () => {
 
   return (
     <>
-    <div></div>
-      <div className="flex items-center px-32 my-4">
-        <div className="flex justify-between w-3/5 items-center">
+      <div className="flex items-center px-32 my-6 justify-between max-md:flex-col" >
+        <div className="flex justify-between items-center" style={{width:'54rem'}} >
           <h2 className="text-3xl">{`Curso de ${courseJsData.title}`}</h2>
           <Button color="white" onClick={handleHearth}>
             {hearthPress ? (
@@ -42,26 +42,24 @@ export const Description = () => {
             )}
           </Button>
         </div>
-        <div className="flex justify-end w-2/5">
-          <Button className="h-8 bg-slate-300 text-black hover:bg-slate-300">
+        <div className="flex justify-end">
+          <Button className="h-8 text-black hover:bg-slate-300 bg-slate-400" >
             <GrPlay className="mr-2" />
             Comenzar curso
           </Button>
         </div>
       </div>
-
-
       <div className="flex px-32">
         <div className="flex-col">
           <ReactPlayer
-            url="https://www.youtube.com/watch?v=rbuYtrNUxg4&ab_channel=Fazt"
+            url={courseJsData.video}
             controls
             volume="0.5"
-            width={"53rem"}
-            height={"30rem"}
+            width={"54rem"}
+            height={"32rem"}
           />
-          <div className="flex justify-between p-4">
-            <p className="py-4 flex items-center gap-2">
+          <div className="flex justify-between p-4" style={{width: "54rem"}}>
+            <p className="py-4 flex items-center gap-2" >
               {" "}
               <AiOutlineUnorderedList /> {`${courseJsData.lessons} lecciones`}
             </p>
@@ -73,7 +71,7 @@ export const Description = () => {
               {courseJsData.level}
             </p>
           </div>
-          <div>
+          <div style={{width: "54rem"}}>
             <p>{courseJsData.description}</p>
           </div>
           <Button color="gray" className="h-8 mt-6">
@@ -81,15 +79,13 @@ export const Description = () => {
             Agregar a la hoja de ruta
           </Button>
         </div>
-        <div>
+        <div >
           <button>
             <Link to="/">Hola</Link>
           </button>
           <p>lista de videos</p>
         </div>
       </div>
-
-      
     </>
   );
 };
