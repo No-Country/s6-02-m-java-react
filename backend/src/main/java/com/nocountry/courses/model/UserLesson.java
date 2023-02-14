@@ -10,7 +10,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 
-import static com.nocountry.courses.model.enums.Status.INICIO;
+import static com.nocountry.courses.model.enums.Status.STARTED;
 
 @Entity
 @Table(name = "user_lesson")
@@ -35,7 +35,7 @@ public class UserLesson {
 
     @PrePersist
     public void prePersist(){
-        status = INICIO;
+        status = STARTED;
     }
 
     public UserLesson(Lesson lesson, User user) {
