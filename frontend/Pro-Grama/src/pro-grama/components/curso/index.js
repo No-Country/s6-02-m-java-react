@@ -1,2 +1,2 @@
-export * from './Descripcion'
+export * from './Description'
 export * from './ListaVideos'
