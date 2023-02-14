@@ -19,6 +19,11 @@ module.exports = {
         GrayDark: "#161616",
         GrayLight: "#F4F4F4",
       },
+      gridTemplateColumns: {
+        // added new 4 column grid as new4
+        'courses': 'repeat(3, minmax(100px, 400px))',
+        'layout': 'auto 1fr'
+        }
     },
   },
   plugins: [],
