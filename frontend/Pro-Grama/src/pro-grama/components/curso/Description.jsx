@@ -19,7 +19,7 @@ const courseJsData = {
   level: "Avanzado",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro illum blanditiis, debitis vero accusamus dolor nesciunt enim quos rem impedit quae! Obcaecati, alias. Saepe, delectus voluptas quam ipsum recusandae consequatur!",
-  video: "https://www.youtube.com/watch?v=rbuYtrNUxg4&ab_channel=Fazt"
+  video: "https://www.youtube.com/watch?v=rbuYtrNUxg4&ab_channel=Fazt",
 };
 
 export const Description = () => {
@@ -31,8 +31,12 @@ export const Description = () => {
 
   return (
     <>
-      <div className="flex items-center px-32 my-6 justify-between max-md:flex-col" >
-        <div className="flex justify-between items-center" style={{width:'54rem'}} >
+      {/* Texto Header  */}
+      <div className="flex items-center px-32 my-6 justify-between max-md:flex-col">
+        <div
+          className="flex justify-between items-center"
+          style={{ width: "54rem" }}
+        >
           <h2 className="text-3xl">{`Curso de ${courseJsData.title}`}</h2>
           <Button color="white" onClick={handleHearth}>
             {hearthPress ? (
@@ -43,12 +47,14 @@ export const Description = () => {
           </Button>
         </div>
         <div className="flex justify-end">
-          <Button className="h-8 text-black hover:bg-slate-300 bg-slate-400" >
+          <Button className="h-8 text-black hover:bg-slate-300 bg-slate-400">
             <GrPlay className="mr-2" />
             Comenzar curso
           </Button>
         </div>
       </div>
+
+      {/* Div del Player junto con el lado derecho */}
       <div className="flex px-32">
         <div className="flex-col">
           <ReactPlayer
@@ -58,8 +64,10 @@ export const Description = () => {
             width={"54rem"}
             height={"32rem"}
           />
-          <div className="flex justify-between p-4" style={{width: "54rem"}}>
-            <p className="py-4 flex items-center gap-2" >
+
+          {/* Textos debajo del reproductor / Informacion del curso */}
+          <div className="flex justify-between p-4" style={{ width: "54rem" }}>
+            <p className="py-4 flex items-center gap-2">
               {" "}
               <AiOutlineUnorderedList /> {`${courseJsData.lessons} lecciones`}
             </p>
@@ -71,7 +79,9 @@ export const Description = () => {
               {courseJsData.level}
             </p>
           </div>
-          <div style={{width: "54rem"}}>
+
+          {/* Descripcion del curso */}
+          <div style={{ width: "54rem" }}>
             <p>{courseJsData.description}</p>
           </div>
           <Button color="gray" className="h-8 mt-6">
@@ -79,9 +89,11 @@ export const Description = () => {
             Agregar a la hoja de ruta
           </Button>
         </div>
-        <div >
+
+        {/* Div de la derecha */}
+        <div>
           <button>
-            <Link to="/">Hola</Link>
+            <Link to="/">VOLVER AL INICIO</Link>
           </button>
           <p>lista de videos</p>
         </div>
