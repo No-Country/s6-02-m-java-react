@@ -1,12 +1,9 @@
-import "./App.css";
-import { Sidebar} from "./components";
+import { AppRouter } from "./router/AppRouter";
 
 function App() {
   return (
     <>
-      <div className="App container">
-        <Sidebar />
-      </div>
+      <AppRouter />
     </>
   );
 }
