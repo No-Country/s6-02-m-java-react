@@ -5,6 +5,7 @@ import com.nocountry.courses.dto.response.RoadmapResponseDto;
 import com.nocountry.courses.handler.exception.ResourceNotFoundException;
 import com.nocountry.courses.mapper.GenericMapper;
 import com.nocountry.courses.model.Roadmap;
+import com.nocountry.courses.model.User;
 import com.nocountry.courses.model.enums.EMessageCode;
 import com.nocountry.courses.repository.RoadmapRepository;
 import com.nocountry.courses.repository.UserRepository;
