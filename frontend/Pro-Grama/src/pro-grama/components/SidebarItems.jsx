@@ -9,17 +9,7 @@ import { Link } from "react-router-dom";
 
 const SidebarItems = () => {
   return (
-    <ul className="space-y-2 text-center">
-      <li>
-        <Link
-          to="/"
-          className="flex items-center  text-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-        >
-          <AiFillHome className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-          <span className="ml-auto mr-auto text-center">Inicio</span>
-        </Link>
-      </li>
-
+    <ul className="space-y-2 py-4 text-center navbar">
       <li>
         <Link
           to="/CourseDetail"
@@ -34,8 +24,18 @@ const SidebarItems = () => {
           to="/"
           className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
+          <AiFillHome className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+          <span className="ml-auto mr-auto text-center hidden">Inicio</span>
+        </Link>
+      </li>
+
+      <li>
+        <Link
+          to="/courses"
+          className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+        >
           <RxDashboard className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-          <span className="flex-1 ml-3 whitespace-nowrap">Cursos</span>
+          <span className="flex-1 ml-3 whitespace-nowrap hidden">Cursos</span>
         </Link>
       </li>
 
@@ -45,7 +45,7 @@ const SidebarItems = () => {
           className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           <FaChalkboardTeacher className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-          <span className="flex-1 ml-3 whitespace-nowrap">Clases</span>
+          <span className="flex-1 ml-3 whitespace-nowrap hidden">Clases</span>
         </Link>
       </li>
 
@@ -55,7 +55,7 @@ const SidebarItems = () => {
           className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           <CgProfile className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-          <span className="flex-1 ml-3 whitespace-nowrap">Perfil</span>
+          <span className="flex-1 ml-3 whitespace-nowrap hidden">Perfil</span>
         </Link>
       </li>
 
@@ -65,7 +65,7 @@ const SidebarItems = () => {
           className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           <VscSignIn className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-          <span className="flex-1 ml-3 whitespace-nowrap">Registrarse</span>
+          <span className="flex-1 ml-3 whitespace-nowrap hidden">Registrarse</span>
         </Link>
       </li>
 
@@ -75,7 +75,7 @@ const SidebarItems = () => {
           className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           <BiLogIn className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-          <span className="flex-1 ml-3 whitespace-nowrap">Iniciar Sesion</span>
+          <span className="flex-1 ml-3 whitespace-nowrap hidden">Iniciar Sesion</span>
         </Link>
       </li>
     </ul>
