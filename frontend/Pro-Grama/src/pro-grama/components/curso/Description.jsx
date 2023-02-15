@@ -12,8 +12,6 @@ import ReactPlayer from "react-player";
 import "./curso.css";
 import { ListaVideos } from "./ListaVideos";
 
-import image from '../../../../src/assets/curso-js.jpeg'
-
 /*importacion datos desde JSON*/
 import data from '../../../helpers/infoCourseData.json'
 
