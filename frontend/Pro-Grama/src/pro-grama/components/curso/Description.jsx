@@ -11,6 +11,7 @@ import { Button } from "flowbite-react";
 import ReactPlayer from "react-player";
 import "./curso.css";
 import { ListaVideos } from "./ListaVideos";
+import  Sidebar  from "../Sidebar";
 
 import image from '../../../../src/assets/curso-js.jpeg'
 
@@ -26,6 +27,7 @@ export const Description = () => {
 
   return (
     <>
+    {/* <Sidebar/> */}
       <div className="flex items-center max-md:px-8 px-32 my-6 justify-between max-md:flex-col">
         <div
           className="flex justify-between items-center  w-8/12 max-md:w-full">
