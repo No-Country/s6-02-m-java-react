@@ -6,6 +6,7 @@ import com.nocountry.courses.mapper.GenericMapper;
 import com.nocountry.courses.model.Roadmap;
 import com.nocountry.courses.model.User;
 import com.nocountry.courses.repository.RoadmapRepository;
+import com.nocountry.courses.repository.UserRepository;
 import com.nocountry.courses.service.IRoadmapService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,8 @@ public class RoadmapServiceImpl implements IRoadmapService {
 
     private final GenericMapper mapper;
     private final RoadmapRepository repository;
+    private final UserRepository userRepository;
+
 
     @Override
     public List<RoadmapResponseDto> findAll() {
@@ -41,7 +44,11 @@ public class RoadmapServiceImpl implements IRoadmapService {
     @Override
     public RoadmapResponseDto create(RoadmapRequestDto request) {
 
+        User user = userRepository.findById(request.getUserId()).orElse(null);
+
         Roadmap roadmap = mapper.map(request, Roadmap.class);
+
+        roadmap.setUser(user);
 
         return mapper.map(repository.save(roadmap), RoadmapResponseDto.class);
     }

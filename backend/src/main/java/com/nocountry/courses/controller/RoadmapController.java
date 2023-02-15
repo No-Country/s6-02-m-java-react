@@ -19,7 +19,7 @@ public record RoadmapController(IRoadmapService service) {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<List<RoadmapResponseDto>> findAllByUserId(@PathVariable Long id){
+    public ResponseEntity<List<RoadmapResponseDto>> findAllByUserId(@PathVariable("userId") Long id){
         return ResponseEntity.ok(service.findAllByUserId(id));
     }
 }
