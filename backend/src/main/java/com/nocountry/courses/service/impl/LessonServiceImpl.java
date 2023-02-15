@@ -10,11 +10,13 @@ import com.nocountry.courses.model.Lesson;
 import com.nocountry.courses.model.User;
 import com.nocountry.courses.model.UserLesson;
 import com.nocountry.courses.model.enums.EMessageCode;
+import com.nocountry.courses.model.enums.Status;
 import com.nocountry.courses.repository.LessonRepository;
 import com.nocountry.courses.repository.UserLessonRepository;
 import com.nocountry.courses.repository.UserRepository;
 import com.nocountry.courses.service.ILessonService;
 
+import com.nocountry.courses.service.IUserCourseService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.context.MessageSource;
@@ -35,6 +37,8 @@ public class LessonServiceImpl implements ILessonService {
     private final UserLessonRepository userLessonRepository;
     private final MessageSource messenger;
     private final GenericMapper mapper;
+
+    private final IUserCourseService userCourseService;
 
     @Override
     public List<LessonResponseDto> findAll() {
@@ -62,10 +66,13 @@ public class LessonServiceImpl implements ILessonService {
 
     @Override
     public UserLessonResponseDto changeStatus(UserLessonRequestDto lessonDto){
-
         UserLesson userLesson = userLessonRepository.findByUserIdAndLessonId(lessonDto.getUserId(), lessonDto.getLessonId())
                 .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(JOIN_RESOURCE_NOT_FOUND.name(),
                         new Object[] { UserLesson.class.getName(),lessonDto.getLessonId(), lessonDto.getUserId() }, Locale.getDefault())));
+
+        if(userLesson.getStatus().equals(Status.STARTED) && lessonDto.getStatus().equals(Status.FINALIZED)){
+            userCourseService.updateProgress(userLesson.getLesson().getCourse());
+        }
         userLesson.setStatus(lessonDto.getStatus());
 
         return mapper.map(userLessonRepository.save(userLesson), UserLessonResponseDto.class);
