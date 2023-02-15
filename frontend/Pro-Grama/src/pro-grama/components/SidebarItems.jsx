@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const SidebarItems = () => {
   return (
-    <ul className="space-y-2 text-center navbar">
+    <ul className="space-y-2 py-4 text-center navbar">
       <li>
         <Link
           to="/curso"

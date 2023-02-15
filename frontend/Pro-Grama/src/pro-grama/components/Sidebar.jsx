@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { SidebarItems } from "./";
 export { SidebarItems } from "./";
+import {AiOutlineCode} from "react-icons/ai"
 
 const Sidebar = () => {
   return (
@@ -36,12 +37,8 @@ const Sidebar = () => {
       >
         <div className="h-full px-2 py-[3rem] text-center bg-gray-50 dark:bg-gray-800">
           <Link to="/" className="flex items-center pl-2.5 mb-5">
-            <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-12 mr-10 sm:h-7"
-              alt="Flowbite Logo"
-            />
-            <span className="logo_small hidden self-center text-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <AiOutlineCode className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"/>
+            <span className=" px-14 logo_small hidden self-center text-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               <svg
                 width="52"
                 height="20"
