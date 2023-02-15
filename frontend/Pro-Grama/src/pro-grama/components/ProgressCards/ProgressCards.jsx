@@ -56,12 +56,12 @@ const ProgressCards = () => {
             </div>
           </>
         ))}
-        <div className="flex items-center">
+        {/* <div className="flex items-center">
           <FontAwesomeIcon
             icon={faChevronRight}
             className="h-8 dark:text-gray-500 px-4"
           />
-        </div>
+        </div> */}
       </div>
     </>
   );
