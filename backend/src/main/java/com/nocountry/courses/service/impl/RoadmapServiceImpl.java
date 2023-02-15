@@ -4,6 +4,7 @@ import com.nocountry.courses.dto.request.RoadmapRequestDto;
 import com.nocountry.courses.dto.response.RoadmapResponseDto;
 import com.nocountry.courses.mapper.GenericMapper;
 import com.nocountry.courses.model.Roadmap;
+import com.nocountry.courses.model.User;
 import com.nocountry.courses.repository.RoadmapRepository;
 import com.nocountry.courses.service.IRoadmapService;
 import lombok.RequiredArgsConstructor;
@@ -55,4 +56,8 @@ public class RoadmapServiceImpl implements IRoadmapService {
 
     }
 
+    @Override
+    public List<RoadmapResponseDto> findAllByUserId(Long id) {
+        return mapper.mapAll(repository.findAllByUserId(id), RoadmapResponseDto.class);
+    }
 }
