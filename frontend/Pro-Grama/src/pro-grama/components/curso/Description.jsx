@@ -12,6 +12,8 @@ import ReactPlayer from "react-player";
 import "./curso.css";
 import { ListaVideos } from "./ListaVideos";
 
+import image from '../../../../src/assets/curso-js.jpeg'
+
 /*importacion datos desde JSON*/
 import data from '../../../helpers/infoCourseData.json'
 
@@ -47,9 +49,13 @@ export const Description = () => {
         </div>
       </div>
       <div className="flex px-32 max-md:px-8 justify-between gap-8 max-lg:flex-wrap">
-        <div className="flex-col w-8/12 max-lg:w-full  ">
-          <div className="player-wrapper rounded-xl">
-            <ReactPlayer
+        <div className="flex-col w-8/12 max-lg:w-full">
+          {/*imagen provisoria para poder trabajar*/}
+          <img className="rounded-xl" src={data.image}></img>
+            {/*Video comentado para poder trabajar*/}
+          {/* <div className="player-wrapper rounded-xl">
+            
+             <ReactPlayer
               url={data.lessonsClasses[0].video}
               className="react-player rounded-xl"
               controls
@@ -57,8 +63,8 @@ export const Description = () => {
               volume="0.5"
               width={"100%"}
               height={"100%"}
-            />
-          </div>
+            /> 
+          </div> */}
           <div className="flex justify-between p-4" >
             <p className="py-4 flex items-center gap-2">
               {" "}
