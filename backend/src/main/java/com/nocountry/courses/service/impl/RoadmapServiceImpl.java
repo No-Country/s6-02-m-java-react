@@ -5,8 +5,10 @@ import com.nocountry.courses.dto.response.RoadmapResponseDto;
 import com.nocountry.courses.handler.exception.ResourceNotFoundException;
 import com.nocountry.courses.mapper.GenericMapper;
 import com.nocountry.courses.model.Roadmap;
+import com.nocountry.courses.model.User;
 import com.nocountry.courses.model.enums.EMessageCode;
 import com.nocountry.courses.repository.RoadmapRepository;
+import com.nocountry.courses.repository.UserRepository;
 import com.nocountry.courses.service.IRoadmapService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
@@ -21,6 +23,8 @@ public class RoadmapServiceImpl implements IRoadmapService {
 
     private final GenericMapper mapper;
     private final RoadmapRepository repository;
+    private final UserRepository userRepository;
+
 
     private final MessageSource messenger;
 
@@ -43,7 +47,11 @@ public class RoadmapServiceImpl implements IRoadmapService {
     @Override
     public RoadmapResponseDto create(RoadmapRequestDto request) {
 
+        User user = userRepository.findById(request.getUserId()).orElse(null);
+
         Roadmap roadmap = mapper.map(request, Roadmap.class);
+
+        roadmap.setUser(user);
 
         return mapper.map(repository.save(roadmap), RoadmapResponseDto.class);
     }

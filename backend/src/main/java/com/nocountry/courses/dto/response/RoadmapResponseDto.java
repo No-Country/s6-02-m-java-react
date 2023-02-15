@@ -1,5 +1,6 @@
 package com.nocountry.courses.dto.response;
 
+import com.nocountry.courses.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -13,5 +14,5 @@ public class RoadmapResponseDto {
 
     private String title;
 
-    private Long userId;
+    private User user;
 }
