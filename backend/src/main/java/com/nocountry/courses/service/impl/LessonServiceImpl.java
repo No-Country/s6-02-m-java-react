@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Locale;
 
-import static com.nocountry.courses.model.enums.EMessageCode.LESSON_NOT_FOUND;
+import static com.nocountry.courses.model.enums.EMessageCode.RESOURCE_NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor
@@ -34,8 +34,8 @@ public class LessonServiceImpl implements ILessonService {
     @Override
     public LessonResponseDto findById(Long id) {
         Lesson lesson = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(LESSON_NOT_FOUND.name(),
-                        new Object[] { id }, Locale.getDefault())));
+                .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),
+                        new Object[] {Lesson.class.getName(), id }, Locale.getDefault())));
        return mapper.map(lesson, LessonResponseDto.class);
     }
 
