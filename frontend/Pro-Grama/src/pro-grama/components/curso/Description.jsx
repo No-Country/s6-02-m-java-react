@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   AiFillHeart,
   AiOutlineHeart,
@@ -10,7 +10,6 @@ import { GrPlay } from "react-icons/gr";
 import { Button } from "flowbite-react";
 import ReactPlayer from "react-player";
 import "./curso.css";
-import { Link } from "react-router-dom";
 import { ListaVideos } from "./ListaVideos";
 
 const courseJsData = {
