@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { SidebarItems } from "./";
 export { SidebarItems } from "./";
-import {AiOutlineCode} from "react-icons/ai"
+import { AiOutlineCode } from "react-icons/ai";
 
 const Sidebar = () => {
   return (
@@ -32,13 +32,13 @@ const Sidebar = () => {
       <aside
         id="logo-sidebar"
         // className="fixed top-0 left-0 z-10 w-16 hover:w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
-        className="sidebar w-16 hover:w-52 h-full translate-x-full sm:translate-x-0"
+        className="sidebar w-[6rem] hover:w-52 h-full translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
         <div className="h-full px-2 py-[3rem] text-center bg-gray-50 dark:bg-gray-800">
           <Link to="/" className="flex items-center pl-2.5 mb-5">
-            <AiOutlineCode className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"/>
-            <span className=" px-14 logo_small hidden self-center text-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <AiOutlineCode className=" flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+            <span className=" px-4 logo_small hidden self-center text-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               <svg
                 width="52"
                 height="20"

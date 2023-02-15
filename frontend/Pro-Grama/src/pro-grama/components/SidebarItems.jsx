@@ -9,14 +9,14 @@ import { Link } from "react-router-dom";
 
 const SidebarItems = () => {
   return (
-    <ul className="space-y-2 py-4 text-center navbar">
+    <ul className="space-y-2 py-5 px-2 text-start navbar">
       <li>
         <Link
           to="/curso"
           className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           <AiFillHome className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-          <span className="ml-auto mr-auto text-center hidden">Inicio</span>
+          <span className="px-3 hidden">Inicio</span>
         </Link>
       </li>
 
