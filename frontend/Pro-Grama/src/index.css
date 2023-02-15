@@ -6,3 +6,10 @@
   font-family: 'Lato', sans-serif;
 }
 
+.sidebar {
+  transition: all .3s;
+}
+
+.sidebar:hover .navbar li a span,.sidebar:hover .logo_small {
+  display: block;
+}

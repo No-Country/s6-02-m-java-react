@@ -1,10 +1,10 @@
 import { SearchedCourse } from '.';
-import data from '../../../helpers/datacourses.json'
+import { CoursesData } from '../../../helpers'
 
 function SearchedListCourses({ courseName = ''}) {
 
     const courses = (
-        data.filter(course => course
+      CoursesData.filter(course => course
             .name.toLowerCase()
             .includes(courseName)
             )
