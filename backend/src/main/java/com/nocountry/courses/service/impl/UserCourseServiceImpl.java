@@ -12,6 +12,7 @@ import com.nocountry.courses.repository.UserCourseRepository;
 import com.nocountry.courses.repository.UserRepository;
 import com.nocountry.courses.service.IUserCourseService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.MessageSource;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +23,10 @@ import java.util.List;
 public class UserCourseServiceImpl implements IUserCourseService {
 
     private final UserCourseRepository repository;
-
-    private final CourseRepository courseRepository;
-
     private final UserRepository userRepository;
     private final GenericMapper mapper;
+
+    private final MessageSource messenger;
 
     @Override
     public UserCourseResponseDto create(UserCourseRequestDto request) {

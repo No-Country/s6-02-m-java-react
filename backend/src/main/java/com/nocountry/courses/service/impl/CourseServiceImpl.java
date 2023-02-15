@@ -8,11 +8,13 @@ import com.nocountry.courses.model.Course;
 import com.nocountry.courses.repository.CourseRepository;
 import com.nocountry.courses.service.ICourseService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Locale;
+
+import static com.nocountry.courses.model.enums.EMessageCode.RESOURCE_NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +23,8 @@ public class CourseServiceImpl implements ICourseService {
     private final GenericMapper mapper;
 
     private final CourseRepository courseRepository;
+
+    private final MessageSource messenger;
     @Override
     public CourseResponseDto create(CourseRequestDto request) {
         Course course = mapper.map(request, Course.class);
@@ -56,7 +60,8 @@ public class CourseServiceImpl implements ICourseService {
     @Override
     public CourseResponseDto findById(Long id) {
         Course course = courseRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Course Not Found"));
+                .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),
+                        new Object[] {Course.class.getName(), id }, Locale.getDefault())));
 
         return mapper.map(course, CourseResponseDto.class);
     }

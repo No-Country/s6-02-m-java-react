@@ -2,17 +2,18 @@ package com.nocountry.courses.service.impl;
 
 import com.nocountry.courses.dto.request.RoadmapRequestDto;
 import com.nocountry.courses.dto.response.RoadmapResponseDto;
+import com.nocountry.courses.handler.exception.ResourceNotFoundException;
 import com.nocountry.courses.mapper.GenericMapper;
 import com.nocountry.courses.model.Roadmap;
-import com.nocountry.courses.model.User;
+import com.nocountry.courses.model.enums.EMessageCode;
 import com.nocountry.courses.repository.RoadmapRepository;
 import com.nocountry.courses.service.IRoadmapService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Locale;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +21,8 @@ public class RoadmapServiceImpl implements IRoadmapService {
 
     private final GenericMapper mapper;
     private final RoadmapRepository repository;
+
+    private final MessageSource messenger;
 
     @Override
     public List<RoadmapResponseDto> findAll() {
@@ -29,11 +32,10 @@ public class RoadmapServiceImpl implements IRoadmapService {
     @Override
     public RoadmapResponseDto findById(Long id) {
 
-        Roadmap roadmap = repository.findById(id).orElse(null);
+        Roadmap roadmap = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(EMessageCode.RESOURCE_NOT_FOUND.name(),
+                new Object[] { Roadmap.class.getName(), id }, Locale.getDefault())));
 
-        if(roadmap == null){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Roadmap Not Found");
-        }
 
         return mapper.map(roadmap, RoadmapResponseDto.class);
     }
