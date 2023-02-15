@@ -15,11 +15,12 @@ INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty
 INSERT INTO `courses_db`.`courses` (`id`, `category`, `description`, `difficulty`, `image_url`, `title`, `total_duration`) VALUES ('9', 'FRONT_END', 'description_course', 'ADVANCED', 'image_url', 'React avanzado', '18');
 
 --#USER_COURSE TABLE
-INSERT INTO `courses_db`.`users_courses` (`user_id`, `course_id`) VALUES ('1', '1');
-INSERT INTO `courses_db`.`users_courses` (`user_id`, `course_id`) VALUES ('2', '3');
-INSERT INTO `courses_db`.`users_courses` (`user_id`, `course_id`) VALUES ('2', '2');
-INSERT INTO `courses_db`.`users_courses` (`user_id`, `course_id`) VALUES ('3', '4');
-INSERT INTO `courses_db`.`users_courses` (`user_id`, `course_id`) VALUES ('3', '1');
+
+INSERT INTO `courses_db`.`users_courses` (`user_id`, `course_id`, `progress`, `status`) VALUES ('1', '1', 0, 'InProgress');
+INSERT INTO `courses_db`.`users_courses` (`user_id`, `course_id`, `progress`, `status`) VALUES ('2', '3', 0, 'InProgress');
+INSERT INTO `courses_db`.`users_courses` (`user_id`, `course_id`, `progress`, `status`) VALUES ('2', '2', 0, 'InProgress');
+INSERT INTO `courses_db`.`users_courses` (`user_id`, `course_id`, `progress`, `status`) VALUES ('3', '4', 0, 'InProgress');
+INSERT INTO `courses_db`.`users_courses` (`user_id`, `course_id`, `progress`, `status`) VALUES ('3', '1', 0, 'InProgress');
 
 --#LESSON TABLE
 INSERT INTO `courses_db`.`lessons` (`id`, `description`, `duration`, `title`, `transcription`, `url_video`, `course_id`) VALUES ('1', 'description', '3', 'Fundamentos', 'transcription', 'link_video', '1');

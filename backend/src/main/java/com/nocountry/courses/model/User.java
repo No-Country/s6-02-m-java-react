@@ -31,13 +31,6 @@ public class User implements Serializable {
 
     private List<Long> idFavourites;
 
-    @JsonManagedReference
-    @ManyToMany
-    @JoinTable(name = "users_courses",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_id"))
-    private Set<Course> courses;
-
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     private Set<Note> notes;
