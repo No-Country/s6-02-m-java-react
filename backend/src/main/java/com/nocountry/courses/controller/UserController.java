@@ -1,5 +1,7 @@
 package com.nocountry.courses.controller;
 
+import com.nocountry.courses.handler.ResponseBuilder;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,8 +17,8 @@ import com.nocountry.courses.service.IUserService;
 public record UserController (IUserService service) {
 
     @PostMapping("/create")
-    public ResponseEntity<UserResponseDto> create(@RequestBody UserRequestDto user){
-        return ResponseEntity.ok(service.create(user));
+    public ResponseEntity<?> create(@RequestBody UserRequestDto user){
+        return ResponseBuilder.responseBuilder(HttpStatus.CREATED, service.create(user));
     }
 
 }

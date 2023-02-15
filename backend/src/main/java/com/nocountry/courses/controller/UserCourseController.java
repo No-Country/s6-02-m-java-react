@@ -19,18 +19,18 @@ import java.util.List;
 public record UserCourseController (IUserCourseService userCourseService){
 
     @GetMapping("/all")
-    public ResponseEntity<List<UserCourseResponseDto>> getAll(){
-        return ResponseEntity.ok(userCourseService.findAll());
+    public ResponseEntity<?> getAll(){
+        return ResponseBuilder.responseBuilder(HttpStatus.OK,userCourseService.findAll());
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<UserCourseResponseDto>> getByUser(){
-        return ResponseEntity.ok(userCourseService.findByUser());
+    public ResponseEntity<?> getByUser(){
+        return ResponseBuilder.responseBuilder(HttpStatus.OK,userCourseService.findByUser());
     }
 
     @GetMapping("/course/{courseId}")
-    public ResponseEntity<UserCourseResponseDto> getByUserAndCourse(@PathVariable("courseId") Long courseId){
-        return ResponseEntity.ok(userCourseService.findByCourse(courseId));
+    public ResponseEntity<?> getByUserAndCourse(@PathVariable("courseId") Long courseId){
+        return ResponseBuilder.responseBuilder(HttpStatus.OK, userCourseService.findByCourse(courseId));
     }
 
     @PostMapping("/")
