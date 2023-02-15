@@ -12,15 +12,8 @@ import ReactPlayer from "react-player";
 import "./curso.css";
 import { ListaVideos } from "./ListaVideos";
 
-const courseJsData = {
-  title: "Javascript",
-  lessons: 50,
-  hours: 32,
-  level: "Avanzado",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro illum blanditiis, debitis vero accusamus dolor nesciunt enim quos rem impedit quae! Obcaecati, alias. Saepe, delectus voluptas quam ipsum recusandae consequatur!",
-  video: "https://www.youtube.com/watch?v=rbuYtrNUxg4&ab_channel=Fazt",
-};
+/*importacion datos desde JSON*/
+import data from '../../../helpers/infoCourseData.json'
 
 export const Description = () => {
   const [hearthPress, setHearthPress] = useState(true);
@@ -33,10 +26,8 @@ export const Description = () => {
     <>
       <div className="flex items-center max-md:px-8 px-32 my-6 justify-between max-md:flex-col">
         <div
-          className="flex justify-between items-center  w-8/12 max-md:w-full "
-         
-        >
-          <h2 className="text-3xl">{`Curso de ${courseJsData.title}`}</h2>
+          className="flex justify-between items-center  w-8/12 max-md:w-full">
+          <h2 className="text-3xl">{`Curso de ${data.title}`}</h2>
           <Button color="white" onClick={handleHearth}>
             {hearthPress ? (
               <AiOutlineHeart className="w-8 h-8" />
@@ -59,7 +50,7 @@ export const Description = () => {
         <div className="flex-col w-8/12 max-lg:w-full  ">
           <div className="player-wrapper rounded-xl">
             <ReactPlayer
-              url={courseJsData.video}
+              url={data.lessonsClasses[0].video}
               className="react-player rounded-xl"
               controls
               
@@ -71,18 +62,18 @@ export const Description = () => {
           <div className="flex justify-between p-4" >
             <p className="py-4 flex items-center gap-2">
               {" "}
-              <AiOutlineUnorderedList /> {`${courseJsData.lessons} lecciones`}
+              <AiOutlineUnorderedList /> {`${data.lessons} lecciones`}
             </p>
             <p className="py-4 flex items-center gap-2">
               {" "}
-              <AiOutlineClockCircle /> {`${courseJsData.hours} horas`}
+              <AiOutlineClockCircle /> {`${data.hours} horas`}
             </p>
             <p className="bg-slate-200 rounded-full py-2 px-4 self-center">
-              {courseJsData.level}
+              {data.level}
             </p>
           </div>
           <div>
-            <p>{courseJsData.description}</p>
+            <p>{data.description}</p>
           </div>
           <Button color="gray" className="h-8 mt-6">
             <AiOutlinePlus className="mr-2" />
