@@ -1,7 +1,8 @@
 import React from 'react'
 import { Description, ListaVideos } from '../components/curso'
 
-export const CursosPage = () => {
+
+const CursosPage = () => {
   return (
     <>
       <Description />
@@ -9,3 +10,5 @@ export const CursosPage = () => {
     </>
   )
 }
+
+export default CursosPage
