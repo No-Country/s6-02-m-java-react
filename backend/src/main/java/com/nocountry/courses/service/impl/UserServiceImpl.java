@@ -4,6 +4,8 @@ import java.util.*;
 
 import com.nocountry.courses.handler.exception.ResourceNotFoundException;
 import com.nocountry.courses.mapper.GenericMapper;
+
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import com.nocountry.courses.dto.request.UserRequestDto;
@@ -14,12 +16,15 @@ import com.nocountry.courses.service.IUserService;
 
 import lombok.RequiredArgsConstructor;
 
+
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements IUserService  {
 
     private final GenericMapper mapper;
     private final UserRepository userRepository;
+
+    private final MessageSource messenger;
 
     @Override
     public UserResponseDto create(UserRequestDto request) {

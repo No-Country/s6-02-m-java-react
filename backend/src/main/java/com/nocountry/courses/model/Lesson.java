@@ -1,14 +1,12 @@
 package com.nocountry.courses.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
+
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -31,8 +29,6 @@ public class Lesson {
     private int duration;
 
     private String urlVideo;
-
-    private boolean completed;
 
     private String transcription;
 
