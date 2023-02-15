@@ -11,6 +11,7 @@ import { Button } from "flowbite-react";
 import ReactPlayer from "react-player";
 import "./curso.css";
 import { ListaVideos } from "./ListaVideos";
+import  Sidebar  from "../Sidebar";
 
 /*importacion datos desde JSON*/
 import data from '../../../helpers/infoCourseData.json'
@@ -24,6 +25,7 @@ export const Description = () => {
 
   return (
     <>
+    {/* <Sidebar/> */}
       <div className="flex items-center max-md:px-8 px-32 my-6 justify-between max-md:flex-col">
         <div
           className="flex justify-between items-center  w-8/12 max-md:w-full">

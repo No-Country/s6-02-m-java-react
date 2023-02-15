@@ -12,8 +12,8 @@ function SearchedCourse({ course }) {
           <span className="bg-gray-400 rounded-full px-2 h-6">{ course.dificulty}</span>    
         </div> 
         <div className="inline-flex gap-3">
-          <p>Módulos: { course.modules }</p>
-          <p>Horas: { course.hours }</p>
+          <p>{ course.modules } módulos</p>
+          <p>{ course.hours } horas</p>
         </div>
       </div>
     </li>;
