@@ -5,8 +5,7 @@ import LessonsCourses from '../components/Lessons/LessonsCourses'
 const LessonsPage = () => {
   return (
     <>
-       <LessonsCourses/>
-       <Notes/>
+      <LessonsCourses />
     </>
   )
 }
