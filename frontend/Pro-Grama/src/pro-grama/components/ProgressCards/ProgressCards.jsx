@@ -33,17 +33,17 @@ const progressCardsInfo = [
 const ProgressCards = () => {
   return (
     <>
-      <div className="flex flex-wrap gap-12 justify-between py-2 my-4 rounded-lg bg-GrayLight">
+      <div className="flex flex-wrap gap-2 justify-between py-2 my-4 rounded-lg ">
         {progressCardsInfo.map((cards) => (
           <>
             <div
-              className="ml-4 pr-20 rounded-3xl flex gap-6 items-center border border-gray-300"
+              className="w-[24rem] rounded-3xl flex gap-0 items-center border border-gray-300"
               key={cards.id}
             >
-              <div className="flex justify-start mr-4">
+              <div className="flex justify-start">
                 <img
                   src={cards.image}
-                  className="w-[6.5rem] h-fit rounded ring-white"
+                  className="w-[6.5rem] h-fit rounded-l-3xl ring-white"
                 />
                 <div className="items-center px-4 py-4">
                   <h4 className="text-xl text-start">{cards.title}</h4>
