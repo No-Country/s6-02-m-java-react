@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { CardContainer } from './cardCourses/cardContainer'
 import Header from './Header'
 import ProgressCards from './ProgressCards/ProgressCards'
@@ -27,7 +28,7 @@ const Sections = () => {
         {/* Cuarta Seccion de cuadrados, mover Flex para cambiar el estilo */}
         <div className='flex justify-between items-center'>
           <h2 className='text-4xl py-6'>Cursos Disponibles</h2>
-          <span className=''>Ver todos</span>
+          <Link to="/courses">Ver todos</Link>
         </div>
         <div className='flex items-center justify-center mb-4 rounded-sm bg-gray-50 dark:bg-gray-800'>
           <CardContainer />

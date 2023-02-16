@@ -21,7 +21,7 @@ function CoursesPage () {
   return (
     <div>
       <div className='flex gap-6 justify-between items-center mb-12'>
-        <h1 className='text-5xl my-2'>Todos los cursos</h1>
+      <h1 className='text-5xl my-2 ml-10'>Todos los cursos</h1>
         <select name='select' onChange={handleChange}>
           <option value='todos' selected>
             Todos
@@ -39,7 +39,7 @@ function CoursesPage () {
               key={course.name}
             >
               <img
-                className='h-52 object-cover aspect-video'
+                className='h-52 object-cover rounded-t-lg aspect-video'
                 src={course.img}
                 alt={`Imagen del curso ${course.name}`}
               />
