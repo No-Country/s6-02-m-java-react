@@ -9,9 +9,9 @@ export const MainRoute = () => {
       {/* <Route path="/" element={<HomePage />} /> */}
       <Route path="/" element={<RootPage />}>
         <Route path="" element={<HomePage />} />
-        <Route path="courses" element={<CoursesPage />} />
+        <Route path="Courses" element={<CoursesPage />} />
         <Route path="/CourseDetail" element={<CursosPage />} />
-        <Route path="/lessons" element={<LessonsPage />} />
+        <Route path="/CourseLessons" element={<LessonsPage />} />
       </Route>
       <Route path="/*" element={<Navigate to="/" />} />
     </Routes>
