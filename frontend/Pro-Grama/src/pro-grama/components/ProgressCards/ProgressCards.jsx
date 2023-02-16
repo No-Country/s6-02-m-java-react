@@ -2,6 +2,7 @@ import React from "react";
 import { Progress } from "flowbite-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const progressCardsInfo = [
   {
@@ -36,24 +37,26 @@ const ProgressCards = () => {
       <div className="flex flex-wrap gap-2 justify-between py-2 my-4 rounded-lg ">
         {progressCardsInfo.map((cards) => (
           <>
-            <div
-              className="w-[24rem] rounded-3xl flex gap-0 items-center border border-gray-300"
-              key={cards.id}
-            >
-              <div className="flex justify-start">
-                <img
-                  src={cards.image}
-                  className="w-[6.5rem] h-fit rounded-l-3xl ring-white"
-                />
-                <div className="items-center px-4 py-4">
-                  <h4 className="text-xl text-start">{cards.title}</h4>
-                  <p className="text-sm text-start mt-1 mb-2">
-                    {cards.paragraph}
-                  </p>
-                  <Progress progress={cards.progress} color="dark" />
+            <Link to="/CourseDetail">
+              <div
+                className="w-[24rem] rounded-3xl flex gap-0 items-center border border-gray-300"
+                key={cards.id}
+              >
+                <div className="flex justify-start">
+                  <img
+                    src={cards.image}
+                    className="w-[6.5rem] h-fit rounded-l-3xl ring-white"
+                  />
+                  <div className="items-center px-4 py-4">
+                    <h4 className="text-xl text-start">{cards.title}</h4>
+                    <p className="text-sm text-start mt-1 mb-2">
+                      {cards.paragraph}
+                    </p>
+                    <Progress progress={cards.progress} color="dark" />
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </>
         ))}
         {/* <div className="flex items-center">
