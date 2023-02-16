@@ -1,7 +1,7 @@
 package com.nocountry.courses.service;
 
-import com.nocountry.courses.dto.user.LoginDto;
-import com.nocountry.courses.dto.user.RegisterDto;
+import com.nocountry.courses.dto.request.UserRequestDto;
+import com.nocountry.courses.dto.response.UserResponseDto;
 
-public interface IUserAuthService extends ICrudService<LoginDto, RegisterDto> {
+public interface IUserAuthService extends ICrudService<UserResponseDto, UserRequestDto> {
 }

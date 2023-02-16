@@ -3,7 +3,7 @@ package com.nocountry.courses.controller;
 import com.nocountry.courses.model.Course;
 import com.nocountry.courses.model.FavouriteList;
 import com.nocountry.courses.model.User;
-import com.nocountry.courses.security.JwtGenerator;
+import com.nocountry.courses.security.config.JwtService;
 import com.nocountry.courses.service.IFavouriteListService;
 import com.nocountry.courses.service.impl.TokenFavServiceImpl;
 
@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/favourites")
-public record FavouriteListController(IFavouriteListService favouriteListService, TokenFavServiceImpl authService, JwtGenerator jwtGenerator) {
+public record FavouriteListController(IFavouriteListService favouriteListService, TokenFavServiceImpl authService, JwtService jwtService) {
 
     @PostMapping("/add")
     public ResponseEntity<List<Course>> addCourseToFavouriteList(@RequestBody Course course, @RequestParam("token") String token) throws AuthenticationException {
