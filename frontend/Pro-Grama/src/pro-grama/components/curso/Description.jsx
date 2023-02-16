@@ -13,8 +13,6 @@ import "./curso.css";
 import { ListaVideos } from "./ListaVideos";
 import  Sidebar  from "../Sidebar";
 
-import image from '../../../../src/assets/curso-js.jpeg'
-
 /*importacion datos desde JSON*/
 import data from '../../../helpers/infoCourseData.json'
 
