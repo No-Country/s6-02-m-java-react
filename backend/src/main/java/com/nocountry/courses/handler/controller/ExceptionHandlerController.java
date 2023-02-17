@@ -22,7 +22,7 @@ import org.springframework.http.ResponseEntity;
 
 @ControllerAdvice
 public class ExceptionHandlerController {
-    /*
+
     @ResponseStatus(NOT_FOUND)
     @ExceptionHandler({ NotFoundException.class,
             ResourceNotFoundException.class
@@ -64,5 +64,5 @@ public class ExceptionHandlerController {
     @ResponseStatus(INTERNAL_SERVER_ERROR)
     public ResponseEntity<?> internalServerErrorHandler(HttpServletRequest request, Exception exception) {
         return responseBuilder(INTERNAL_SERVER_ERROR, request.getRequestURI(), new ErrorDetail(exception));
-    }*/
+    }
 }
