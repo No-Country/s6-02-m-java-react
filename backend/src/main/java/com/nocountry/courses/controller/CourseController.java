@@ -31,6 +31,13 @@ public record CourseController (ICourseService courseService){
         return ResponseBuilder.responseBuilder(HttpStatus.OK,courseService.findAll());
     }
 
+
+    @GetMapping("/public")
+    public ResponseEntity<?> getAllPublic(){
+        return ResponseBuilder.responseBuilder(HttpStatus.OK,courseService.findAll());
+    }
+
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable("id") Long id){
         return ResponseBuilder.responseBuilder(HttpStatus.OK,courseService.findById(id));
