@@ -75,4 +75,8 @@ public class NoteServiceImpl implements INoteService {
     }
 
 
+    @Override
+    public List<NoteResponseDto> findAllByUserId(Long id) {
+        return mapper.mapAll(repository.findAllByUserId(id), NoteResponseDto.class);
+    }
 }
