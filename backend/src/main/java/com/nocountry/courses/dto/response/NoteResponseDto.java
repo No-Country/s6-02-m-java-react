@@ -1,5 +1,7 @@
 package com.nocountry.courses.dto.response;
 
+import com.nocountry.courses.model.Lesson;
+import com.nocountry.courses.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +18,8 @@ public class NoteResponseDto {
 
     private String content;
 
-    private Long lessonId;
+    private Lesson lesson;
 
-    private Long userId;
+    private User user;
     
 }
