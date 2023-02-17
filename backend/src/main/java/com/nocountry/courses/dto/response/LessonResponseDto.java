@@ -30,5 +30,5 @@ public class LessonResponseDto {
 
     private Course course;
 
-    private Set<Note> notes;
+    //private Set<Note> notes;
 }

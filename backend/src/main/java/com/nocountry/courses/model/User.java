@@ -1,8 +1,6 @@
 package com.nocountry.courses.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import com.nocountry.courses.model.enums.Role;
 import lombok.*;
 
@@ -40,13 +38,6 @@ public class User implements UserDetails {
     private LocalDate registerDate;
 
     private List<Long> idFavourites;
-
-    @JsonManagedReference
-    @ManyToMany
-    @JoinTable(name = "users_courses",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_id"))
-    private Set<Course> courses;
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore

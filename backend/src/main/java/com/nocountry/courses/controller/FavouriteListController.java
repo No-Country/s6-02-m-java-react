@@ -40,5 +40,5 @@ public record FavouriteListController(IFavouriteListService favouriteListService
 
     }
 
-        //delete course from favourite list
+
 }

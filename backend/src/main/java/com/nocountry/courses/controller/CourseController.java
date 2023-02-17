@@ -26,18 +26,18 @@ public record CourseController (ICourseService courseService){
         return ResponseBuilder.responseBuilder(HttpStatus.CREATED,courseService.create(course));
     }
 
-    @GetMapping()
-    public ResponseEntity<List<CourseResponseDto>> getAll(){
-        return ResponseEntity.ok(courseService.findAll());
+    @GetMapping
+    public ResponseEntity<?> getAll(){
+        return ResponseBuilder.responseBuilder(HttpStatus.OK,courseService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CourseResponseDto> getById(@PathVariable("id") Long id){
-        return ResponseEntity.ok(courseService.findById(id));
+    public ResponseEntity<?> getById(@PathVariable("id") Long id){
+        return ResponseBuilder.responseBuilder(HttpStatus.OK,courseService.findById(id));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CourseResponseDto> update(@PathVariable("id") Long id, @Valid @RequestBody CourseRequestDto course){
-        return ResponseEntity.ok(courseService.update(id, course));
+    public ResponseEntity<?> update(@PathVariable("id") Long id, @Valid @RequestBody CourseRequestDto course){
+        return ResponseBuilder.responseBuilder(HttpStatus.OK,courseService.update(id, course));
     }
 }
