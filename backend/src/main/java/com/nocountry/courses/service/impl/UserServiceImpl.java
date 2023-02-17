@@ -8,6 +8,8 @@ import com.nocountry.courses.model.User;
 import com.nocountry.courses.repository.UserRepository;
 import com.nocountry.courses.service.IUserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,9 +21,16 @@ public class UserServiceImpl implements IUserService {
     private final GenericMapper mapper;
     private final UserRepository userRepository;
 
+    public UserResponseDto getMyUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepository.findByEmail(authentication.getName()).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        return mapper.map(user, UserResponseDto.class);
+    }
+
     @Override
     public UserResponseDto update(UserRequestDto requestDto, Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = this.userRepository.findByEmail(authentication.getName()).orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
         user.setEmail(requestDto.getEmail());
         user.setName(requestDto.getName());
