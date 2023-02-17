@@ -5,7 +5,7 @@ import { Search } from "./search";
 const Header = () => {
   return (
     <div className="grid grid-cols-1 gap-4 mb-4">
-      <div className="flex items-center justify-between px-24 h-28 bg-gray-800 ">
+      <div className="flex items-center justify-between px-24 h-28 bg-BlueDark ">
         <Link to="/">
           {/* LOGO SCV PATH */}
           <svg
