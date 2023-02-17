@@ -1,9 +1,9 @@
 package com.nocountry.courses.service.impl;
 
-import com.nocountry.courses.model.AuthToken;
+import com.nocountry.courses.model.TokenFavList;
 import com.nocountry.courses.model.User;
 import com.nocountry.courses.repository.TokenRepository;
-import com.nocountry.courses.service.IAuthService;
+import com.nocountry.courses.service.ITokenFavService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,27 +11,27 @@ import javax.naming.AuthenticationException;
 import java.util.Objects;
 
 @Service
-public class AuthService implements IAuthService {
+public class TokenFavServiceImpl implements ITokenFavService {
 
     @Autowired
     TokenRepository tokenRepository;
 
     @Override
-    public void saveConfirmationToken(AuthToken authToken) {
-        tokenRepository.save(authToken);
+    public void saveConfirmationToken(TokenFavList tokenFavList) {
+        tokenRepository.save(tokenFavList);
     }
 
     @Override
-    public AuthToken getToken(User user) {
+    public TokenFavList getToken(User user) {
         return tokenRepository.findTokenByUser(user);
     }
 
     @Override
     public User getUser(String token) {
-        AuthToken authToken = tokenRepository.findTokenByToken(token);
+        TokenFavList tokenFavList = tokenRepository.findTokenByToken(token);
         if (Objects.nonNull(tokenRepository)) {
-            if (Objects.nonNull(authToken.getUser())) {
-                return authToken.getUser();
+            if (Objects.nonNull(tokenFavList.getUser())) {
+                return tokenFavList.getUser();
             }
         }
         return null;

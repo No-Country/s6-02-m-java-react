@@ -1,15 +1,15 @@
 package com.nocountry.courses.service;
 
-import com.nocountry.courses.model.AuthToken;
+import com.nocountry.courses.model.TokenFavList;
 import com.nocountry.courses.model.User;
 
 import javax.naming.AuthenticationException;
 
-public interface IAuthService {
+public interface ITokenFavService {
 
-    public void saveConfirmationToken(AuthToken authToken);
+    public void saveConfirmationToken(TokenFavList tokenFavList);
 
-    public AuthToken getToken(User user);
+    public TokenFavList getToken(User user);
 
     public User getUser(String token);
 

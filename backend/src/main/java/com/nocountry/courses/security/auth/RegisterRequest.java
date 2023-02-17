@@ -1,4 +1,4 @@
-package com.nocountry.courses.dto.response;
+package com.nocountry.courses.security.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserResponseDto {
+public class RegisterRequest {
 
-    private String name;
     private String email;
+    private String name;
+    private String lastName;
     private String password;
+
 }

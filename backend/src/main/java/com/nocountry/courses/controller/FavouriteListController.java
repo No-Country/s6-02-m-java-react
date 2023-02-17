@@ -3,8 +3,9 @@ package com.nocountry.courses.controller;
 import com.nocountry.courses.model.Course;
 import com.nocountry.courses.model.FavouriteList;
 import com.nocountry.courses.model.User;
+import com.nocountry.courses.security.config.JwtService;
 import com.nocountry.courses.service.IFavouriteListService;
-import com.nocountry.courses.service.impl.AuthService;
+import com.nocountry.courses.service.impl.TokenFavServiceImpl;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.naming.AuthenticationException;
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/favourites")
-public record FavouriteListController(IFavouriteListService favouriteListService, AuthService authService) {
+public record FavouriteListController(IFavouriteListService favouriteListService, TokenFavServiceImpl authService, JwtService jwtService) {
 
     @PostMapping("/add")
     public ResponseEntity<List<Course>> addCourseToFavouriteList(@RequestBody Course course, @RequestParam("token") String token) throws AuthenticationException {
