@@ -1,18 +1,20 @@
 import React from "react";
 import { HeaderBSide } from "../components";
 
+import CoursesPage from "./CoursesPage"
+
 const LandingPage = () => {
   return (
     <div>
-      <div className="min-h-screen">
+      <div className="">
         <div>
           <HeaderBSide />
         </div>
 
-        <div className="border-red-400 border-dashed border py-6">
+        <div className="border-red-400 border-dashed border py-[12rem]  min-h-screen">
           <svg
             viewBox="0 0 167 31"
-            className="pt-6 m-auto text-center lg:w-100% lg:h-24 sm:w-auto sm:h-auto"
+            className="pt-2 m-auto text-center lg:w-100% lg:h-24 sm:w-auto sm:h-auto"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -60,7 +62,7 @@ const LandingPage = () => {
               </clipPath>
             </defs>
           </svg>
-          <div className="text-center text-2xl py-5 font-weight-light">
+          <div className="text-center text-3xl py-8 font-weight-light">
             <h2>
               Pablabras motivacionales que incentiven al estudio y al uso de
               esta pagina para estudiar.
@@ -74,6 +76,11 @@ const LandingPage = () => {
             </button>
           </div>
         </div>
+
+        <div className="min-h-fit p-10">
+            <CoursesPage/>
+        </div>
+
       </div>
     </div>
   );
