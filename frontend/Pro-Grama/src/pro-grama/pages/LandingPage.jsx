@@ -66,6 +66,13 @@ const LandingPage = () => {
               esta pagina para estudiar.
             </h2>
           </div>
+          <div className="py-4 flex justify-center">
+            <button class="relative inline-flex items-center justify-center p-0.5  overflow-hidden text-md font-medium text-BlueDark rounded-lg group bg-gradient-to-br from-Green to-Blue group-hover:from-Green group-hover:to-Blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-GreenLight dark:focus:ring-Green">
+              <span class="relative px-16 py-2 transition-all ease-in duration-75 bg-white dark:bg-BlueDark rounded-md group-hover:bg-opacity-0">
+                Comienza Ya
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
