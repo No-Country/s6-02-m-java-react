@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { HeaderBSide } from "../components";
 
-import CoursesPage from "./CoursesPage"
+import CoursesPage from "./CoursesPage";
 
 const LandingPage = () => {
   return (
@@ -11,7 +12,7 @@ const LandingPage = () => {
           <HeaderBSide />
         </div>
 
-        <div className="border-red-400 border-dashed border py-[12rem]  min-h-screen">
+        <div className="border-red-400 border-dashed border py-[12rem]  min-h-screen bg-gray-200">
           <svg
             viewBox="0 0 167 31"
             className="pt-2 m-auto text-center lg:w-100% lg:h-24 sm:w-auto sm:h-auto"
@@ -70,7 +71,7 @@ const LandingPage = () => {
           </div>
           <div className="py-4 flex justify-center">
             <button class="relative inline-flex items-center justify-center p-0.5  overflow-hidden text-md font-medium text-BlueDark rounded-lg group bg-gradient-to-br from-Green to-Blue group-hover:from-Green group-hover:to-Blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-GreenLight dark:focus:ring-Green">
-              <span class="relative px-16 py-2 transition-all ease-in duration-75 bg-white dark:bg-BlueDark rounded-md group-hover:bg-opacity-0">
+              <span class="relative px-16 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-BlueDark rounded-md group-hover:bg-opacity-0">
                 Comienza Ya
               </span>
             </button>
@@ -78,8 +79,24 @@ const LandingPage = () => {
         </div>
 
         <div className="min-h-fit p-10">
-            <CoursesPage/>
+          <div>
+            <h2 className="text-4xl text-center">Mira nuestros cursos</h2>
+          </div>
+          <div>
+            <CoursesPage />
+          </div>
+          <div className="text-center pt-14 pb-14">
+            <button class="relative inline-flex items-center justify-center p-0.5  overflow-hidden text-md font-medium text-BlueDark rounded-lg group bg-gradient-to-br from-Green to-GreenLight group-hover:from-Green group-hover:to-Blue hover:text-GrayDark dark:text-white focus:ring-4 focus:outline-none focus:ring-GreenLight dark:focus:ring-Green">
+              <Link
+                to="/courses"
+                class="relative px-16 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-BlueDark rounded-md group-hover:bg-opacity-0"
+              >
+                Ver mas cursos
+              </Link>
+            </button>
+          </div>
         </div>
+
 
       </div>
     </div>
