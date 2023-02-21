@@ -97,7 +97,21 @@ const LandingPage = () => {
           </div>
         </div>
 
+        <div className="min-h-screen bg-gray-200">
+          <div className="text-center">
+            <h2 className="text-4xl py-16">¿Por qué elegir Pro-Grama?</h2>
+          </div>
 
+          <div className="grid grid-cols-3 text-center gap-2 border border-red-400 border-dashed">
+            <div>
+              <div className="border border-red-400 border-dashed">
+                <h3>hola</h3>
+              </div>
+            </div>
+            <div className="border border-red-400 border-dashed">Hola</div>
+            <div className="border border-red-400 border-dashed">Hola</div>
+          </div>
+        </div>
       </div>
     </div>
   );
