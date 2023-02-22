@@ -61,10 +61,16 @@ public class NoteServiceImpl implements INoteService {
         return mapper.map(repository.save(note), NoteResponseDto.class);
     }
 
+
+    @Override
     public NoteResponseDto update(Long id, NoteRequestDto request){
 
+        Note note = repository.findById(id).orElse(null);
 
-        return null;
+        note.setTitle(request.getTitle());
+        note.setContent(request.getContent());
+
+        return mapper.map(repository.save(note), NoteResponseDto.class);
     }
 
 
