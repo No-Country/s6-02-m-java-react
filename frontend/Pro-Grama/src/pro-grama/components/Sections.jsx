@@ -9,7 +9,7 @@ const Sections = () => {
   return (
     <div className=' '>
       {/* <Header /> */}
-      <div className=' dark:border-gray-700 px-12'>
+      <div className='px-12'>
         {/* Primer Seccion de cuadrados, mover grid-cols para cambiar el estilo */}
         <h1 className='text-5xl my-2'>Bienvenido! @User!</h1>
         <span className='text-2xl mb-5'>¿Qué vamos a aprender hoy?</span>
