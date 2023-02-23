@@ -1,0 +1,8 @@
+.ide {
+  width: 80rem;
+  height: 40rem;
+
+  border: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}

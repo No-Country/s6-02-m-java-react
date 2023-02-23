@@ -1,20 +1,30 @@
 package com.nocountry.courses.model;
 
-import lombok.Data;
+import lombok.*;
 
 import jakarta.persistence.*;
 
-
 @Entity
 @Table(name = "notes")
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Note {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
+
     private String content;
-/*    private User user;
-    private Lesson lesson;*/
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "lesson_id")
+    private Lesson lesson;
 }

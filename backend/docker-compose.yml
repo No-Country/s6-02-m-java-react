@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  app:
+    build: .      #configuracion del docker build
+    ports: #aqui se configuran los puertos y se pueden configurar mas de uno solo agregando otra linea con - "puerto:puerto"
+      - 8080:8080
+    networks:
+      - app
+    links: #conexion con otros contenedores
+      - db
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/courses_db
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+  db:
+    image: mysql:8
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: courses_db
+    networks:
+    - app
+networks:
+  app:
