@@ -15,8 +15,6 @@ import lombok.Setter;
 public class UserLessonRequestDto {
 
     @NotNull
-    private Long userId;
-    @NotNull
     private Long lessonId;
     @NotBlank
     private Status status;
