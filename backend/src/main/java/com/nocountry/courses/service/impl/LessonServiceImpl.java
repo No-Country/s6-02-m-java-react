@@ -78,9 +78,13 @@ public class LessonServiceImpl implements ILessonService {
 
     @Override
     public UserLessonResponseDto changeStatus(UserLessonRequestDto lessonDto){
-        UserLesson userLesson = userLessonRepository.findByUserIdAndLessonId(lessonDto.getUserId(), lessonDto.getLessonId())
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userRepository.findByEmail(authentication.getName()).orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),
+                new Object[] { User.class.getName(), authentication.getName() }, Locale.getDefault())));
+
+        UserLesson userLesson = userLessonRepository.findByUserIdAndLessonId(user.getId(), lessonDto.getLessonId())
                 .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(JOIN_RESOURCE_NOT_FOUND.name(),
-                        new Object[] { UserLesson.class.getName(),lessonDto.getLessonId(), lessonDto.getUserId() }, Locale.getDefault())));
+                        new Object[] { UserLesson.class.getName(),lessonDto.getLessonId(), user.getId() }, Locale.getDefault())));
 
         if(userLesson.getStatus().equals(Status.STARTED) && lessonDto.getStatus().equals(Status.FINALIZED)){
             userCourseService.updateProgress(userLesson.getLesson().getCourse());
