@@ -102,14 +102,82 @@ const LandingPage = () => {
             <h2 className="text-4xl py-16">¿Por qué elegir Pro-Grama?</h2>
           </div>
 
-          <div className="grid grid-cols-3 text-center gap-2 border border-red-400 border-dashed">
+          <div className="grid grid-cols-3 place-content-center place-items-center h-screen text-center items-center gap-2 py-6 border border-red-400 border-dashed">
             <div>
-              <div className="border border-red-400 border-dashed">
-                <h3>hola</h3>
+              <div className="border border-red-400 border-dashed bg-gray-500 rounded-lg w-[19.5rem] h-[17.8rem] ">
+                <h3>Background 1</h3>
+              </div>
+              <div className="py-4 text-3xl text-center">
+                <p>Crea tu ruta</p>
+              </div>
+              <div className="text-2xl">
+                <p cl>Lorem ipsum</p>
               </div>
             </div>
-            <div className="border border-red-400 border-dashed">Hola</div>
-            <div className="border border-red-400 border-dashed">Hola</div>
+            <div>
+              <div className="border border-red-400 border-dashed bg-gray-500 rounded-lg w-[19.5rem] h-[17.8rem] ">
+                <h3>Background 2</h3>
+              </div>
+              <div className="py-4 text-3xl text-center">
+                <p>Toma tus notas</p>
+              </div>
+              <div className="text-2xl">
+                <p cl>Lorem ipsum</p>
+              </div>
+            </div>
+            <div>
+              <div className="border border-red-400 border-dashed bg-gray-500 rounded-lg w-[19.5rem] h-[17.8rem] ">
+                <h3>Background 3</h3>
+              </div>
+              <div className="py-4 text-3xl text-center">
+                <p>Prueba tu codigo</p>
+              </div>
+              <div className="text-2xl">
+                <p cl>Lorem ipsum</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="min-h-screen">
+          <div className="text-center">
+            <h2 className="text-4xl py-16">Nuestros Valores</h2>
+          </div>
+
+          <div className="grid grid-cols-3 place-content-center place-items-center h-screen text-center items-center py-6 border border-red-400 border-dashed">
+            <div>
+              <div className="border border-red-400 border-dashed bg-gray-500 rounded-lg w-[19.5rem] h-[17.8rem] ">
+                <h3>Background 1</h3>
+              </div>
+              <div className="py-4 text-3xl text-center">
+                <p>Titulo 1</p>
+              </div>
+              <div className="text-2xl">
+                <p cl>Lorem ipsum</p>
+              </div>
+            </div>
+            <div>
+              <div className="border border-red-400 border-dashed bg-gray-500 rounded-lg w-[19.5rem] h-[17.8rem] ">
+                <h3>Background 2</h3>
+              </div>
+              <div className="py-4 text-3xl text-center">
+                <p>Titulo 2</p>
+              </div>
+              <div className="text-2xl">
+                <p cl>Lorem ipsum</p>
+              </div>
+            </div>
+            <div>
+              <div className="border border-red-400 border-dashed bg-gray-500 rounded-lg w-[19.5rem] h-[17.8rem] ">
+                <h3>Background 3</h3>
+              </div>
+              <div className="py-4 text-3xl text-center">
+                <p>Titulo 3 </p>
+              </div>
+              <div className="text-2xl">
+                <p cl>Lorem ipsum</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
