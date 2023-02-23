@@ -1,5 +1,6 @@
 package com.nocountry.courses.controller;
 
+import com.nocountry.courses.dto.response.BasicCourseResponseDto;
 import com.nocountry.courses.handler.ResponseBuilder;
 import com.nocountry.courses.model.User;
 import jakarta.servlet.http.HttpServletResponse;
@@ -23,7 +24,7 @@ import java.util.Set;
 public record UserController(UserServiceImpl userService) {
 
     @GetMapping("/me")
-    public ResponseEntity<?> getMyUser(){
+    public ResponseEntity<?> getMyUser() {
         return ResponseBuilder.responseBuilder(HttpStatus.OK, userService.getMyUser());
     }
 
@@ -33,20 +34,27 @@ public record UserController(UserServiceImpl userService) {
     }
 
     @GetMapping("/get-all")
-    public ResponseEntity<Collection<UserResponseDto>> getAllUser() {
-        List<UserResponseDto> users = userService.findAll();
+    public ResponseEntity<Collection<User>> getAllUser() {
+        List<User> users = userService.findAll();
         if (users.isEmpty()) {
             ResponseEntity.status(HttpServletResponse.SC_NO_CONTENT);
         }
         return ResponseEntity.ok(users);
+/*
+        return (users.isEmpty()) ? ResponseEntity.status(HttpServletResponse.SC_NO_CONTENT)
+                : ResponseEntity.ok(users);
+*/
     }
 
-    @GetMapping("/get-by-id")
-    public ResponseEntity<UserResponseDto> findUserById(@PathVariable Long id){
-        if (id == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        } else {
-            return ResponseEntity.ok(userService.findById(id));
-        }
+    @GetMapping("/get-by-id/{id}")
+    public ResponseEntity<User> findUserById(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.findById(id));
+    }
+
+
+    @GetMapping("/favourites/{user_id}/{course_id}")
+    public ResponseEntity<List<BasicCourseResponseDto>> addCourseToFavouriteList(@PathVariable Long user_id,
+                                                                                 @PathVariable Long course_id) {
+        return ResponseEntity.ok(userService.addFavouriteCourseToUser(user_id, course_id));
     }
 }

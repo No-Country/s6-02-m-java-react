@@ -1,11 +1,16 @@
 package com.nocountry.courses.service.impl;
 
 import com.nocountry.courses.dto.request.UserRequestDto;
+import com.nocountry.courses.dto.response.BasicCourseResponseDto;
+import com.nocountry.courses.dto.response.CourseResponseDto;
 import com.nocountry.courses.dto.response.UserResponseDto;
 import com.nocountry.courses.handler.exception.ResourceNotFoundException;
 import com.nocountry.courses.mapper.GenericMapper;
+import com.nocountry.courses.model.Course;
 import com.nocountry.courses.model.User;
+import com.nocountry.courses.repository.CourseRepository;
 import com.nocountry.courses.repository.UserRepository;
+import com.nocountry.courses.service.ICourseService;
 import com.nocountry.courses.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
@@ -13,8 +18,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 import static com.nocountry.courses.model.enums.EMessageCode.RESOURCE_NOT_FOUND;
 
@@ -25,21 +32,22 @@ public class UserServiceImpl implements IUserService {
     private final GenericMapper mapper;
     private final UserRepository userRepository;
     private final MessageSource messenger;
+    private final CourseRepository courseRepository;
 
-    public UserResponseDto getMyUser() {
+    public User getUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = this.userRepository.findByEmail(authentication.getName())
+        return this.userRepository.findByEmail(authentication.getName())
                 .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),
                         new Object[]{User.class.getName()}, Locale.getDefault())));
-        return mapper.map(user, UserResponseDto.class);
+    }
+
+    public UserResponseDto getMyUser() {
+        return mapper.map(getUser(), UserResponseDto.class);
     }
 
     @Override
     public UserResponseDto update(UserRequestDto requestDto, Long id) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = this.userRepository.findByEmail(authentication.getName())
-                .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),
-                        new Object[]{User.class.getName(), id}, Locale.getDefault())));
+        User user = getUser();
 
         user.setEmail(requestDto.getEmail());
         user.setName(requestDto.getName());
@@ -57,16 +65,28 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public List<UserResponseDto> findAll() {
-        return mapper.mapAll(userRepository.findAll(), UserResponseDto.class);
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
     @Override
-    public UserResponseDto findById(Long id) {
+    public User findById(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),
                         new Object[]{User.class.getName(), id}, Locale.getDefault())));
-        return mapper.map(user, UserResponseDto.class);
+        return user;
     }
 
+    @Override
+    public List<BasicCourseResponseDto> addFavouriteCourseToUser(Long user_id, Long course_id) {
+        User user = findById(user_id);
+        Course course =  courseRepository.findById(course_id).get();
+        user.getIdCourses().add(course.getId());
+        userRepository.save(user);
+
+        return courseRepository.findAllById(user.getIdCourses())
+                .stream()
+                .map(courseStream -> new BasicCourseResponseDto(courseStream.getTitle()))
+                .collect(Collectors.toList());
+    }
 }
