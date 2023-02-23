@@ -10,6 +10,27 @@
   transition: all .3s;
 }
 
-.sidebar:hover .navbar li a span,.sidebar:hover .logo_small {
+.sidebar:hover .navbar li a span,
+.sidebar:hover .logo_small {
   display: block;
 }
+
+.sidebar:hover .navbar {
+  align-items: start;
+}
+
+.input-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: unset;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn-filter {
+  border: 1px solid #ccc;
+  /* width: 100%; */
+}
+

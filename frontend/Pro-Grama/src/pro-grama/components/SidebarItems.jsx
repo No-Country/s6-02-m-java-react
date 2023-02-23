@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const SidebarItems = () => {
   return (
-    <ul className="space-y-2 py-5 px-2 text-start navbar">
+    <ul className="space-y-2 py-5 px-2 text-start items-center navbar flex flex-col">
       <li>
         <Link
           to="/"
