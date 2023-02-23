@@ -2,8 +2,19 @@ import { Link } from "react-router-dom";
 import { HeaderBSide } from "../../pro-grama/components";
 import { BsEyeSlash } from "react-icons/bs";
 import { AiFillGoogleCircle } from "react-icons/ai";
-
+import { useForm } from "../hooks/useForm";
+import { useAuthStore } from "../../hooks/useAuthStore";
+const initalForm ={
+  email:"",
+  password:""
+}
 export const Login = () => {
+  const{onInputChange,formState,email,password}=useForm(initalForm)
+  const{startLogin}= useAuthStore()
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    startLogin({email:email, password:password})
+  }
   return (
     <>
       <HeaderBSide />
@@ -14,7 +25,7 @@ export const Login = () => {
           <h2 className="text-4xl flex justify-start mb-4 align-content-center">
             Te damos la bienvenida!
           </h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-6">
               <label
                 htmlFor="email"
@@ -25,6 +36,9 @@ export const Login = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
+                value={email}
+                onChange={onInputChange}
                 className="bg-gray-50 border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Ejemplo@gmail.com"
                 required
@@ -44,6 +58,9 @@ export const Login = () => {
               <input
                 type="password"
                 id="password"
+                name="password"
+                value={password}
+                onChange={onInputChange}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
                 placeholder="Ejemplo***"
