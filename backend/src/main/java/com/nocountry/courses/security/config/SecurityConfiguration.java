@@ -27,11 +27,13 @@ public class SecurityConfiguration {
     private static final String[] AUTH_WHITELIST = {
             "/auth/**",
             "/authenticate",
+            "/user/get-all",
+            "/user/get-by-id/{id}",
             "/swagger-resources/**",
             "/swagger-ui/**",
             "/api-docs/**",
-            "/webjars/**"
-            ,"/course/public/**"
+            "/webjars/**",
+            "/course/public/**"
     };
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
