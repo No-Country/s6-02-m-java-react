@@ -6,7 +6,7 @@ import { AiOutlineClockCircle } from 'react-icons/ai'
 
 /*importacion datos desde JSON*/
 import data from '../../../helpers/infoCourseData.json'
-
+import Notes from './Notes/Notes'
 
 const LessonsCourses = () => {
   return (
