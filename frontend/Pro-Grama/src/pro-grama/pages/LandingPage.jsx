@@ -13,7 +13,20 @@ const LandingPage = () => {
     <div>
       <div className="bg-BlueDark">
         <div>
-          <HeaderBSide />
+          <div className="flex justify-between text-white">
+            <HeaderBSide className="justify-start" />
+            <div className="flex py-4 justify-between">
+              <Link to='/auth/login'>
+                <button className="flex px-4">Iniciar Sesion</button>
+              </Link>
+              <Link to='/auth/register'>
+                <button className="flex px-4">Registrarse</button>
+              </Link>
+              <Link to='/auth/register'>
+              <span className="px-4 rounded-full h-10 w-10 bg-gray-500"></span>
+              </Link>
+            </div>
+          </div>
         </div>
 
         <HeaderLanding />
