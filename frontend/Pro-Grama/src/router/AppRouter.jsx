@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { AuthRoutes } from "../auth/routes/authRoutes";
 import { useAuthStore } from "../hooks/useAuthStore";
+import LandingPage from "../pro-grama/pages/LandingPage";
 import { MainRoute } from "../pro-grama/routes/mainRoute";
 
 export const AppRouter = () => {
@@ -23,7 +24,12 @@ export const AppRouter = () => {
       {
         status === "authorized"
         ?<Route path="/*" element={<MainRoute />} />
-        : <Route path="/auth/*" element={<AuthRoutes />} />
+        : (
+          <>
+        <Route path="landing" element={<LandingPage />} />
+        <Route path="/auth/*" element={<AuthRoutes />} />
+         </>
+        )
       }
       <Route path="/*" element={<Navigate to='/auth/login' />} />
      
