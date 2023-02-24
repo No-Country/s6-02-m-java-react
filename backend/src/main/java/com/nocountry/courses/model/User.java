@@ -37,7 +37,8 @@ public class User implements UserDetails {
     @Temporal(TemporalType.DATE)
     private LocalDate registerDate;
 
-    private List<Long> idFavourites;
+    @ElementCollection
+    private List<Long> idCourses;
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
