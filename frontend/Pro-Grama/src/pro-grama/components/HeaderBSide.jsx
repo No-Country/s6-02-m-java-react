@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const HeaderBSide = () => {
   return (
     <div className="ml-[7rem] bg-BlueDark">
-      <div className="flex items-center justify-between h-20 ">
-        <Link to="/">
+      <div className="flex items-center justify-between h-20  ">
+        <Link to="/landing">
           {/* LOGO SCV PATH */}
           <svg
             width="200"
