@@ -16,22 +16,24 @@ const LandingPage = () => {
         <div>
           <div className="flex justify-between text-white">
             <HeaderBSide className="justify-start" />
-            <div className="flex py-4 px-4 justify-between">
-              <Link to='/auth/login'>
-              <span className="flex justify-between px-2">
-                <FiStar className="text-2xl mx-2"/> Iniciar Sesion
-              </span>
-              </Link>
-              <Link to='/auth/register'>
-              <span className="flex justify-between px-2">
-                <FiUser className="text-2xl mx-2"/> Iniciar Sesion
-              </span>
-              </Link>
-              <Link to='/auth/register'>
-              <span className="flex px-2 justify-center items-center rounded-full h-8 w-8 bg-gray-400">
-                <FiHelpCircle className="text-2xl text-center"/>
-              </span>
-              </Link>
+            <div className="flex py-4 px-8 justify-between items-center">
+              <div className="flex justify-between items-center gap-8">
+                <Link to="/auth/login">
+                  <span className="flex justify-center items-center px-8 py-2 border border-Green rounded-md text-Green">
+                    <FiStar className="text-xl mx-2" /> Registrarse
+                  </span>
+                </Link>
+                <Link to="/auth/register">
+                  <span className="flex justify-center items-center px-8 py-2 border border-Green rounded-md text-BlueDark bg-Green">
+                    <FiUser className="text-2xl mx-2" /> Iniciar Sesión
+                  </span>
+                </Link>
+                <Link to="/">
+                  <span className="flex justify-center items-center rounded-full h-10 w-10 bg-[#343434]">
+                    <FiHelpCircle className="text-2xl text-center text-Green" />
+                  </span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -82,7 +82,7 @@ const Users = {
       nombre: "Sebastian Barcia",
       rol: "React - Frontend",
       github: "https://github.com/sebastianbarcia",
-      linkedIn: "https://www.linkedin.com/in/francisco-santos-a6973a1ab/",
+      linkedIn: "https://www.linkedin.com/in/sebastian-barcia/",
     },
     {
       id: 12,
