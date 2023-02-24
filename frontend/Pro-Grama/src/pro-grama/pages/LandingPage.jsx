@@ -1,4 +1,5 @@
 import React from "react";
+import { FiHelpCircle, FiStar, FiUser } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { HeaderBSide } from "../components";
 import HeaderLanding from "../components/LandingSections/HeaderLanding";
@@ -15,15 +16,21 @@ const LandingPage = () => {
         <div>
           <div className="flex justify-between text-white">
             <HeaderBSide className="justify-start" />
-            <div className="flex py-4 justify-between">
+            <div className="flex py-4 px-4 justify-between">
               <Link to='/auth/login'>
-                <button className="flex px-4">Iniciar Sesion</button>
+              <span className="flex justify-between px-2">
+                <FiStar className="text-2xl mx-2"/> Iniciar Sesion
+              </span>
               </Link>
               <Link to='/auth/register'>
-                <button className="flex px-4">Registrarse</button>
+              <span className="flex justify-between px-2">
+                <FiUser className="text-2xl mx-2"/> Iniciar Sesion
+              </span>
               </Link>
               <Link to='/auth/register'>
-              <span className="px-4 rounded-full h-10 w-10 bg-gray-500"></span>
+              <span className="flex px-2 justify-center items-center rounded-full h-8 w-8 bg-gray-400">
+                <FiHelpCircle className="text-2xl text-center"/>
+              </span>
               </Link>
             </div>
           </div>
