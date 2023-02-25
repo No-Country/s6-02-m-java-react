@@ -54,7 +54,7 @@ const LandingPage = () => {
           <WhyPro />
         </div>
 
-        <div className="min-h-screen w-fit text-white">
+        <div className="min-h-screen w-full text-white">
           <Valores />
         </div>
 

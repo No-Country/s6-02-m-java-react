@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  FiArrowDown,
   FiArrowDownLeft,
   FiCode,
   FiFileText,
@@ -15,7 +14,7 @@ const WhyPro = () => {
       </div>
 
       <div>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-content-center place-items-center xl:h-screen text-center items-center gap-2 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-content-center place-items-center lg:h-screen text-center items-center gap-2 py-6">
           <div>
             <div>
               <FiTrendingUp className="object-cover rounded-lg w-[19.5rem] h-fit mx-auto text-Green " />
