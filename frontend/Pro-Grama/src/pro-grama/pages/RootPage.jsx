@@ -7,7 +7,7 @@ const Root = () => {
       <Sidebar />
       <div>
         <Header />
-        <main className="px-12">
+        <main className="px-12 pt-4 bg-Blue">
           <Outlet />
         </main>
       </div>

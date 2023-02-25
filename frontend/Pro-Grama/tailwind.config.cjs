@@ -18,6 +18,7 @@ module.exports = {
         Green: "#6BFF81",
         GrayDark: "#161616",
         GrayLight: "#F4F4F4",
+        DefaultWhite:"#ffff"
       },
       gridTemplateColumns: {
         // added new 4 column grid as new4
