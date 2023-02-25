@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  FiArrowDown,
   FiArrowDownLeft,
   FiCode,
   FiFileText,
@@ -15,10 +14,10 @@ const WhyPro = () => {
       </div>
 
       <div>
-        <div className="grid grid-cols-3 place-content-center place-items-center h-screen text-center items-center gap-2 py-6">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-content-center place-items-center lg:h-screen text-center items-center gap-2 py-6">
+          <div className="py-8">
             <div>
-              <FiTrendingUp className="object-cover rounded-lg w-[19.5rem] h-fit mx-auto text-Green " />
+              <FiTrendingUp className="object-cover rounded-lg w-[14rem] lg:w-[19.5rem] h-fit mx-auto text-Green " />
             </div>
             <div className="py-4 text-3xl text-center">
               <p>Crea tu ruta</p>
@@ -30,9 +29,9 @@ const WhyPro = () => {
               </p>
             </div>
           </div>
-          <div>
+          <div className="py-8">
             <div>
-              <FiFileText className="object-cover rounded-lg w-[19.5rem] h-fit mx-auto text-Green " />
+              <FiFileText className="object-cover rounded-lg w-[14rem] lg:w-[19.5rem] h-fit mx-auto text-Green " />
             </div>
             <div className="py-4 text-3xl text-center">
               <p>Toma tus notas</p>
@@ -44,9 +43,9 @@ const WhyPro = () => {
               </p>
             </div>
           </div>
-          <div>
+          <div className="py-8">
             <div>
-              <FiCode className="object-cover rounded-lg w-[19.5rem] h-fit mx-auto text-Green " />
+              <FiCode className="object-cover rounded-lg w-[14rem] lg:w-[19.5rem] h-fit mx-auto text-Green " />
             </div>
             <div className="py-4 text-3xl text-center">
               <p>Prueba tu codigo</p>
