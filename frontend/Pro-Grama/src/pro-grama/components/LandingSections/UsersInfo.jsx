@@ -133,7 +133,7 @@ const Users = {
 
 const UsersInfo = () => {
   return (
-    <div className="border border-green-900 border-dashed">
+    <div>
       <div className="text-center py-20 text-4xl">
         <h2>Nuestro Equipo</h2>
       </div>
