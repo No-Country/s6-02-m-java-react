@@ -3,7 +3,7 @@ import { FiHeadphones } from "react-icons/fi";
 
 const Valores = () => {
   return (
-    <div className="min-h-screen min-w-fit">
+    <div className="min-h-screen min-w-fit bg-Blue">
       <div className="text-center">
         <h2 className="text-4xl py-16">Nuestros Valores</h2>
       </div>

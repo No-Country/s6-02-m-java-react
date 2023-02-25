@@ -61,7 +61,8 @@ const Users = {
       nombre: "Nicolas Gutierrez",
       rol: "React - Frontend",
       github: "https://github.com/ag171980",
-      image: "https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg",
+      image:
+        "https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg",
       linkedIn: "https://www.linkedin.com/in/alexis-nicolas-gutierrez/",
     },
     {
@@ -69,7 +70,8 @@ const Users = {
       nombre: "Luis Navarro",
       rol: "React - Frontend",
       github: " https://github.com/luisnava6667",
-      image: "https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg",
+      image:
+        "https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg",
       linkedIn: "https://www.linkedin.com/in/luisnavarro-fullstack/ ",
     },
     {
@@ -77,7 +79,8 @@ const Users = {
       nombre: "Francisco Santos",
       rol: "React - Frontend",
       github: "https://github.com/FranciscoSantos01",
-      image: "https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg",
+      image:
+        "https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg",
       linkedIn: "https://www.linkedin.com/in/francisco-santos-a6973a1ab/",
     },
     {
@@ -85,7 +88,8 @@ const Users = {
       nombre: "Nathalia Riascos",
       rol: "React - Frontend",
       github: "https://github.com/NathaliaRiascos",
-      image: "https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg",
+      image:
+        "https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg",
       linkedIn: "https://www.linkedin.com/in/francisco-santos-a6973a1ab/",
     },
     {
@@ -93,7 +97,8 @@ const Users = {
       nombre: "Sebastian Barcia",
       rol: "React - Frontend",
       github: "https://github.com/sebastianbarcia",
-      image: "https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg",
+      image:
+        "https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg",
       linkedIn: "https://www.linkedin.com/in/sebastian-barcia/",
     },
     {
@@ -119,7 +124,8 @@ const Users = {
       nombre: "Andrea Ceballos Alcaraz",
       rol: "Analista Pruebas Software",
       github: "https://github.com/andreAlcaraz",
-      image: "https://www.svgrepo.com/show/418502/analysis-analytics-chart-2.svg",
+      image:
+        "https://www.svgrepo.com/show/418502/analysis-analytics-chart-2.svg",
       linkedIn: "https://www.linkedin.com/in/andreaceballosalcaraz/",
     },
   ],
