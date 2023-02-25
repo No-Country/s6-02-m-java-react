@@ -12,20 +12,21 @@ import CoursesPage from "./CoursesPage";
 const LandingPage = () => {
   return (
     <div>
-      <div className="bg-BlueDark">
-        <div>
-          <div className="flex justify-between text-white">
+      <div className="w-fit bg-BlueDark">
+        <div className="border border-green-900 border-dashed">
+          <div className="border border-orange-500 border-dashed flex w-full justify-between text-white">
             <HeaderBSide className="justify-start" />
-            <div className="flex py-4 px-8 justify-between items-center">
-              <div className="flex justify-between items-center gap-8">
+            <div className=" border border-blue-500 flex justify-between items-center">
+              <div className="mx-10 w-fit flex justify-between items-center gap-10">
                 <Link to="/auth/login">
                   <span className="flex justify-center items-center px-8 py-2 border border-Green rounded-md text-Green">
                     <FiStar className="text-xl mx-2" /> Registrarse
                   </span>
                 </Link>
                 <Link to="/auth/register">
-                  <span className="flex justify-center items-center px-8 py-2 border border-Green rounded-md text-BlueDark bg-Green">
-                    <FiUser className="text-2xl mx-2" /> Iniciar Sesión
+                  <span className="flex justify-center items-center px-8 py-0 md:py-2 border border-Green rounded-md text-BlueDark bg-Green">
+                    <FiUser className="flex text-center mx-2" />
+                    Iniciar Sesión
                   </span>
                 </Link>
                 <Link to="/">
@@ -53,11 +54,11 @@ const LandingPage = () => {
           <WhyPro />
         </div>
 
-        <div className="min-h-screen text-white">
+        <div className="min-h-screen w-fit text-white">
           <Valores />
         </div>
 
-        <div className="min-h-screen text-white">
+        <div className="min-h-screen  text-white border border-green-900 border-dashed">
           <UsersInfo />
         </div>
       </div>

@@ -2,10 +2,10 @@ import React from "react";
 
 const HeaderLanding = () => {
   return (
-    <div className="py-[12rem]  min-h-screen bg-BlueDark text-white">
+    <div className="py-[12rem] lg:py-[12rem]  min-h-screen bg-BlueDark text-white">
       <svg
         viewBox="0 0 167 31"
-        className="pt-2 m-auto text-center lg:w-100% lg:h-24 sm:w-auto sm:h-auto"
+        className="lg:pt-2 w-[36rem] m-auto text-center lg:w-100% lg:h-24 sm:w-auto sm:h-auto"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
