@@ -9,12 +9,12 @@ const AccordionFaqs = ({help , title}) => {
 
     {help.map((item) => {
         return(
-            <Accordion alwaysOpen={true} className="divide-transparent rounded-none border-0 max-lg:w-full w-2/3 ">
+            <Accordion alwaysOpen={true} className="divide-transparent rounded-none border-0 max-lg:w-full w-2/3"  >
             <Accordion.Panel >
-              <Accordion.Title className="focus:rounded-none focus:ring-0 border-b bg-transparent hover:bg-transparent px-0 text-DefaultWhite titleElements">
+              <Accordion.Title className="focus:rounded-none focus:ring-0 border-b bg-transparent hover:bg-transparent px-0  titleElements" id='text-white'>
                {item.title}
               </Accordion.Title>
-              <Accordion.Content className="px-0">
+              <Accordion.Content className="px-0" id='background-color-transparent'>
                 <p className="mb-2 text-white text-justify">
                  {item.paragraph}
                 </p>
