@@ -137,7 +137,7 @@ const UsersInfo = () => {
       <div className="text-center py-20 text-4xl">
         <h2>Nuestro Equipo</h2>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 py-8 border border-green-900 border-dashed">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 py-8">
         {Users.data.map((info) => (
           <>
             {/*  CARD */}
