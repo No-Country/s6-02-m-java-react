@@ -10,12 +10,12 @@ const Navigation = () => {
         <HeaderBSide className="justify-start" />
         <div className="flex justify-between items-center">
           <div className="mx-10 w-fit flex justify-between items-center gap-10">
-            <Link to="/auth/login">
+            <Link to="/auth/register">
               <span className="flex justify-center items-center px-8 py-2 border border-Green rounded-md text-Green">
                 <FiStar className="text-xl mx-2" /> Registrarse
               </span>
             </Link>
-            <Link to="/auth/register">
+            <Link to="/auth/login">
               <span className="flex justify-center items-center px-8 py-0 md:py-2 border border-Green rounded-md text-BlueDark bg-Green">
                 <FiUser className="flex text-center mx-2" />
                 Iniciar Sesión

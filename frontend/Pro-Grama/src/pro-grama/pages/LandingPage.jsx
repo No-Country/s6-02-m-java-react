@@ -9,7 +9,7 @@ import CoursesPage from "./CoursesPage";
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className="bg-BlueDark">
       <div className="w-fit bg-BlueDark">
         <Navigation />
         <HeaderLanding />
