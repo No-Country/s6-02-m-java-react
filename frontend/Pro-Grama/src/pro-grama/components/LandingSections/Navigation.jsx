@@ -21,7 +21,7 @@ const Navigation = () => {
                 Iniciar Sesión
               </span>
             </Link>
-            <Link to="/">
+            <Link to="/faqs">
               <span className="flex justify-center items-center rounded-full h-10 w-10 bg-Blue">
                 <FiHelpCircle className="text-2xl text-center text-Green" />
               </span>
