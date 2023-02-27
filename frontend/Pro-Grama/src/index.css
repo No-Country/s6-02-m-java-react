@@ -15,6 +15,15 @@
   display: block;
 }
 
+.container-logo-small {
+  justify-content: center;
+}
+
+.sidebar:hover .container-logo-small {
+  padding-left: 0.670rem;
+  justify-content: flex-start;
+
+}
 .sidebar:hover .navbar {
   align-items: start;
 }

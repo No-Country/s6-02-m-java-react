@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { CardContainer } from './cardCourses/cardContainer'
 import Header from './Header'
 import ProgressCards from './ProgressCards/ProgressCards'
@@ -8,7 +9,7 @@ const Sections = () => {
   return (
     <div className=' '>
       {/* <Header /> */}
-      <div className=' dark:border-gray-700 px-12'>
+      <div className='px-12'>
         {/* Primer Seccion de cuadrados, mover grid-cols para cambiar el estilo */}
         <h1 className='text-5xl my-2'>Bienvenido! @User!</h1>
         <span className='text-2xl mb-5'>¿Qué vamos a aprender hoy?</span>
@@ -27,7 +28,7 @@ const Sections = () => {
         {/* Cuarta Seccion de cuadrados, mover Flex para cambiar el estilo */}
         <div className='flex justify-between items-center'>
           <h2 className='text-4xl py-6'>Cursos Disponibles</h2>
-          <span className=''>Ver todos</span>
+          <Link to="/courses">Ver todos</Link>
         </div>
         <div className='flex items-center justify-center mb-4 rounded-sm bg-gray-50 dark:bg-gray-800'>
           <CardContainer />

@@ -11,12 +11,10 @@ import { Button } from "flowbite-react";
 import ReactPlayer from "react-player";
 import "./curso.css";
 import { ListaVideos } from "./ListaVideos";
-import  Sidebar  from "../Sidebar";
-
-import image from '../../../../src/assets/curso-js.jpeg'
+import Sidebar from "../Sidebar";
 
 /*importacion datos desde JSON*/
-import data from '../../../helpers/infoCourseData.json'
+import data from "../../../helpers/infoCourseData.json";
 
 export const Description = () => {
   const [hearthPress, setHearthPress] = useState(true);
@@ -27,10 +25,9 @@ export const Description = () => {
 
   return (
     <>
-    {/* <Sidebar/> */}
+      {/* <Sidebar/> */}
       <div className="flex items-center max-md:px-8 px-32 my-6 justify-between max-md:flex-col">
-        <div
-          className="flex justify-between items-center  w-8/12 max-md:w-full">
+        <div className="flex justify-between items-center  w-8/12 max-md:w-full">
           <h2 className="text-3xl">{`Curso de ${data.title}`}</h2>
           <Button color="white" onClick={handleHearth}>
             {hearthPress ? (
@@ -54,7 +51,7 @@ export const Description = () => {
         <div className="flex-col w-8/12 max-lg:w-full">
           {/*imagen provisoria para poder trabajar*/}
           <img className="rounded-xl" src={data.image}></img>
-            {/*Video comentado para poder trabajar*/}
+          {/*Video comentado para poder trabajar*/}
           {/* <div className="player-wrapper rounded-xl">
             
              <ReactPlayer
@@ -67,7 +64,7 @@ export const Description = () => {
               height={"100%"}
             /> 
           </div> */}
-          <div className="flex justify-between p-4" >
+          <div className="flex justify-between p-4">
             <p className="py-4 flex items-center gap-2">
               {" "}
               <AiOutlineUnorderedList /> {`${data.lessons} lecciones`}

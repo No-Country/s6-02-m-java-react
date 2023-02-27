@@ -35,8 +35,8 @@ const Sidebar = () => {
         className="sidebar w-[6rem] hover:w-52 h-full translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
-        <div className="h-full px-2 py-[3rem] text-center bg-gray-50 dark:bg-gray-800">
-          <Link to="/" className="flex items-center pl-2.5 mb-5">
+        <div className="h-full px-2 py-[3rem] text-center bg-gray-50 dark:bg-BlueDark">
+          <Link to="/" className="flex items-center mb-5 container-logo-small">
             <AiOutlineCode className=" flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
             <span className=" px-4 logo_small hidden self-center text-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               <svg

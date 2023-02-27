@@ -8,7 +8,7 @@ const ProgressCourses = () => {
       {/* Container de Cards */}
       <div className="my-courses flex flex-wrap">
         {courses.map((course) => {
-          return <CardCourse {...course} />;
+          return <CardCourse key={course.name} {...course} />;
         })}
 
         <div className="course flex items-center justify-center">

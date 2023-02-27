@@ -21,20 +21,4 @@ export const areas = [
     'Game developer'
 ]
 
-export const hours = [
-    {
-        start: 5,
-        end: 10
-    },
-    {
-        start: 10,
-        end: 20
-    },
-    {
-        start: 20,
-        end: 40
-    },
-    {
-        start: 40
-    }
-]
+export const hours = ['5,10', '10,20', '20,40', '40']

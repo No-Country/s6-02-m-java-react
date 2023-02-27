@@ -25,7 +25,7 @@ function Search() {
                 <FiFilter />
             </button>
         </div>
-        {isFilterOpen && <Filter />}
+        {isFilterOpen && <Filter setIsFilterOpen={setIsFilterOpen}/>}
         
         {(value && !isFilterOpen) && <SearchedListCourses courseName={value}/>}
     </div>

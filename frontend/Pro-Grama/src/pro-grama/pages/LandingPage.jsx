@@ -1,21 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Search } from "./search";
+import { HeaderBSide } from "../components";
 
-const Header = () => {
+import CoursesPage from "./CoursesPage";
+
+const LandingPage = () => {
   return (
-    <div className="grid grid-cols-1 gap-4 mb-4">
-      <div className="flex items-center justify-between px-24 h-28 bg-BlueDark ">
-        <Link to="/">
-          {/* LOGO SCV PATH */}
+    <div>
+      <div className="">
+        <div>
+          <HeaderBSide />
+        </div>
+
+        <div className="border-red-400 border-dashed border py-[12rem]  min-h-screen bg-gray-200">
           <svg
-            width="200"
-            height="64"
             viewBox="0 0 167 31"
+            className="pt-2 m-auto text-center lg:w-100% lg:h-24 sm:w-auto sm:h-auto"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g clip-path="url(#clip0_220_102)">
+            <g clipPath="url(#clip0_220_102)">
               <path
                 d="M81.1271 31L76.1483 30.9003V28.522H80.6775C81.5934 28.522 82.2261 28.389 82.5425 28.1395C82.8589 27.8901 83.0254 27.4078 83.0254 26.7259V24.1149H75.4489C73.5506 24.1149 72.2351 23.8155 71.5024 23.2002C70.7698 22.5848 70.3868 21.3708 70.3868 19.558V11.176C70.3868 9.36324 70.7698 8.14919 71.5191 7.56711C72.2684 6.98503 73.5839 6.68567 75.4489 6.68567H81.2603L86.0727 6.78545V26.4931C86.0727 28.3058 85.723 29.5199 85.0236 30.102C84.3076 30.7007 83.0088 31 81.1271 31ZM83.0254 21.4872V9.1803H75.2657C74.4998 9.1803 74.0002 9.28009 73.7837 9.46303C73.5506 9.64597 73.434 10.0451 73.434 10.6438V20.0902C73.434 20.6723 73.5506 21.0548 73.7671 21.2377C73.9835 21.4206 74.4664 21.5204 75.1991 21.5204H83.0254V21.4872Z"
                 fill="#BCF0C0"
@@ -59,11 +63,58 @@ const Header = () => {
               </clipPath>
             </defs>
           </svg>
-        </Link>
-        <Search />
+          <div className="text-center text-3xl py-8 font-weight-light">
+            <h2>
+              Pablabras motivacionales que incentiven al estudio y al uso de
+              esta pagina para estudiar.
+            </h2>
+          </div>
+          <div className="py-4 flex justify-center">
+            <button class="relative inline-flex items-center justify-center p-0.5  overflow-hidden text-md font-medium text-BlueDark rounded-lg group bg-gradient-to-br from-Green to-Blue group-hover:from-Green group-hover:to-Blue hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-GreenLight dark:focus:ring-Green">
+              <span class="relative px-16 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-BlueDark rounded-md group-hover:bg-opacity-0">
+                Comienza Ya
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div className="min-h-fit p-10">
+          <div>
+            <h2 className="text-4xl text-center">Mira nuestros cursos</h2>
+          </div>
+          <div>
+            <CoursesPage />
+          </div>
+          <div className="text-center pt-14 pb-14">
+            <button class="relative inline-flex items-center justify-center p-0.5  overflow-hidden text-md font-medium text-BlueDark rounded-lg group bg-gradient-to-br from-Green to-GreenLight group-hover:from-Green group-hover:to-Blue hover:text-GrayDark dark:text-white focus:ring-4 focus:outline-none focus:ring-GreenLight dark:focus:ring-Green">
+              <Link
+                to="/courses"
+                class="relative px-16 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-BlueDark rounded-md group-hover:bg-opacity-0"
+              >
+                Ver mas cursos
+              </Link>
+            </button>
+          </div>
+        </div>
+
+        <div className="min-h-screen bg-gray-200">
+          <div className="text-center">
+            <h2 className="text-4xl py-16">¿Por qué elegir Pro-Grama?</h2>
+          </div>
+
+          <div className="grid grid-cols-3 text-center gap-2 border border-red-400 border-dashed">
+            <div>
+              <div className="border border-red-400 border-dashed">
+                <h3>hola</h3>
+              </div>
+            </div>
+            <div className="border border-red-400 border-dashed">Hola</div>
+            <div className="border border-red-400 border-dashed">Hola</div>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Header;
+export default LandingPage;
