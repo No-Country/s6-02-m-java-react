@@ -1,9 +1,10 @@
-import { CoursesData, languages } from "../../helpers";
+import { CoursesData } from "../../helpers";
 import { AiOutlineHeart, AiOutlineUnorderedList } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import CourseImg from "../../assets/curso-js.jpeg";
+import { Link } from "react-router-dom";
 
 function CoursesPage() {
   const [language, setLanguage] = useState("todos");
@@ -33,7 +34,6 @@ function CoursesPage() {
     <div className="min-h-screen">
       <div className="flex gap-6 justify-between items-center mb-12">
         <h1 className="text-5xl my-2 ml-10 text-white">Todos los cursos</h1>
-       
       </div>
       <div className="grid gap-6 w-full grid-cols-1 sm:grid-cols-2 justify-items-center md:justify-items-start md:grid-cols-courses justify-center">
         {listCourses.length ? (
