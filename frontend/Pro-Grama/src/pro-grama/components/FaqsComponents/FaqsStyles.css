@@ -1,0 +1,11 @@
+.titleElements svg{
+    fill: #6BFF81;
+}
+
+#background-color-transparent{
+    background-color: transparent;
+}
+#text-white{
+    color: white;
+    background-color: transparent;
+}

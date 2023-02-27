@@ -6,7 +6,6 @@ const CursosPage = () => {
   return (
     <>
       <Description />
-      
     </>
   )
 }

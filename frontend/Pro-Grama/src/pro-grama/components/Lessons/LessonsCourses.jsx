@@ -10,10 +10,10 @@ import Notes from './Notes/Notes'
 
 const LessonsCourses = () => {
   return (
-    <div className='flex px-32 max-md:px-8 justify-between gap-8 max-lg:flex-wrap'>
+    <div className='flex px-12 max-md:px-8 justify-between gap-8 max-lg:flex-wrap pb-24'>
       <div className='flex-col w-8/12 max-lg:w-full'>
         <div className='flex justify-between items-center py-4'>
-          <div>
+          <div className='text-white'>
             <h2 className='text-3xl py-1'>{`Curso de ${data.title}`}</h2>
             <p className='py-1'>{`Clase ${data.lessonsClasses[9].id}. ${data.lessonsClasses[9].name}`}</p>
             <p className='flex items-center gap-2 py-1'>
@@ -24,7 +24,7 @@ const LessonsCourses = () => {
           <div>
             <Button
               className='h-8 text-black hover:bg-slate-300  max-md:w-full max-md:mt-4'
-              style={{ backgroundColor: 'grey' }}>
+              style={{ backgroundColor: '#6BFF81' }}>
               <GrPlay className='mr-2' />
               Comenzar curso
             </Button>
