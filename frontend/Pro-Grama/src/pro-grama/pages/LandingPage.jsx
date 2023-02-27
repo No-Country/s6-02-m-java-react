@@ -1,7 +1,4 @@
 import React from "react";
-import { FiHelpCircle, FiStar, FiUser } from "react-icons/fi";
-import { Link } from "react-router-dom";
-import { HeaderBSide } from "../components";
 import HeaderLanding from "../components/LandingSections/HeaderLanding";
 import Navigation from "../components/LandingSections/Navigation";
 import UsersInfo from "../components/LandingSections/UsersInfo";
@@ -34,7 +31,7 @@ const LandingPage = () => {
           <Valores />
         </div>
 
-        <div className="min-h-screen  text-white border border-green-900 border-dashed">
+        <div className="min-h-screen  text-white">
           <UsersInfo />
         </div>
       </div>
