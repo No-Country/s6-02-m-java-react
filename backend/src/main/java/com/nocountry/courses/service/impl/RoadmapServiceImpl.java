@@ -18,6 +18,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Locale;
 
+import static com.nocountry.courses.model.enums.EMessageCode.RESOURCE_NOT_FOUND;
+
 @Service
 @RequiredArgsConstructor
 public class RoadmapServiceImpl implements IRoadmapService {
@@ -62,7 +64,12 @@ public class RoadmapServiceImpl implements IRoadmapService {
 
     @Override
     public RoadmapResponseDto update(Long id, RoadmapRequestDto request) {
-        return null;
+
+        Roadmap roadmap = repository.findById(id).orElseThrow(()->new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(), null, Locale.getDefault())));
+
+        roadmap.setCourses(request.getCourses());
+
+        return mapper.map(repository.save(roadmap), RoadmapResponseDto.class);
     }
 
     @Override
