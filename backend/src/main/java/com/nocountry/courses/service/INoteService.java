@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface INoteService extends ICrudService<NoteResponseDto, NoteRequestDto> {
 
-    List<NoteResponseDto> findAllByUserId(Long id);
+    List<NoteResponseDto> findAllByUserId();
 }

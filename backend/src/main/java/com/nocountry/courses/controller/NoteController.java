@@ -17,9 +17,9 @@ public record NoteController(INoteService service) {
         return ResponseBuilder.responseBuilder(HttpStatus.CREATED, service.create(note));
     }
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<?> findAllByUserId(@PathVariable("userId") Long id){
-        return ResponseBuilder.responseBuilder(HttpStatus.OK, service.findAllByUserId(id));
+    @GetMapping("/my-notes")
+    public ResponseEntity<?> findAllByUserId(){
+        return ResponseBuilder.responseBuilder(HttpStatus.OK, service.findAllByUserId());
     }
 
     @PutMapping("/{id}")
