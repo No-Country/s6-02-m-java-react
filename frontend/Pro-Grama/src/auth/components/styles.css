@@ -14,7 +14,7 @@
     }
     .progress-container::before {
     content: '';
-    background-color: var(--line-border-empty);
+    /* background-color: var(--line-border-empty); */
     position: absolute;
     top: 50%;
     left: 0;
@@ -24,7 +24,7 @@
     z-index: -1;
     }
     .progress {
-    background-color: var(--line-border-fill);
+    /* background-color: var(--line-border-fill); */
     position: absolute;
     top: 50%;
     left: 0;
@@ -43,10 +43,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid var(--line-border-empty);
+    border: 3px solid;
     transition: 0.4s ease;
     }
-    .circle.active {
+    /* .circle.active {
     border-color: var(--line-border-fill);
-    }
+    } */
    
