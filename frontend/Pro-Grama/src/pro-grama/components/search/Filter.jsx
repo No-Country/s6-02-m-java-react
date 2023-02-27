@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { areas, dificulty, hours, CoursesData } from "../../../helpers";
-import { filterCourse, setCourses } from "../../../store/slices/course";
+import { filterCourse, setCourses } from "../../../store/course";
 import useFilter from "../../hooks/useFilter";
-
 
 function Filter({ setIsFilterOpen }) {
   const { courses } = useSelector((state) => state.course);
+  const { pathname } = useLocation();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const formatDificulty = dificulty.map((d) => d.value)
+  const formatDificulty = dificulty.map((d) => d.value);
   const { data: dataD, handleOnChange: handleOnChangeD } =
     useFilter(formatDificulty);
   const { data: dataA, handleOnChange: handleOnChangeA } = useFilter(areas);
@@ -40,14 +41,22 @@ function Filter({ setIsFilterOpen }) {
         dataA.find((data) => data == course.area) &&
         dataH.find((data) => findTime(data, course.hours))
     );
+    
+    if (!arr.length) {
+      Swal.fire({
+        text: "Ooops no hay coincidencia",
+        confirmButtonColor: "#6BFF81",
+      });
+      return;
+    }
 
-      dispatch(filterCourse(arr));
-      setIsFilterOpen((open) => !open);
-      navigate("/courses");
+    dispatch(filterCourse(arr));
+    setIsFilterOpen((open) => !open);
+    if (pathname !== "/landing") navigate("/courses");
   };
 
   return (
-    <div className="absolute flex bg-white w-full flex-wrap rounded-lg mt-2 gap-4 p-2">
+    <div className="absolute flex w-full flex-wrap rounded-lg mt-2 gap-4 p-2 bg-BlueMedium text-white">
       <div>
         <h2>Dificulta</h2>
         <hr className="my-2 h-px border-none bg-gray-500" />
@@ -110,7 +119,7 @@ function Filter({ setIsFilterOpen }) {
         </ul>
       </div>
       <button
-        className="btn-filter w-full max-w-[150px] ml-auto h-8 self-end"
+        className="rounded-md w-full max-w-[150px] ml-auto h-8 self-end bg-Green text-BlueDark"
         onClick={handleFilter}
       >
         Filtrar

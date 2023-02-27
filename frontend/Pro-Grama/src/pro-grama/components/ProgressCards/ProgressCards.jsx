@@ -36,7 +36,7 @@ const ProgressCards = () => {
     <>
       <div className="flex flex-wrap gap-2 justify-between py-2 my-4 rounded-lg ">
         {progressCardsInfo.map((cards) => (
-          <div  key={cards.id}>
+          <>
             <Link to="/CourseDetail">
               <div
                 className="w-[24rem] rounded-3xl flex gap-0 items-center border border-gray-300"
@@ -57,7 +57,7 @@ const ProgressCards = () => {
                 </div>
               </div>
             </Link>
-          </div>
+          </>
         ))}
         {/* <div className="flex items-center">
           <FontAwesomeIcon

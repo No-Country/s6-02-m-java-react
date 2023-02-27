@@ -38,8 +38,11 @@
   transform: translateY(-50%);
 }
 
-.btn-filter {
-  border: 1px solid #ccc;
-  /* width: 100%; */
+.btn-confirm {
+  background-color: "#6BFF81" !important;
+  color: "#000C18" !important;
 }
 
+#strokeHelp path{
+  stroke: rgb(112, 112, 112) ;
+}

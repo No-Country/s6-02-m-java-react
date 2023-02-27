@@ -1,6 +1,8 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { Login, Register, Register2, Register3 } from '../pages'
+import LandingPage from '../../pro-grama/pages/LandingPage'
+import { Login } from '../pages'
+import { MainRegister } from '../pages/MainRegister'
 
 
 export const AuthRoutes = () => {
@@ -8,9 +10,8 @@ export const AuthRoutes = () => {
     <>
     <Routes>
         <Route path="login" element={ <Login /> } />
-        <Route path="register" element={ <Register/> } />
-        <Route path="register2" element={ <Register2/> } />
-        <Route path="register3" element={ <Register3/> } />
+        <Route path="register" element={ <MainRegister/> } />
+        {/* <Route path='landing' element={<LandingPage />} /> */}
         <Route path='/*' element={ <Navigate to="/auth/login" /> } />
     </Routes>
     </>

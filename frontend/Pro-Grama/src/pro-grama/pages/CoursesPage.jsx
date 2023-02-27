@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { languages } from "../../helpers";
 import { AiOutlineHeart, AiOutlineUnorderedList } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { setCourses } from "../../store/slices/course";
+
 import { useDispatch, useSelector } from "react-redux";
+import { setCourses } from "../../store/course";
 
 
 function CoursesPage() {
@@ -34,7 +35,6 @@ function CoursesPage() {
   const courses = () => {
 
     if (filteredCourses.length) return filteredCourses
-
     const result = CoursesData.filter(
       (course) => course.tags.toLowerCase() === language.toLowerCase()
     )
@@ -46,14 +46,18 @@ function CoursesPage() {
 
   return (
     <div>
-      <div className="flex gap-6 justify-between items-center mb-12">
+      <div className="flex gap-6 justify-between items-center text-white mb-12">
         <h1 className="text-5xl my-2 ml-10">Todos los cursos</h1>
-        <select name="select" onChange={handleChange} defaultValue='todos'>
+        <select className="bg-BlueMedium text-white p-2 rounded-lg border outline-white border-white" name="select" onChange={handleChange} defaultValue='todos'>
           <option value="todos">
             Todos
           </option>
           {languages.map((language) => (
-            <option key={language} value={language}>{language}</option>
+            <option
+              className='hover:bg-white'
+              key={language}
+              value={language}
+            >{language}</option>
           ))}
         </select>
       </div>
@@ -61,7 +65,7 @@ function CoursesPage() {
         {courses().length ? (
           courses().map((course) => (
             <div
-              className="flex flex-col max-w-sm border-2 rounded-xl border-gray-500"
+              className="flex flex-col max-w-sm border-2 text-white rounded-xl border-gray-500"
               key={course.name}
             >
               <img
@@ -95,7 +99,7 @@ function CoursesPage() {
             </div>
           ))
         ) : (
-          <p>No se encontraron cursos de {language}</p>
+          <p className="text-white">No se encontraron cursos de {language}</p>
         )}
       </div>
     </div>

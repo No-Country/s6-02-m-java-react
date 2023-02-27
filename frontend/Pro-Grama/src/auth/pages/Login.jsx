@@ -2,29 +2,44 @@ import { Link } from "react-router-dom";
 import { HeaderBSide } from "../../pro-grama/components";
 import { BsEyeSlash } from "react-icons/bs";
 import { AiFillGoogleCircle } from "react-icons/ai";
-
+import { useForm } from "../hooks/useForm";
+import { useAuthStore } from "../../hooks/useAuthStore";
+import ProGrama from '../../assets/Pro-grama.jpeg'
+const initalForm ={
+  email:"",
+  password:""
+}
 export const Login = () => {
+  const{onInputChange,formState,email,password}=useForm(initalForm)
+  const{startLogin}= useAuthStore()
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    startLogin({email:email, password:password})
+  }
   return (
-    <>
+    <div className="bg-BlueDark h-fit ">
       <HeaderBSide />
 
       {/* LEFT SIDE */}
-      <div className="text-center bg-green-100 w-[50%] h-[90vh]">
+      <div className="text-center bg-BlueDark w-[50%] h-[100vh]">
         <div className="m-auto py-36 p-28">
-          <h2 className="text-4xl flex justify-start mb-4 align-content-center">
+          <h2 className="text-4xl text-white flex justify-start mb-4 align-content-center">
             Te damos la bienvenida!
           </h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-6">
               <label
                 htmlFor="email"
-                className="flex justify-start mb-2 text-md font-medium text-gray-900 "
+                className="flex justify-start mb-2 text-md font-medium text-white "
               >
                 Email
               </label>
               <input
                 type="email"
                 id="email"
+                name="email"
+                value={email}
+                onChange={onInputChange}
                 className="bg-gray-50 border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Ejemplo@gmail.com"
                 required
@@ -33,7 +48,7 @@ export const Login = () => {
             <div className="mb-6 relative">
               <label
                 htmlFor="password"
-                className="flex justify-start mb-2 text-md font-medium text-gray-900"
+                className="flex justify-start mb-2 text-md font-medium text-white"
               >
                 Contraseña
               </label>
@@ -44,6 +59,9 @@ export const Login = () => {
               <input
                 type="password"
                 id="password"
+                name="password"
+                value={password}
+                onChange={onInputChange}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
                 placeholder="Ejemplo***"
@@ -60,26 +78,26 @@ export const Login = () => {
                 />
                 <label
                   htmlFor="remember"
-                  className="flex justify-start text-sm ml-1 font-medium text-gray-900"
+                  className="flex justify-start text-sm ml-1 font-medium text-white"
                 >
                   Recuerdame
                 </label>
               </div>
-              <label className="text-sm font-medium text-gray-900">
+              <label className="text-sm font-medium text-white">
                 ¿Olvidaste tu contraseña?
               </label>
             </div>
             <button
               type="submit"
-              className="text-white bg-Green hover:bg-GreenLight focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-[100%] py-3 my-2 text-center dark:bg-GrayDark dark:hover:bg-green-800"
+              className="text-white bg-Green hover:bg-GreenLight focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-[100%] py-3 my-2 text-center  dark:hover:bg-green-800"
             >
               Iniciar Sesión
             </button>
             <button
               type="submit"
-              className="text-white bg-Green hover:bg-GreenLight focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-[100%] py-3 text-center dark:bg-GrayDark dark:hover:bg-green-800"
+              className="text-Green bg-BlueDark hover:bg-GreenLight focus:ring-4 focus:outline-none border-Green focus:ring-blue-300 font-medium rounded-lg text-sm w-[100%] py-3 text-center  dark:hover:bg-green-800"
             >
-              <span className="flex justify-center align-items-center">
+              <span className="flex justify-center align-items-center text-Green">
                 {" "}
                 <AiFillGoogleCircle className="text-xl mr-2" /> Ingresar con
                 Google
@@ -87,9 +105,9 @@ export const Login = () => {
             </button>
           </form>
 
-          <div className="text-center">
+          <div className="text-center text-white">
             ¿No tienes cuenta?{" "}
-            <Link to="/auth/register" className="text-md font-black">
+            <Link to="/auth/register" className="text-md text-white font-extrabold">
               Registrate
             </Link>
           </div>
@@ -98,8 +116,8 @@ export const Login = () => {
 
       {/* RIGHT SIDE */}
       <div className="text-center absolute left-[50%] top-[5rem] bg-green-900 w-[50%] h-[90vh]">
-        Rellenar
+        <img src={ProGrama} alt="Programa" className="w-full h-full object-cover" />
       </div>
-    </>
+    </div>
   );
 };

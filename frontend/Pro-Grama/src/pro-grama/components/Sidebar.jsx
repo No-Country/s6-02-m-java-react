@@ -6,37 +6,14 @@ import { AiOutlineCode } from "react-icons/ai";
 const Sidebar = () => {
   return (
     <>
-      {/* <button
-        data-drawer-target="logo-sidebar"
-        data-drawer-toggle="logo-sidebar"
-        aria-controls="logo-sidebar"
-        type="button"
-        className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-      >
-        <span className="sr-only">Open sidebar</span>
-        <svg
-          className="w-6 h-6"
-          aria-hidden="true"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            clipRule="evenodd"
-            fillRule="evenodd"
-            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-          ></path>
-        </svg>
-      </button> */}
-
       <aside
         id="logo-sidebar"
         // className="fixed top-0 left-0 z-10 w-16 hover:w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
         className="sidebar w-[6rem] hover:w-52 h-full translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
-        <div className="h-full px-2 py-[3rem] text-center bg-gray-50 dark:bg-BlueDark">
-          <Link to="/" className="flex items-center mb-5 container-logo-small">
+        <div className="h-full px-2 py-[3rem] text-center bg-BlueDark">
+          <Link to="/" className="flex items-center pl-2.5 mb-5">
             <AiOutlineCode className=" flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
             <span className=" px-4 logo_small hidden self-center text-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               <svg
@@ -46,7 +23,7 @@ const Sidebar = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0_220_101)">
+                <g clipPath="url(#clip0_220_101)">
                   <path
                     d="M28.8993 11.9864C28.7657 11.7143 28.9394 11.3878 29.2467 11.3606C30.1819 11.2654 30.8767 11.0205 31.3443 10.6395C31.9055 10.1633 32.186 9.25175 32.186 7.89121V3.51026C32.186 2.20414 31.9188 1.31978 31.3844 0.843591C30.85 0.367401 29.8212 0.136108 28.2981 0.136108H18.4378C18.1973 0.136108 18.0103 0.326585 18.0103 0.571483V1.68713C18.0103 1.93203 18.1973 2.1225 18.4378 2.1225L28.2981 2.20414C28.9126 2.20414 29.3001 2.27216 29.4738 2.42182C29.6475 2.57148 29.741 2.89801 29.741 3.38781V8.08169C29.741 8.57148 29.6475 8.89801 29.4738 9.04767C29.3001 9.19733 28.8993 9.27896 28.2981 9.27896H20.4687H18.4378C18.1973 9.27896 18.0103 9.46944 18.0103 9.71434V10.9933C18.0103 11.2381 18.1973 11.4286 18.4378 11.4286H20.4553V11.4014H25.7729C25.9332 11.4014 26.0802 11.4967 26.1603 11.6463L30.0082 19.6191C30.075 19.7688 30.222 19.864 30.3957 19.864H32.1593C32.48 19.864 32.6804 19.5239 32.5334 19.2245L28.8993 11.9864Z"
                     fill="#BCF0C0"

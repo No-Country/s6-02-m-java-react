@@ -1,16 +1,16 @@
 import React from "react";
 import { AiFillHome } from "react-icons/ai";
-import { RxDashboard } from "react-icons/rx";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { FiLayout } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import { VscSignIn } from "react-icons/vsc";
-import { BiLogIn } from "react-icons/bi";
+import { BiNotepad } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { GrCircleQuestion } from "react-icons/gr";
 
 const SidebarItems = () => {
   return (
-    <ul className="space-y-2 py-5 px-2 text-start items-center navbar flex flex-col">
+    <ul className="space-y-3 py-5 px-3 text-start navbar">
       <li>
         <Link
           to="/"
@@ -45,7 +45,7 @@ const SidebarItems = () => {
 
       <li>
         <Link
-          to="/"
+          to="/ProfilePage"
           className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           <CgProfile className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
@@ -55,46 +55,32 @@ const SidebarItems = () => {
 
       <li>
         <Link
-          to="/auth/register"
+          to="/"
           className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           <VscSignIn className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-          <span className="flex-1 ml-3 whitespace-nowrap hidden">
-            Registrarse
-          </span>
+          <span className="flex-1 ml-3 whitespace-nowrap hidden">LogOut</span>
         </Link>
       </li>
-
-      <li>
-        <Link
-          to="/auth/login"
-          className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-        >
-          <BiLogIn className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-          <span className="flex-1 ml-3 whitespace-nowrap hidden">
-            Iniciar Sesion
-          </span>
-        </Link>
-      </li>
-
       <li>
         <Link
           to="/CourseLessons"
           className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
-          <RxDashboard className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+          <BiNotepad className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
           <span className="px-3 hidden">Notas</span>
         </Link>
       </li>
       <li>
         <Link
-          to="/Home"
+          to="/faqs"
           className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
-          <BiLogIn className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-          <span className="flex-1 ml-3 whitespace-nowrap hidden">
-            LandingPage
-          </span>
+          <GrCircleQuestion
+            className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white "
+            id="strokeHelp"
+          />
+          <span className="flex-1 ml-3 whitespace-nowrap hidden">Ayuda</span>
         </Link>
       </li>
     </ul>

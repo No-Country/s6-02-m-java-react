@@ -45,7 +45,7 @@ export const CoursesData = [
     name: "React",
     tags: "React",
     modules: 15,
-    hours: 20,
+    hours: 19,
     area: "Front",
     dificulty: "INTERMEDIATE",
   },

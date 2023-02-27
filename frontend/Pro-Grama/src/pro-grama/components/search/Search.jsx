@@ -14,13 +14,13 @@ function Search() {
     return <div className="w-2/5 max-w-2/5 m-auto relative">
         <div className="flex">
             <input type="text"
-                className="w-full relative p-2 rounded-lg border outline-slate-500 border-slate-500"
+                className="w-full relative p-2 rounded-lg border outline-white border-white bg-BlueMedium text-white"
                 value={value}
                 onChange={handleChange}
                 placeholder='Buscar...'
             />
             <button
-                className="input-icon"
+                className="input-icon text-white"
                 onClick={() => setIsFilterOpen(!isFilterOpen)}>
                 <FiFilter />
             </button>
