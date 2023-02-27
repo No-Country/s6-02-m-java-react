@@ -1,4 +1,4 @@
-import { Sections, Sidebar } from "../components";
+import { Sections } from "../components";
 
 const HomePage = () => {
   return (

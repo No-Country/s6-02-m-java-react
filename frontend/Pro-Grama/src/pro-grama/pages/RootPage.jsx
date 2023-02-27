@@ -5,9 +5,9 @@ const Root = () => {
   return (
     <div className="grid grid-cols-layout h-screen">
       <Sidebar />
-      <div>
+      <div className="bg-Blue">
         <Header />
-        <main className="px-12">
+        <main className="bg-Blue px-12">
           <Outlet />
         </main>
       </div>

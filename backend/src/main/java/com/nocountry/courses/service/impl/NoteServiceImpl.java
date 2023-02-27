@@ -48,9 +48,9 @@ public class NoteServiceImpl implements INoteService {
     @Override
     public NoteResponseDto create(NoteRequestDto request){
 
-        User user = userRepository.findById(request.getUserId()).orElse(null);
+        User user = userRepository.findById(request.getUserId()).orElseThrow(()->new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(), null, Locale.getDefault())));
 
-        Lesson lesson = lessonRepository.findById(request.getLessonId()).orElse(null);
+        Lesson lesson = lessonRepository.findById(request.getLessonId()).orElseThrow(()->new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(), null, Locale.getDefault())));
 
         Note note = mapper.map(request, Note.class);
 
@@ -61,10 +61,16 @@ public class NoteServiceImpl implements INoteService {
         return mapper.map(repository.save(note), NoteResponseDto.class);
     }
 
+
+    @Override
     public NoteResponseDto update(Long id, NoteRequestDto request){
 
+        Note note = repository.findById(id).orElseThrow(()->new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(), null, Locale.getDefault())));
 
-        return null;
+        note.setTitle(request.getTitle());
+        note.setContent(request.getContent());
+
+        return mapper.map(repository.save(note), NoteResponseDto.class);
     }
 
 

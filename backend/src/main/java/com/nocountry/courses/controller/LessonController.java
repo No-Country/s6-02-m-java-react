@@ -17,14 +17,18 @@ public record LessonController(ILessonService service) {
         return ResponseBuilder.responseBuilder(HttpStatus.OK,service.findAll());
     }
 
+    @GetMapping("/course/{id}")
+    public ResponseEntity<?> getAllByCourse(@PathVariable Long id){
+        return ResponseBuilder.responseBuilder(HttpStatus.OK,service.findAllByCourse(id));
+    }
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id){
         return ResponseBuilder.responseBuilder(HttpStatus.OK,service.findById(id));
     }
 
-    @PostMapping("/{lessonId}/user/{userId}")
-    public ResponseEntity<?> addLessonToUser(@PathVariable Long userId,@PathVariable Long lessonId){
-        return ResponseBuilder.responseBuilder(HttpStatus.OK,service.addLessonToUser(userId,lessonId));
+    @PostMapping("/{lessonId}")
+    public ResponseEntity<?> addLessonToUser(@PathVariable Long lessonId){
+        return ResponseBuilder.responseBuilder(HttpStatus.OK,service.addLessonToUser(lessonId));
     }
 
     @PutMapping("/status")

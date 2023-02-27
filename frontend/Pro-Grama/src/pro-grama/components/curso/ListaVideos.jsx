@@ -21,7 +21,7 @@ const arrayCursos = [
 export const ListaVideos = () => {
   return (
     <div>
-      <div className="bg-slate-500 rounded-xl text-lg p-1 text-white list-video">
+      <div className="bg-[#0D2438] rounded-xl text-lg p-1 text-white list-video">
         <div className="flex justify-between p-5 items-center">
           <p>{arrayCursos.length} Lecciones</p>
           <p>1-{arrayCursos.length}</p>

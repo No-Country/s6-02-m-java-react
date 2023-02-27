@@ -20,6 +20,8 @@ import com.nocountry.courses.service.IUserCourseService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.context.MessageSource;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,6 +46,14 @@ public class LessonServiceImpl implements ILessonService {
     public List<LessonResponseDto> findAll() {
         return mapper.mapAll(lessonRepository.findAll(),LessonResponseDto.class);
     }
+    @Override
+    public List<LessonResponseDto> findAllByCourse(Long id) {
+
+
+        return mapper.mapAll(lessonRepository.findAllByCourse_Id(id)
+                .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),
+                        new Object[] {Lesson.class.getName(), id }, Locale.getDefault()))), LessonResponseDto.class);
+    }
 
     @Override
     public LessonResponseDto findById(Long id) {
@@ -55,9 +65,11 @@ public class LessonServiceImpl implements ILessonService {
     }
 
     @Override
-    public UserLessonResponseDto addLessonToUser(Long userId, Long lessonId){
-        User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),
-                new Object[] { User.class.getName(), userId }, Locale.getDefault())));
+    public UserLessonResponseDto addLessonToUser(Long lessonId){
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userRepository.findByEmail(authentication.getName()).orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),
+                new Object[] { User.class.getName(), authentication.getName() }, Locale.getDefault())));
         Lesson lesson = lessonRepository.findById(lessonId).orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),
                 new Object[] { Lesson.class.getName(),lessonId }, Locale.getDefault())));
 
@@ -66,9 +78,13 @@ public class LessonServiceImpl implements ILessonService {
 
     @Override
     public UserLessonResponseDto changeStatus(UserLessonRequestDto lessonDto){
-        UserLesson userLesson = userLessonRepository.findByUserIdAndLessonId(lessonDto.getUserId(), lessonDto.getLessonId())
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userRepository.findByEmail(authentication.getName()).orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),
+                new Object[] { User.class.getName(), authentication.getName() }, Locale.getDefault())));
+
+        UserLesson userLesson = userLessonRepository.findByUserIdAndLessonId(user.getId(), lessonDto.getLessonId())
                 .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(JOIN_RESOURCE_NOT_FOUND.name(),
-                        new Object[] { UserLesson.class.getName(),lessonDto.getLessonId(), lessonDto.getUserId() }, Locale.getDefault())));
+                        new Object[] { UserLesson.class.getName(),lessonDto.getLessonId(), user.getId() }, Locale.getDefault())));
 
         if(userLesson.getStatus().equals(Status.STARTED) && lessonDto.getStatus().equals(Status.FINALIZED)){
             userCourseService.updateProgress(userLesson.getLesson().getCourse());
