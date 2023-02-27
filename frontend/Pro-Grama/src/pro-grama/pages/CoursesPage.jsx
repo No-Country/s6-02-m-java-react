@@ -51,7 +51,9 @@ function CoursesPage () {
             >
               <img
                 className='h-52 object-cover rounded-t-lg aspect-video'
-                src={course.imageUrl ? CourseImg : course.imageUrl}
+                src={
+                  course.imageUrl === 'image_url' ? CourseImg : course.imageUrl
+                }
                 alt={`Imagen del curso ${course.title}`}
               />
               <div className='description-course px-4 py-5 flex flex-col justify-start'>
