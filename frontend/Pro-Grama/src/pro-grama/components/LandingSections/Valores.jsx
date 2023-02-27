@@ -11,7 +11,10 @@ const Valores = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-content-center place-items-center py-6 text-center ">
         <div className="py-6">
           <div className="bg-gray-500 rounded-lg w-[19.5rem] h-[17.8rem] mx-auto ">
-            <h3>Background 1</h3>
+            <img
+              src="https://hips.hearstapps.com/hmg-prod/images/ways-to-relax-1590605206.jpg"
+              className="h-full aspect-video rounded"
+            />
           </div>
           <div className="py-4 text-3xl text-center">
             <p>Flexibilidad</p>
@@ -19,14 +22,16 @@ const Valores = () => {
           <div className="text-xl max-w-md">
             <p>
               Consideramos que cada persona es unica, y por lo tanto queremos
-              dár la oportunidad de que estudien a su manera y su tiempo de
-              manera Asyncrona, como JAVASCRIPT!
+              dár la oportunidad de que estudien a su manera y su tiempo.
             </p>
           </div>
         </div>
         <div className="py-6">
           <div className="bg-gray-500 rounded-lg w-[19.5rem] h-[17.8rem] mx-auto ">
-            <h3>Background 2</h3>
+            <img
+              src="https://statics.forbesargentina.com/2022/01/61d9cbaedaa6a.jpeg"
+              className="h-full aspect-video rounded"
+            />
           </div>
           <div className="py-4 text-3xl text-center">
             <p>Comunidad</p>
@@ -41,7 +46,10 @@ const Valores = () => {
         </div>
         <div className="py-6">
           <div className="bg-gray-500 rounded-lg w-[19.5rem] h-[17.8rem] mx-auto ">
-            <h3>Background 3</h3>
+            <img
+              src="https://baufest.com/wp-content/uploads/2021/07/Programadores-Que-Trabajan-En-El-Software-En-La-Oficina.-Equipo-De-Personas-Codificando-Nueva-AplicaciA%C2%B3n.-1200x796.png"
+              className="h-full aspect-video rounded"
+            />
           </div>
           <div className="py-4 text-3xl text-center">
             <p>Innovación</p>
