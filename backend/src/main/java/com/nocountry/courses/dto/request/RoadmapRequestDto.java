@@ -1,10 +1,13 @@
 package com.nocountry.courses.dto.request;
 
+import com.nocountry.courses.model.Course;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Getter
 @Setter
@@ -14,6 +17,5 @@ public class RoadmapRequestDto {
     @NotBlank
     private String title;
 
-    @NotNull
-    private Long userId;
+    private Set<Course> courses;
 }
