@@ -13,3 +13,7 @@
 .sidebar:hover .navbar li a span,.sidebar:hover .logo_small {
   display: block;
 }
+
+#strokeHelp path{
+  stroke: rgb(112, 112, 112) ;
+}
