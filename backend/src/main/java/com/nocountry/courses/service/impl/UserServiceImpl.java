@@ -53,7 +53,7 @@ public class UserServiceImpl implements IUserService {
 
         user.setEmail(requestDto.getEmail());
         user.setName(requestDto.getName());
-        user.setLastname(requestDto.getLastName());
+        user.setLastname(requestDto.getLastname());
         if(requestDto.getPassword() != null && !requestDto.getPassword().equals(""))
             user.setPassword(passwordEncoder.encode(requestDto.getPassword()));
 
