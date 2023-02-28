@@ -1,7 +1,7 @@
 package com.nocountry.courses.controller;
 
-import com.nocountry.courses.dto.response.BasicCourseResponseDto;
 import static com.nocountry.courses.handler.ResponseBuilder.*;
+
 import com.nocountry.courses.model.User;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
@@ -48,8 +48,7 @@ public record UserController(UserServiceImpl userService) {
 
 
     @GetMapping("/favourites/{user_id}/{course_id}")
-    public ResponseEntity<List<BasicCourseResponseDto>> addCourseToFavouriteList(@PathVariable Long user_id,
-                                                                                 @PathVariable Long course_id) {
-        return ResponseEntity.ok(userService.addFavouriteCourseToUser(user_id, course_id));
+    public ResponseEntity<?> addCourseToFavouriteList(@PathVariable Long user_id, @PathVariable Long course_id) {
+        return responseBuilder(HttpStatus.OK, userService.addFavouriteCourseToUser(user_id, course_id));
     }
 }
