@@ -11,28 +11,25 @@ export const Ide = () => {
 
   return (
     <>
-
-      <div className='bg-slate-300 rounded-xl text-lg p-4  mb-5 mr-5 grid gap-2 relative'>
-
+      <div className='bg-BlueLigth rounded-xl text-lg p-4  mb-5 mr-5 grid gap-2 relative text-white'>
         <h2>Practica desde nuestro IDE</h2>
         <p>Sin tener que salir de la clase</p>
         <button
-          className="w-24 p-4 bg-slate-500 rounded-md"
-          onClick={handleIde}
-        >
+          className='w-24 px-4 py-5 text-sm bg-Green rounded-md text-black'
+          onClick={handleIde}>
           Practicar
         </button>
         {view && (
           <div className=' my-3 absolute mt-36 right-0'>
-            <div className='bg-white flex items-center justify-between p-3 '>
+            <div className='bg-BlueLigth flex items-center justify-between p-3 '>
               <div className='flex items-center gap-2'>
 
                 <FiCode size={24} />
                 <p className="text-2xl">Live Code</p>
               </div>
               <VscClose
-                size={24}
-                className="cursor-pointer"
+                size={26}
+                className=' font-semibold cursor-pointer'
                 onClick={handleIde}
               />
             </div>
