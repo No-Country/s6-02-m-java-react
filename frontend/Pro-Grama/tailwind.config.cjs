@@ -11,20 +11,21 @@ module.exports = {
     // },
     extend: {
       colors: {
-        BlueDark: "#000C18",
-        Blue: "#011627",
-        BlueLink: "#E9F9FF",
-        GreenLight: "#BCF0C0",
-        Green: "#6BFF81",
-        GrayDark: "#161616",
-        GrayLight: "#F4F4F4",
+        BlueDark: '#000C18',
+        Blue: '#011627',
+        BlueLigth: '#081f31',
+        BlueLink: '#0D2538',
+        GreenLight: '#BCF0C0',
+        Green: '#6BFF81',
+        GrayDark: '#161616',
+        GrayLight: '#F4F4F4',
       },
       gridTemplateColumns: {
         // added new 4 column grid as new4
-        'courses': 'repeat(3, minmax(100px, 400px))',
-        'layout': 'auto 1fr'
-        }
-    },
+        courses: 'repeat(3, minmax(100px, 400px))',
+        layout: 'auto 1fr'
+      }
+    }
   },
   plugins: [require('tailwindcss-no-scrollbar')]
 }
