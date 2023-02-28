@@ -51,7 +51,7 @@ function CoursesPage() {
               />
               <div className="description-course px-4 py-5 flex flex-col justify-start">
                 <div className="title-fav flex flex-row items-center justify-between  pb-4">
-                  <h1 className="text-xl text-white">{course.title}</h1>
+                  <Link to={`/CourseDetail/${course.id}`}><h1 className="text-xl text-white">{course.title}</h1></Link>
                   <AiOutlineHeart className="text-xl text-white" />
                 </div>
                 <div className="details flex flex-row justify-between items-center">
