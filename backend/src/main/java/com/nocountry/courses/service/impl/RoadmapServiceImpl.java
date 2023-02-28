@@ -10,12 +10,15 @@ import com.nocountry.courses.model.enums.EMessageCode;
 import com.nocountry.courses.repository.RoadmapRepository;
 import com.nocountry.courses.repository.UserRepository;
 import com.nocountry.courses.service.IRoadmapService;
+import com.nocountry.courses.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Locale;
+
+import static com.nocountry.courses.model.enums.EMessageCode.RESOURCE_NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor
@@ -25,6 +28,7 @@ public class RoadmapServiceImpl implements IRoadmapService {
     private final RoadmapRepository repository;
     private final UserRepository userRepository;
 
+    private final IUserService userService;
 
     private final MessageSource messenger;
 
@@ -47,18 +51,25 @@ public class RoadmapServiceImpl implements IRoadmapService {
     @Override
     public RoadmapResponseDto create(RoadmapRequestDto request) {
 
-        User user = userRepository.findById(request.getUserId()).orElse(null);
+        User user = userService.getUser();
 
         Roadmap roadmap = mapper.map(request, Roadmap.class);
 
         roadmap.setUser(user);
+
+        roadmap.setCourses(request.getCourses());
 
         return mapper.map(repository.save(roadmap), RoadmapResponseDto.class);
     }
 
     @Override
     public RoadmapResponseDto update(Long id, RoadmapRequestDto request) {
-        return null;
+
+        Roadmap roadmap = repository.findById(id).orElseThrow(()->new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(), null, Locale.getDefault())));
+
+        roadmap.setCourses(request.getCourses());
+
+        return mapper.map(repository.save(roadmap), RoadmapResponseDto.class);
     }
 
     @Override

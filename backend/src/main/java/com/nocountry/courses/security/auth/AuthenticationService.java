@@ -1,7 +1,6 @@
 package com.nocountry.courses.security.auth;
 
 import com.nocountry.courses.handler.exception.ResourceAlreadyExistsException;
-import com.nocountry.courses.handler.exception.ResourceNotFoundException;
 import com.nocountry.courses.model.User;
 import com.nocountry.courses.model.enums.Role;
 import com.nocountry.courses.repository.UserRepository;
@@ -11,8 +10,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.sql.SQLIntegrityConstraintViolationException;
 
 @Service
 @RequiredArgsConstructor
@@ -29,15 +26,16 @@ public class AuthenticationService {
             throw new ResourceAlreadyExistsException("User already exists");
         }
         user = User.builder()
-                .email(request.getEmail())
                 .name(request.getName())
-                .lastname(request.getLastName())
+                .lastname(request.getLastname())
+                .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();
         repository.save(user);
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
+                .name(user.getName())
                 .token(jwtToken)
                 .build();
     }
@@ -52,7 +50,9 @@ public class AuthenticationService {
         var user = repository.findByEmail(request.getEmail())
                 .orElseThrow();
         var jwtToken = jwtService.generateToken(user);
+        var username = user.getName();
         return AuthenticationResponse.builder()
+                .name(username)
                 .token(jwtToken)
                 .build();
     }

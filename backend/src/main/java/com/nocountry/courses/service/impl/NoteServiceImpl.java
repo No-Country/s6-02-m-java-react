@@ -11,6 +11,7 @@ import com.nocountry.courses.repository.LessonRepository;
 import com.nocountry.courses.repository.NoteRepository;
 import com.nocountry.courses.repository.UserRepository;
 import com.nocountry.courses.service.INoteService;
+import com.nocountry.courses.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,8 @@ public class NoteServiceImpl implements INoteService {
     private final LessonRepository lessonRepository;
 
     private final UserRepository userRepository;
+
+    private final IUserService userService;
     private final MessageSource messenger;
 
     @Override
@@ -48,7 +51,7 @@ public class NoteServiceImpl implements INoteService {
     @Override
     public NoteResponseDto create(NoteRequestDto request){
 
-        User user = userRepository.findById(request.getUserId()).orElseThrow(()->new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(), null, Locale.getDefault())));
+        User user = userService.getUser();
 
         Lesson lesson = lessonRepository.findById(request.getLessonId()).orElseThrow(()->new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(), null, Locale.getDefault())));
 
@@ -82,7 +85,10 @@ public class NoteServiceImpl implements INoteService {
 
 
     @Override
-    public List<NoteResponseDto> findAllByUserId(Long id) {
-        return mapper.mapAll(repository.findAllByUserId(id), NoteResponseDto.class);
+    public List<NoteResponseDto> findAllByUserId() {
+
+        User user = userService.getUser();
+
+        return mapper.mapAll(repository.findAllByUserId(user.getId()), NoteResponseDto.class);
     }
 }

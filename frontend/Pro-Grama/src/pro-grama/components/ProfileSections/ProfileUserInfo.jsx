@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BiEdit } from "react-icons/bi";
-const ProfileUserInfo = () => {
+import { setProfile } from "../../../store/auth/authSlice";
+const ProfileUserInfo = ({handleChange}) => {
   const { token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const [user, setUser] = useState();
 
   const getUser = async () => {
@@ -13,6 +15,7 @@ const ProfileUserInfo = () => {
     );
     setUser(data.response);
     console.log(data.response);
+    dispatch(setProfile(data.response))
   };
   useEffect(() => {
     getUser();
@@ -31,7 +34,7 @@ const ProfileUserInfo = () => {
           </div>
         </div>
         <div className="flex justify-end">
-          <BiEdit className="text-4xl" />
+          <BiEdit className="text-4xl" onClick={handleChange} />
         </div>
       </div>
     </div>

@@ -20,6 +20,4 @@ public class NoteResponseDto {
 
     private Lesson lesson;
 
-    private User user;
-    
 }

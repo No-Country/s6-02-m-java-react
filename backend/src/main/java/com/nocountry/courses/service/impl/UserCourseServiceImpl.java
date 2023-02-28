@@ -11,6 +11,7 @@ import com.nocountry.courses.model.enums.CourseStatus;
 import com.nocountry.courses.repository.UserCourseRepository;
 import com.nocountry.courses.repository.UserRepository;
 import com.nocountry.courses.service.IUserCourseService;
+import com.nocountry.courses.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.data.crossstore.ChangeSetPersister;
@@ -28,6 +29,8 @@ public class UserCourseServiceImpl implements IUserCourseService {
 
     private final UserCourseRepository repository;
     private final UserRepository userRepository;
+
+    private final IUserService userService;
     private final GenericMapper mapper;
     private final MessageSource messenger;
 
@@ -131,7 +134,7 @@ public class UserCourseServiceImpl implements IUserCourseService {
     }
 
     public Long getUserId(){
-        return 1L;
+        return userService.getUser().getId();
     }
 
     @Override
