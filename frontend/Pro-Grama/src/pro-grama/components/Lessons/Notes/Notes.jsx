@@ -10,7 +10,7 @@ const Notes = () => {
       {/* <Ide /> */}
       <ViewNotes/>
     </>
-  )
-}
+  );
+};
 
-export default Notes
+export default Notes;

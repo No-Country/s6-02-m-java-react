@@ -6,7 +6,10 @@ import {
   HomePage,
   RootPage,
   LessonsPage,
+  ProfilePage,
+  Faqs
 } from "../pages";
+
 import LandingPage from "../pages/LandingPage";
 
 export const MainRoute = () => {
@@ -18,6 +21,8 @@ export const MainRoute = () => {
         <Route path="/Courses" element={<CoursesPage />} />
         <Route path="/CourseDetail" element={<CursosPage />} />
         <Route path="/CourseLessons" element={<LessonsPage />} />
+        <Route path="/ProfilePage" element={<ProfilePage />} />
+        <Route path="/faqs" element={<Faqs/>} />
       </Route>
       <Route path="/Home" element={<LandingPage />} />
       <Route path="/*" element={<Navigate to="/" />} />

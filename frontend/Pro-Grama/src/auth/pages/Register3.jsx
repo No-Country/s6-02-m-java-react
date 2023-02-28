@@ -1,8 +1,17 @@
+import { useSelector } from "react-redux"
+import { useAuthStore } from "../../hooks/useAuthStore"
 import { HeaderBSide } from "../../pro-grama/components"
 import { ProgressBar } from "../components"
 
 
 export const Register3 = () => {
+     const{registerForm}=useSelector(state=>state.auth)
+     const{startRegister}=useAuthStore()
+     const{email,name,lastName,password}=registerForm
+  const handleSubmit = (e)=>{
+          e.preventDefault();
+          startRegister({email:email,name:name,lastName:lastName, password:password})
+  }
   return (
     <>
     <HeaderBSide />
@@ -22,7 +31,7 @@ export const Register3 = () => {
         </div>
         <div className="flex justify-between items-center gap-9 mb-6 ">
               <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Volver</a>
-              <button type="button" class="text-blue-700 w-[200px] hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800">Comenzar</button>
+              <button type="button" onClick={handleSubmit} class="text-blue-700 w-[200px] hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800">Comenzar</button>
           </div>
     </div>    
     </>

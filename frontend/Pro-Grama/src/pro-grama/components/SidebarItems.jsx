@@ -7,6 +7,8 @@ import { CgProfile } from "react-icons/cg";
 import { VscSignIn } from "react-icons/vsc";
 import { BiLogIn } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { GrCircleQuestion } from "react-icons/gr";
+
 
 const SidebarItems = () => {
   return (
@@ -45,7 +47,7 @@ const SidebarItems = () => {
 
       <li>
         <Link
-          to="/"
+          to="/ProfilePage"
           className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           <CgProfile className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
@@ -94,6 +96,17 @@ const SidebarItems = () => {
             <BiLogIn className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
             <span className="flex-1 ml-3 whitespace-nowrap hidden">
               LandingPage
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/faqs"
+            className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            <GrCircleQuestion className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white " id="strokeHelp"/>
+            <span className="flex-1 ml-3 whitespace-nowrap hidden">
+              Ayuda
             </span>
           </Link>
         </li>

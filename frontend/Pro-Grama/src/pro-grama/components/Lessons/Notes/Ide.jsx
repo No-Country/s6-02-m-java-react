@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
-import { FiCode } from 'react-icons/fi'
-import { VscClose } from 'react-icons/vsc'
-import './styles.css'
+import React, { useState } from "react";
+import { FiCode } from "react-icons/fi";
+import { VscClose } from "react-icons/vsc";
+import "./styles.css";
 export const Ide = () => {
-  const [view, setView] = useState(true)
+
+  const [view, setView] = useState(false);
   const handleIde = () => {
-    setView(!view)
-  }
+    setView(!view);
+  };
 
   return (
     <>
@@ -22,8 +23,9 @@ export const Ide = () => {
           <div className=' my-3 absolute mt-36 right-0'>
             <div className='bg-BlueLigth flex items-center justify-between p-3 '>
               <div className='flex items-center gap-2'>
+
                 <FiCode size={24} />
-                <p className='text-2xl'>Live Code</p>
+                <p className="text-2xl">Live Code</p>
               </div>
               <VscClose
                 size={26}
@@ -32,13 +34,15 @@ export const Ide = () => {
               />
             </div>
             <iframe
+
               src='https://codesandbox.io/embed/react-new?codemirror=1&highlights=6,7,8,9'
               className='ide right-0 '
               allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
               sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'></iframe>
+
           </div>
         )}
       </div>
     </>
-  )
-}
+  );
+};
