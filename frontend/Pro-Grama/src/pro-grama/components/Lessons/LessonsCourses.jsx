@@ -7,8 +7,10 @@ import { AiOutlineClockCircle } from 'react-icons/ai'
 /*importacion datos desde JSON*/
 import data from '../../../helpers/infoCourseData.json'
 import Notes from './Notes/Notes'
+import { useSelector } from 'react-redux'
 
 const LessonsCourses = () => {
+  const{urlVideo}=useSelector(state=> state.lessons)
   return (
     <div className='flex px-12 max-md:px-8 justify-between gap-8 max-lg:flex-wrap pb-24'>
       <div className='flex-col w-8/12 max-lg:w-full'>
@@ -33,7 +35,7 @@ const LessonsCourses = () => {
 
         <div className='player-wrapper rounded-xl'>
           <ReactPlayer
-            url={data.lessonsClasses[9].video}
+            url={urlVideo}
             className='react-player rounded-xl'
             controls
             volume='0.5'
