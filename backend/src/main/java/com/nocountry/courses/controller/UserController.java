@@ -46,9 +46,8 @@ public record UserController(UserServiceImpl userService) {
         return ResponseEntity.ok(userService.findById(id));
     }
 
-
-    @GetMapping("/favourites/{user_id}/{course_id}")
-    public ResponseEntity<?> addCourseToFavouriteList(@PathVariable Long user_id, @PathVariable Long course_id) {
-        return responseBuilder(HttpStatus.OK, userService.addFavouriteCourseToUser(user_id, course_id));
+    @GetMapping("/favourites/{course_id}")
+    public ResponseEntity<?> addCourseToFavouriteList(@PathVariable Long course_id) {
+            return responseBuilder(HttpStatus.OK, userService.addFavouriteCourseToUser(course_id));
     }
 }
