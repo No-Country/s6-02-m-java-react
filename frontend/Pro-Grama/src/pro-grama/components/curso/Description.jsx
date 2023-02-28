@@ -40,6 +40,10 @@ export const Description = () => {
     getCourse()
   }, [id])
 
+  if(course.length === 0){
+    return <span>No hay leccion actual</span>
+  }
+
   return (
     <>
       {/* <Sidebar/> */}
