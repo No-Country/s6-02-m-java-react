@@ -80,7 +80,7 @@ public class NoteServiceImpl implements INoteService {
 
     @Override
     public void delete(Long id) {
-
+        repository.deleteById(id);
     }
 
 

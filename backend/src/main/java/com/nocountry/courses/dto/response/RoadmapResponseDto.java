@@ -1,7 +1,6 @@
 package com.nocountry.courses.dto.response;
 
 import com.nocountry.courses.model.Course;
-import com.nocountry.courses.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

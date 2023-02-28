@@ -2,7 +2,6 @@ package com.nocountry.courses.dto.request;
 
 import com.nocountry.courses.model.enums.Category;
 import com.nocountry.courses.model.enums.CourseDifficulty;
-import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
