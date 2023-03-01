@@ -1,8 +1,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/java,intellij,visualstudiocode,maven,netbeans,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,intellij,visualstudiocode,maven,netbeans,eclipse
+<<<<<<< HEAD
 
 src/main/resources/application-dev.properties
 
+=======
+application.properties
+>>>>>>> origin/feature-filterSearch
 ### Eclipse ###
 .metadata
 bin/
@@ -245,7 +249,6 @@ nbdist/
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
-.vscode
 
 # Local History for Visual Studio Code
 .history/

@@ -5,24 +5,15 @@ import { AiFillGoogleCircle } from "react-icons/ai";
 import { useForm } from "../hooks/useForm";
 import { useAuthStore } from "../../hooks/useAuthStore";
 import ProGrama from '../../assets/Pro-grama.jpeg'
-import { useState } from "react";
 const initalForm ={
   email:"",
   password:""
 }
-const regexemail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-const formValidations ={
-  email:[(value)=> regexemail.test(value), "put a validate email"],
-  password:[(value)=> value.length > 5, "invalid password"]
-}
 export const Login = () => {
-  const{onInputChange,formState,email,password , isFormValid, emailValid, passwordValid}=useForm(initalForm, formValidations)
-  const[error, setError] = useState(false)
+  const{onInputChange,formState,email,password}=useForm(initalForm)
   const{startLogin}= useAuthStore()
   const handleSubmit = (e)=>{
     e.preventDefault();
-    setError(true);
-    if(!isFormValid)return;
     startLogin({email:email, password:password})
   }
   return (
@@ -53,9 +44,6 @@ export const Login = () => {
                 placeholder="Ejemplo@gmail.com"
                 required
               />
-              {
-                error && !!emailValid && <span className="text-red-500"> {emailValid} </span>
-              }
             </div>
             <div className="mb-6 relative">
               <label
@@ -78,9 +66,6 @@ export const Login = () => {
                 required
                 placeholder="Ejemplo***"
               />
-               {
-                error && !!passwordValid   && <span className="text-red-500"> {passwordValid} </span>
-              }
             </div>
             <div className="flex justify-between mb-6">
               <div className="flex items-center h-5">

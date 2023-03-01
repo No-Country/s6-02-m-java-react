@@ -1,14 +1,23 @@
-import React, { useState } from 'react'
-import { TiPencil } from 'react-icons/ti'
-import { FiBookOpen } from 'react-icons/fi'
-import ViewNotes from './ViewNotes'
-import { Ide } from './Ide'
+import React, { useState } from "react";
+import { TiPencil } from "react-icons/ti";
+import { FiBookOpen } from "react-icons/fi";
+import Form from "./Form";
+import ViewNotes from "./ViewNotes";
+import { Ide } from "./Ide";
 
 const Notes = () => {
-    return (
+  const [notes, setNotes] = useState([]);
+  const [hiden, setHiden] = useState(true);
+  return (
     <>
-      {/* <Ide /> */}
-      <ViewNotes/>
+      <Ide />
+      <ViewNotes notes={notes} sethiden={setHiden} hiden={hiden} />
+      <Form
+        setNotes={setNotes}
+        notes={notes}
+        hiden={hiden}
+        sethiden={setHiden}
+      />
     </>
   );
 };
