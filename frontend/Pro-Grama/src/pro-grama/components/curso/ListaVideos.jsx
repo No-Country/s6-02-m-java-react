@@ -8,10 +8,9 @@ import { setUrlVideo } from "../../../store/lessons/lessonSlice";
 export const ListaVideos = ({ lessons }) => {
   const dispatch = useDispatch();
   if (lessons) {
-    console.log(lessons)
     return (
       <div>
-        <div className="bg-[#0D2438] rounded-xl text-lg p-1 text-white list-video">
+        <div className="bg-Blue rounded-xl text-lg p-1 text-white list-video">
           <div className="flex justify-between p-5 items-center">
             <p>{lessons.length} Lecciones</p>
             <p>1-{lessons.length}</p>

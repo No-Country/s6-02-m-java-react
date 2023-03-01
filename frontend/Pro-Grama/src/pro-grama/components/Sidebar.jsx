@@ -9,7 +9,7 @@ const Sidebar = () => {
       <aside
         id="logo-sidebar"
         // className="fixed top-0 left-0 z-10 w-16 hover:w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
-        className="sidebar w-[6rem] hover:w-52 h-full "
+        className="relative z-10 sidebar w-[6rem] hover:w-52 h-full "
         aria-label="Sidebar"
       >
         <div className="h-full px-2 py-[3rem] text-center bg-BlueDark">

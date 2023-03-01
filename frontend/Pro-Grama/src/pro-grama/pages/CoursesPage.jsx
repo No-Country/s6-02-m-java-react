@@ -31,7 +31,7 @@ function CoursesPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-screen">
       <div className="flex gap-6 justify-between items-center mb-12">
         <h1 className="text-5xl my-2 ml-10 text-white">Todos los cursos</h1>
       </div>
