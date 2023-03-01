@@ -14,7 +14,7 @@ export const ProfilePage = () => {
   }
   return (
     <>
-      <div className="max-h-screen">
+      <div className=" h-full  lg:max-h-screen w-full">
         <div>
           <ProfileUserInfo handleChange={handleChange} />
         </div>

@@ -10,17 +10,17 @@ import Notes from "./Notes/Notes";
 import { useSelector } from "react-redux";
 
 const LessonsCourses = () => {
-  const { urlVideo } = useSelector((state) => state.lessons);
+  const {curso } = useSelector((state) => state.lessons);
   return (
     <div className="flex max-md:px-8 justify-between gap-8 max-lg:flex-wrap pb-24">
       <div className="flex-col w-8/12 max-lg:w-full">
         <div className="flex justify-between items-center py-4">
           <div className="text-white">
-            <h2 className="text-3xl py-1">{`Curso de ${data.title}`}</h2>
-            <p className="py-1">{`Clase ${data.lessonsClasses[7].id}. ${data.lessonsClasses[7].name}`}</p>
+            <h2 className="text-3xl py-1">{`Curso de ${curso?.course}`}</h2>
+            <p className="py-1">{`Clase ${curso?.title}. `}</p>
             <p className="flex items-center gap-2 py-1">
               <AiOutlineClockCircle />
-              {`${data.lessonsClasses[9].time} minutos`}
+              {`${curso.duration} minutos`}
             </p>
           </div>
           <div>
@@ -36,7 +36,7 @@ const LessonsCourses = () => {
 
         <div className="player-wrapper rounded-xl">
           <ReactPlayer
-            url={urlVideo}
+            url={curso.urlVideo}
             className="react-player rounded-xl"
             controls
             volume="0.5"

@@ -8,8 +8,9 @@ export const useAuthStore = () => {
       try {
         const{data}= await axios.post('https://pro-grama-production.up.railway.app/auth/authenticate',{email,password})
         localStorage.setItem('token', data.token);
+        localStorage.setItem('user', data.name);
         dispatch(setToken(data.token))
-        dispatch(setUser(data.name))
+        dispatch(setUser(localStorage.getItem('user')))
       } catch (error) {
         console.log(error)
         dispatch(onlogout());
@@ -20,6 +21,7 @@ export const useAuthStore = () => {
         try {
            const{data}=await axios.post('https://pro-grama-production.up.railway.app/auth/register',{email,name,lastname,password})
            localStorage.setItem('token', data.token);
+           localStorage.setItem('user', data.name)
             dispatch(setToken(data.token))
             dispatch(setUser(data.name))
             console.log(data)
@@ -52,8 +54,8 @@ export const useAuthStore = () => {
           const {data} = await axios.put('https://pro-grama-production.up.railway.app/user/update',{name,lastname,email,password} ,{headers:{
             Authorization: `Bearer ${token}`
           }});
-          dispatch(setProfile(data.response))
-          console.log(data.response);
+          dispatch(setProfile(data))
+          console.log(data);
       }catch(error){
         console.log(error)
       }
