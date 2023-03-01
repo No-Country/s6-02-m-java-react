@@ -8,8 +8,8 @@ import { setCurso } from "../../../store/lessons/lessonSlice";
 export const ListaVideos = ({ lessons, title }) => {
   const dispatch = useDispatch();
 
-  lessons.sort((a, b) => a.id - b.id)
   if (lessons) {
+    lessons.sort((a, b) => a.id - b.id)
     return (
       <div>
         <div className="bg-Blue rounded-xl text-lg p-1 text-white list-video">
@@ -19,6 +19,7 @@ export const ListaVideos = ({ lessons, title }) => {
           </div>
           <div className="overflow-y-auto list-video_scroll scrollbar-none text-base">
             {lessons.map((curso, index) => {
+              console.log(curso.urlVideo)
               return (
                 <>
                   <div

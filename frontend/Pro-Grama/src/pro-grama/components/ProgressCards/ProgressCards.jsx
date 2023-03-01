@@ -32,7 +32,7 @@ const progressCardsInfo = [
 const ProgressCards = () => {
   return (
     <>
-      <div className="flex flex-wrap gap-2 justify-between py-2 my-4 rounded-lg ">
+      <div className="flex flex-wrap gap-2 justify-between py-2 my-4 rounded-lg">
         {progressCardsInfo.map((cards) => (
           <>
             <Link to="/CourseDetail">

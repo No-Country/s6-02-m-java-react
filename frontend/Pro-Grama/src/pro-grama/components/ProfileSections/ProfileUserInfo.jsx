@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BiEdit } from "react-icons/bi";
-const ProfileUserInfo = (handleChange) => {
+import { setProfile } from "../../../store/auth/authSlice";
+
+
+const ProfileUserInfo = ({handleChange}) => {
   const { token } = useSelector((state) => state.auth);
   const [user, setUser] = useState();
+  const dispatch = useDispatch()
 
   const getUser = async () => {
     const { data } = await axios.get(
