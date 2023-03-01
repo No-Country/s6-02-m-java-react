@@ -60,16 +60,15 @@ _Para el despliegue del proyecto se utilizaron las siguientes herramientas:_
 
 |   Nombre  |    Rol   |      Contacto      |
 | :-------- | :------- | :------------------------- |
-| Nombre | Desarrollador Java | [LinkedIn]() |
-| Nombre | Desarrollador Java | [LinkedIn]() |
-| Nombre | Desarrollador Java | [LinkedIn]() |
-| Nombre | QA Tester | [LinkedIn]() |
+| Ale Vedoya | Desarrolladora Java | [LinkedIn](https://www.linkedin.com/in/alejandravedoya/), [GitHub](https://github.com/AleVedoya) |
+| Adonis Castellanos | Desarrollador Java | [LinkedIn](https://www.linkedin.com/in/adoniscastellanos/), [GitHub](https://github.com/AdonisCastellanos) |
+| Leonardo Dávalos | Desarrollador Java | [LinkedIn](https://linkedin.com/in/leonardo-davalos), [GitHub](https://github.com/davaloslm) |
+| Lucas Gonzáles | Desarrollador Java | [LinkedIn](https://www.linkedin.com/in/lucasmartingonzalez/), [GitHub](https://github.com/lucas2205) |
+| Lucas López Delgado | Desarrollador Java | [LinkedIn](https://www.linkedin.com/in/lucas-l%C3%B3pez-delgado/), [GitHub](https://github.com/LucasLopezd) |
+| Andrea Ceballos | QA Tester | [LinkedIn](https://www.linkedin.com/in/andreaceballosalcaraz/), [GitHub](https://github.com/andreAlcaraz) |
 | Nombre | Diseño UI-UX | [Linkedin]() |
-| Nombre | DevOps | [linkedin]() |
-| Nombre | Desarrollador React | [Linkedin]() |
-| Nombre | Desarrollador React | [Linkedin]() |
-| Nombre | Desarrollador React | [Linkedin]() |
-| Lucas López Delgado | Desarrollador Java | [LinkedIn](https://www.linkedin.com/in/lucas-l%C3%B3pez-delgado/) |
+| Francisco Santos | Desarrollador React | [LinkedIn](https://www.linkedin.com/in/francisco-santos-a6973a1ab/), [GitHub](https://github.com/FranciscoSantos01) |
+| Luciano Cerullo | Desarrollador React | [LinkedIn](https://www.linkedin.com/in/lucianocerullo77/), [GitHub](https://github.com/LucianoCerullo77) |
 
 ## Agradecimientos 🎁
 
