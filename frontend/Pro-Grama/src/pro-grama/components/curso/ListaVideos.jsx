@@ -7,6 +7,8 @@ import { setUrlVideo } from "../../../store/lessons/lessonSlice";
 
 export const ListaVideos = ({ lessons }) => {
   const dispatch = useDispatch();
+
+  lessons.sort((a, b) => a.id - b.id)
   if (lessons) {
     return (
       <div>
@@ -17,29 +19,28 @@ export const ListaVideos = ({ lessons }) => {
           </div>
           <div className="overflow-y-auto list-video_scroll scrollbar-none text-base">
             {lessons.map((curso, index) => {
-              // console.log(curso.urlVideo)
-              return(
-              <>
-                <div
-                  key={curso.index}
-                  className="flex justify-between px-2 items-center m-3"
-                >
-                  <Link
-                    className=" "
-                    onClick={()=> dispatch(setUrlVideo(curso?.urlVideo))}
-                    to="/CourseLessons"
-                    href={curso?.urlVideo}
+              return (
+                <>
+                  <div
+                    key={curso.index}
+                    className="flex justify-between px-2 items-center m-3"
                   >
-                    {curso.title}
-                  </Link>
-                  <div className="flex items-center gap-2 ">
-                    <BiTimeFive />
-                    <p>{curso.duration} min</p>
+                    <Link
+                      className=" "
+                      onClick={() => dispatch(setUrlVideo(curso?.urlVideo))}
+                      to="/CourseLessons"
+                      href={curso?.urlVideo}
+                    >
+                      {curso.title}
+                    </Link>
+                    <div className="flex items-center gap-2 ">
+                      <BiTimeFive />
+                      <p>{curso.duration} min</p>
+                    </div>
                   </div>
-                </div>
-                <hr class="h-px mx-2 bg-gray-200 border-0 dark:bg-gray-700 last:h-0" />
-              </>
-              )
+                  <hr class="h-px mx-2 bg-gray-200 border-0 dark:bg-gray-700 last:h-0" />
+                </>
+              );
             })}
           </div>
         </div>

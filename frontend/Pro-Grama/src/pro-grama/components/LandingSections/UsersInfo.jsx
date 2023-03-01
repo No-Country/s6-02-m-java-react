@@ -37,7 +37,7 @@ const Users = {
       rol: "Backend - Java",
       github: "https://github.com/AdonisCastellanos",
       image: "https://www.svgrepo.com/show/452234/java.svg",
-      linkedIn: "-",
+      linkedIn: "https://www.linkedin.com/in/adoniscastellanos/",
     },
     {
       id: 5,
@@ -90,7 +90,7 @@ const Users = {
       github: "https://github.com/NathaliaRiascos",
       image:
         "https://www.svgrepo.com/show/493719/react-javascript-js-framework-facebook.svg",
-      linkedIn: "https://www.linkedin.com/in/francisco-santos-a6973a1ab/",
+      linkedIn: "-",
     },
     {
       id: 11,
@@ -108,7 +108,7 @@ const Users = {
       github: "https://github.com/olssonbianca",
       behance: "https://www.behance.net/exequielroblesvega",
       image: "https://www.svgrepo.com/show/452202/figma.svg",
-      linkedIn: "https://www.linkedin.com/in/exequiel-robles-vega-b9432b211/",
+      linkedIn: "https://www.linkedin.com/in/bianca-olsson/",
     },
     {
       id: 13,
