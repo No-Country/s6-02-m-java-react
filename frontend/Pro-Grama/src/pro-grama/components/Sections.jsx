@@ -8,12 +8,10 @@ import ProgressCourses from "./progressCourses/progressCourses";
 const Sections = () => {
   const { user } = useSelector((state) => state.auth);
   return (
-    <>
     <div>
       <div className="bg-Blue px-12 text-GrayLight">
         {/* Primer Seccion de cuadrados, mover grid-cols para cambiar el estilo */}
         <h1 className="text-5xl my-2">Bienvenido {localStorage.getItem('user')|| 'user!'}!</h1>
-        <h1 className="text-5xl my-2">Bienvenido {user || "user!"}!</h1>
         <span className="text-2xl mb-5">¿Qué vamos a aprender hoy?</span>
        </div>
         {/* Segunda Seccion de cuadrados, mover Flex para cambiar el estilo */}
@@ -35,8 +33,6 @@ const Sections = () => {
           <CardContainer />
         </div>
       </div>
-    </div>
-    </>
   );
 };
 export default Sections;
