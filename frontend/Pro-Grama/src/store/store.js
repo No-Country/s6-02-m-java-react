@@ -10,6 +10,5 @@ export const store = configureStore({
     auth: authSlice.reducer,
     notes: notesSlice.reducer,
     lessons: lessonsSlice.reducer
-
-  },
+  }
 })
