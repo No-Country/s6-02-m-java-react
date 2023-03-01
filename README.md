@@ -11,11 +11,11 @@ En nuestra plataforma, encontrarás recursos y funcionalidades adicionales como 
 
 ### Documentacion:
 
-Documentación -> [Docs]()
+Documentación -> [Docs](https://pro-grama-production.up.railway.app/swagger-ui/index.html#/)
 
 ### Aplicacion:
 
-Aplicación Web -> [PRO.grama]()
+Aplicación Web -> [PRO.grama](https://programa-clon-usig.vercel.app/landing)
 
 _Para el despliegue del proyecto se utilizaron las siguientes herramientas:_
 
@@ -66,9 +66,14 @@ _Para el despliegue del proyecto se utilizaron las siguientes herramientas:_
 | Lucas Gonzáles | Desarrollador Java | [LinkedIn](https://www.linkedin.com/in/lucasmartingonzalez/), [GitHub](https://github.com/lucas2205) |
 | Lucas López Delgado | Desarrollador Java | [LinkedIn](https://www.linkedin.com/in/lucas-l%C3%B3pez-delgado/), [GitHub](https://github.com/LucasLopezd) |
 | Andrea Ceballos | QA Tester | [LinkedIn](https://www.linkedin.com/in/andreaceballosalcaraz/), [GitHub](https://github.com/andreAlcaraz) |
-| Nombre | Diseño UI-UX | [Linkedin]() |
+| Bianca Olsson | Diseño UI-UX | [GitHub](https://github.com/olssonbianca) |
+| Exequiel Robles Vega | Diseño UI-UX | [Linkedin](https://www.linkedin.com/in/exequiel-robles-vega-b9432b211/), [Behance](https://www.behance.net/exequielroblesvega) |
 | Francisco Santos | Desarrollador React | [LinkedIn](https://www.linkedin.com/in/francisco-santos-a6973a1ab/), [GitHub](https://github.com/FranciscoSantos01) |
 | Luciano Cerullo | Desarrollador React | [LinkedIn](https://www.linkedin.com/in/lucianocerullo77/), [GitHub](https://github.com/LucianoCerullo77) |
+| Nathalia Riascos | Desarrolladora React | [GitHub](https://github.com/NathaliaRiascos) |
+| Sebastian Barcia | Desarrollador React | [LinkedIn](https://www.linkedin.com/in/sebastian-barcia/), [GitHub](https://github.com/sebastianbarcia) |
+| Luis Navarro | Desarrollador React | [LinkedIn](https://www.linkedin.com/in/luisnavarro-fullstack/), [GitHub](https://github.com/luisnava6667) |
+| Nicolas Gutierrez | Desarrollador React | [LinkedIn](https://www.linkedin.com/in/alexis-nicolas-gutierrez/), [GitHub](https://github.com/ag171980) |
 
 ## Agradecimientos 🎁
 
