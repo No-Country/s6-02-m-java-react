@@ -60,6 +60,7 @@ _Para el despliegue del proyecto se utilizaron las siguientes herramientas:_
 
 |   Nombre  |    Rol   |      Contacto      |
 | :-------- | :------- | :------------------------- |
+| Rivers Emmanuel | Project Manager |  |
 | Ale Vedoya | Desarrolladora Java | [LinkedIn](https://www.linkedin.com/in/alejandravedoya/), [GitHub](https://github.com/AleVedoya) |
 | Adonis Castellanos | Desarrollador Java | [LinkedIn](https://www.linkedin.com/in/adoniscastellanos/), [GitHub](https://github.com/AdonisCastellanos) |
 | Leonardo Dávalos | Desarrollador Java | [LinkedIn](https://linkedin.com/in/leonardo-davalos), [GitHub](https://github.com/davaloslm) |
