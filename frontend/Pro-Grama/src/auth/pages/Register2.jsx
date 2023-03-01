@@ -44,12 +44,12 @@ export const Register2 = () => {
     dispatch(setPage());
   }
   return (
-    <div className='bg-Blue'>
+    <div className='bg-Blue p-2'>
     <HeaderBSide />
     <ProgressBar/>
-    <div className="flex flex-col justify-center items-center gap-8">
-        <h3 className="font-bold text-3xl text-start text-white ">Elige tus credenciales</h3>
-        <form className="w-[28rem] ">
+    <div className="flex flex-col justify-center items-center gap-8 p-10 lg:p-0">
+        <h3 className="font-bold text-2xl  lg:text-3xl text-start text-white ">Elige tus credenciales</h3>
+        <form className=" w-fit  lg:w-[28rem] ">
           <div class="mb-6">
             <label for="text" class="block mb-2 text-sm font-medium text-white ">Nombre de usuario:</label>
             <input type="text" id="text" name='userName' value={userName} onChange={onInputChange} class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john doe" required />

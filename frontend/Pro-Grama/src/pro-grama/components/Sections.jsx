@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CardContainer } from "./cardCourses/cardContainer";
 import Header from "./Header";
@@ -6,12 +7,13 @@ import ProgressCards from "./ProgressCards/ProgressCards";
 import ProgressCourses from "./progressCourses/progressCourses";
 
 const Sections = () => {
+  const{user}=useSelector(state=>state.auth)
   return (
     <div>
       {/* <Header /> */}
       <div className="bg-Blue px-12 text-GrayLight">
         {/* Primer Seccion de cuadrados, mover grid-cols para cambiar el estilo */}
-        <h1 className="text-5xl my-2">Bienvenido! @User!</h1>
+        <h1 className="text-5xl my-2">Bienvenido {user || 'user!'}!</h1>
         <span className="text-2xl mb-5">¿Qué vamos a aprender hoy?</span>
 
         {/* Segunda Seccion de cuadrados, mover Flex para cambiar el estilo */}

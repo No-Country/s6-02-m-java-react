@@ -4,12 +4,16 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState: {
         status: 'checking' ,
-        token:"",
+        user: {},
         registerForm:{},
         page: 1,
-        profile:{}
+        profile:{},
+        user: ""
     },
     reducers: {
+        setUser: (state, {payload})=>{
+            state.user = payload
+        },
         setProfile:(state, {payload})=>{
             state.profile  = payload
         },
@@ -34,4 +38,4 @@ export const authSlice = createSlice({
 });
 
 
-export const { setRegisterForm, setPage, setToken, onlogout, setProfile } = authSlice.actions;
+export const { setRegisterForm, setPage, setToken, onlogout, setProfile, setUser } = authSlice.actions;
