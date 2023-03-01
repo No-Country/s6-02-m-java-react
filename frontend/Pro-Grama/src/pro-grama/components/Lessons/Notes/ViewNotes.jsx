@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import {useState, useEffect} from 'react'
 import { TiPencil } from 'react-icons/ti'
 import { FiBookOpen, FiEdit3, FiSave } from 'react-icons/fi'
 import { useDispatch, useSelector } from 'react-redux'
@@ -39,16 +39,12 @@ const ViewNotes = () => {
     setContent('')
   }
   return (
-    <>
-      <div className='bg-BlueLigth rounded-xl text-lg p-2  mb-5 mr-5 grid gap-2 text-white max-h-[474px] overflow-auto scrollbar-none'>
-        <div className='flex justify-between m-2 items-center'>
-          <h2>Mis Notas</h2>
-          <div
-            className='flex items-center cursor-pointer text-Green'
-            onClick={toogleForm}>
-            <FiEdit3 size={24} />
-            <p>Nueva nota</p>
-          </div>
+    <div className='bg-slate-300 rounded-xl text-lg p-4  mb-5 mr-5 grid gap-2'>
+      <div className='flex justify-between p-5 items-center'>
+        <h2>Mis Notas</h2>
+        <div className='flex items-center cursor-pointer' onClick={toogleForm}>
+          <TiPencil />
+          <p>Nueva nota</p>
         </div>
         <div className='scrollbar-none text-base '>
           <div
@@ -96,7 +92,25 @@ const ViewNotes = () => {
           </div>
         </form>
       </div>
-    </>
+      <div className='scrollbar-none text-base'>
+        {notes.map((note, index) => (
+          <div key={index} className='flex items-center justify-between'>
+            <p className='text-white'>
+              {note.desc} min {note.desc}
+            </p>
+            <div className='items-center flex gap-2'>
+              <button onClick={handleEdit}>Editar</button>
+              <button onClick={handleDelete}>Eliminar</button>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className='grid text-center'>
+        {notes.length === 0 && (
+          <p className='text-black text-lg items-center'>No hay notas</p>
+        )}
+      </div>
+    </div>
   )
 }
 

@@ -4,6 +4,7 @@ import Navigation from "../components/LandingSections/Navigation";
 import UsersInfo from "../components/LandingSections/UsersInfo";
 import Valores from "../components/LandingSections/Valores";
 import WhyPro from "../components/LandingSections/WhyPro";
+import { Search } from "../components/search";
 
 import CoursesPage from "./CoursesPage";
 
@@ -14,10 +15,11 @@ const LandingPage = () => {
         <Navigation />
         <HeaderLanding />
 
-        <div className="min-h-fit bg-Blue p-10 text-white">
+        <div className="min-h-fit bg-Blue p-10 text-white flex flex-col gap-8">
           <div>
-            <h2 className="text-4xl text-center">Mira nuestros cursos</h2>
+            <h2 className="text-4xl text-center">Aprende nuevas habilidades</h2>
           </div>
+          <Search />
           <div>
             <CoursesPage />
           </div>

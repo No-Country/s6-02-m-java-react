@@ -10,8 +10,37 @@
   transition: all .3s;
 }
 
-.sidebar:hover .navbar li a span,.sidebar:hover .logo_small {
+.sidebar:hover .navbar li a span,
+.sidebar:hover .logo_small {
   display: block;
+}
+
+.container-logo-small {
+  justify-content: center;
+}
+
+.sidebar:hover .container-logo-small {
+  padding-left: 0.670rem;
+  justify-content: flex-start;
+
+}
+.sidebar:hover .navbar {
+  align-items: start;
+}
+
+.input-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: unset;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn-confirm {
+  background-color: "#6BFF81" !important;
+  color: "#000C18" !important;
 }
 
 #strokeHelp path{

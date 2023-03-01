@@ -1,5 +1,6 @@
 package com.nocountry.courses.model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nocountry.courses.model.enums.Role;
 import lombok.*;
@@ -9,6 +10,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+=======
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
+
+import jakarta.persistence.*;
+import java.io.Serializable;
+>>>>>>> origin/feature-filterSearch
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
@@ -20,11 +28,17 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
+<<<<<<< HEAD
 public class User implements UserDetails {
+=======
+@Data
+public class User implements Serializable {
+>>>>>>> origin/feature-filterSearch
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+<<<<<<< HEAD
     private String lastname;
     @Column(unique = true)
     private String email;
@@ -34,15 +48,16 @@ public class User implements UserDetails {
     private Role role;
 
     @Column(name = "register_date")
+=======
+    private String email;
+    private String password;
+
+>>>>>>> origin/feature-filterSearch
     @Temporal(TemporalType.DATE)
     private LocalDate registerDate;
 
     @ElementCollection
     private List<Long> idCourses;
-
-    @OneToMany(mappedBy = "user")
-    @JsonIgnore
-    private Set<Note> notes;
 
     @PrePersist
     public void prePersist(){
