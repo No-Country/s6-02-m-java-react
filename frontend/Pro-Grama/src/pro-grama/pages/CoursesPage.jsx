@@ -36,9 +36,9 @@ function CoursesPage() {
   };
 
   return (
-    <div className="min-h-screen w-screen">
-      <div className="flex gap-6 justify-between items-center mb-12">
-        <h1 className="text-5xl my-2 ml-10 text-white">Todos los cursos</h1>
+    <div className="">
+      <div className="flex justify-between items-center mb-12">
+        <h1 className="text-2xl lg:text-5xl my-2 ml-10 text-white">Todos los cursos</h1>
         <button
           className="bg-BlueMedium text-white p-2 rounded-lg border outline-white border-white"
           onClick={handleClick}
@@ -46,11 +46,11 @@ function CoursesPage() {
           Ver todos
         </button>
       </div>
-      <div className="grid gap-6 w-full grid-cols-1 sm:grid-cols-2 justify-items-center md:justify-items-start md:grid-cols-courses justify-center">
+      <div className="grid gap-8 w-full grid-cols-1 sm:grid-cols-2 justify-items-center md:justify-items-start md:grid-cols-courses justify-center">
         {courses().length ? (
           courses().map((course) => (
             <div
-              className="flex flex-col max-w-sm border-2 rounded-xl border-gray-500"
+              className="flex flex-col min-w-sm  border-2 rounded-xl border-gray-500"
               key={course.id}
             >
               <img
