@@ -54,7 +54,7 @@ _Para el despliegue del proyecto se utilizaron las siguientes herramientas:_
 
 * Administrador y Organizador -> [Trello](https://trello.com/es)
 * Entorno de desarrollo y test de APIs -> [Postman](https://www.postman.com/)
-* Microsoft Word, Excel
+* Microsoft Word, Excel -> [Resultados pruebas](https://docs.google.com/spreadsheets/d/17e_6iiFXTffdveNeAR9xZK1g79AVfOQ6VSFupRZ5h_Q/edit?usp=sharing)
 
 ## Autores ✒️
 
