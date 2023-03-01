@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { BiEdit } from "react-icons/bi";
-const ProfileUserInfo = () => {
+const ProfileUserInfo = (handleChange) => {
   const { token } = useSelector((state) => state.auth);
   const [user, setUser] = useState();
 
