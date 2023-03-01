@@ -82,4 +82,4 @@ _Para el despliegue del proyecto se utilizaron las siguientes herramientas:_
 #### Seleccionado 6 - Grupo 02 - Java/React 🤓
 #### Muchas Gracias.
 
----
+
