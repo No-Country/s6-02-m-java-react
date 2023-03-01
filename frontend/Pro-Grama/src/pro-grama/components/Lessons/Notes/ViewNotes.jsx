@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
 import { TiPencil } from 'react-icons/ti'
 import { FiBookOpen, FiEdit3, FiSave } from 'react-icons/fi'
 import { useDispatch, useSelector } from 'react-redux'
@@ -42,7 +42,7 @@ const ViewNotes = () => {
     <div className='bg-slate-300 rounded-xl text-lg p-4  mb-5 mr-5 grid gap-2'>
       <div className='flex justify-between p-5 items-center'>
         <h2>Mis Notas</h2>
-        <div className='flex items-center cursor-pointer' onClick={hidden}>
+        <div className='flex items-center cursor-pointer' onClick={toogleForm}>
           <TiPencil />
           <p>Nueva nota</p>
         </div>
