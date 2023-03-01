@@ -1,14 +1,18 @@
 package com.nocountry.courses.dto.response;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
-@RequiredArgsConstructor
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserResponseDto {
-    
-    private Long id;
-    private String token;
+
+    private String name;
+    private String lastname;
+    private String email;
+    private String password;
 }

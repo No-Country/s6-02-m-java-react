@@ -3,10 +3,6 @@ package com.nocountry.courses.dto.response;
 import com.nocountry.courses.model.Lesson;
 import com.nocountry.courses.model.enums.Category;
 import com.nocountry.courses.model.enums.CourseDifficulty;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.Set;

@@ -5,11 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nocountry.courses.model.enums.Category;
 
 import com.nocountry.courses.model.enums.CourseDifficulty;
-import lombok.AllArgsConstructor;
+import lombok.*;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 import java.util.Set;
 
@@ -19,6 +16,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @RequiredArgsConstructor
+@Builder
 public class Course {
 
     @Id
@@ -43,13 +41,10 @@ public class Course {
     @Enumerated(EnumType.STRING)
     private Category category;
 
-    @JsonBackReference
-    @ManyToMany(mappedBy = "courses")
-    private Set<User> users;
-
     @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
     @JsonIgnore
     @JsonBackReference
     private Set<Lesson> lessons;
+
 
 }

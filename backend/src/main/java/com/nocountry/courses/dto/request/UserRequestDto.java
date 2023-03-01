@@ -1,20 +1,18 @@
 package com.nocountry.courses.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
-@RequiredArgsConstructor
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserRequestDto {
-    
-    @NotBlank
-    private String name;
-    @NotBlank
-    private String email;
-    @NotBlank
-    private String password;
 
+    private String name;
+    private String lastname;
+    private String email;
+    private String password;
 }

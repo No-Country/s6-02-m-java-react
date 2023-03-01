@@ -1,5 +1,6 @@
 package com.nocountry.courses.handler.controller;
 
+import com.nocountry.courses.handler.exception.ResourceAlreadyExistsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -21,7 +22,7 @@ import org.springframework.http.ResponseEntity;
 
 @ControllerAdvice
 public class ExceptionHandlerController {
-    
+
     @ResponseStatus(NOT_FOUND)
     @ExceptionHandler({ NotFoundException.class,
             ResourceNotFoundException.class
@@ -43,7 +44,7 @@ public class ExceptionHandlerController {
     }
 
     @ResponseStatus(CONFLICT)
-    @ExceptionHandler({})
+    @ExceptionHandler({ResourceAlreadyExistsException.class})
     public ResponseEntity<?> alreadyExistsHandler(HttpServletRequest request, Exception exception) {
         return responseBuilder(CONFLICT, request.getRequestURI(), new ErrorDetail(exception));
     }

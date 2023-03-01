@@ -20,8 +20,4 @@ public class NoteRequestDto {
     @NotNull
     private Long lessonId;
 
-    @NotNull
-    private Long userId;
-
-
 }
