@@ -60,7 +60,6 @@ _Para el despliegue del proyecto se utilizaron las siguientes herramientas:_
 
 |   Nombre  |    Rol   |      Contacto      |
 | :-------- | :------- | :------------------------- |
-<<<<<<< HEAD
 | Rivers Emmanuel | Project Manager |  |
 | Ale Vedoya | Desarrolladora Java | [LinkedIn](https://www.linkedin.com/in/alejandravedoya/), [GitHub](https://github.com/AleVedoya) |
 | Adonis Castellanos | Desarrollador Java | [LinkedIn](https://www.linkedin.com/in/adoniscastellanos/), [GitHub](https://github.com/AdonisCastellanos) |
@@ -76,18 +75,6 @@ _Para el despliegue del proyecto se utilizaron las siguientes herramientas:_
 | Sebastian Barcia | Desarrollador React | [LinkedIn](https://www.linkedin.com/in/sebastian-barcia/), [GitHub](https://github.com/sebastianbarcia) |
 | Luis Navarro | Desarrollador React | [LinkedIn](https://www.linkedin.com/in/luisnavarro-fullstack/), [GitHub](https://github.com/luisnava6667) |
 | Nicolas Gutierrez | Desarrollador React | [LinkedIn](https://www.linkedin.com/in/alexis-nicolas-gutierrez/), [GitHub](https://github.com/ag171980) |
-=======
-| Nombre | Desarrollador Java | [LinkedIn]() |
-| Nombre | Desarrollador Java | [LinkedIn]() |
-| Nombre | Desarrollador Java | [LinkedIn]() |
-| Nombre | QA Tester | [LinkedIn]() |
-| Nombre | Diseño UI-UX | [Linkedin]() |
-| Nombre | DevOps | [linkedin]() |
-| Nombre | Desarrollador React | [Linkedin]() |
-| Nombre | Desarrollador React | [Linkedin]() |
-| Nombre | Desarrollador React | [Linkedin]() |
-| Lucas López Delgado | Desarrollador Java | [LinkedIn](https://www.linkedin.com/in/lucas-l%C3%B3pez-delgado/) |
->>>>>>> main
 
 ## Agradecimientos 🎁
 
