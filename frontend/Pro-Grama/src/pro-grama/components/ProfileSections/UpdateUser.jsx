@@ -80,8 +80,9 @@ export const UpdateUser = ({handleChange}) => {
     </div>
     <br />
     <hr />
+    <h3 className='text-center text-3xl font-bold'>Actualizar Cuenta</h3>
     <div className='flex justify-center items-center'>
-     <form className='  p-6 h-fit mt-3 w-[40rem] mb-4 flex flex-col ' onSubmit={handleSubmit}>
+     <form className='bg-slate-200 drop-shadow-lg w-[34rem] p-6 h-fit mt-3 mb-4 rounded-xl ' onSubmit={handleSubmit}>
      <div class="mb-6">
             <label for="email" class="block mb-2 text-sm font-medium text-white ">Email address:</label>
             <input type="email" name='email' value={email} onChange={onInputChange} id="email" class="bg-Blue border self-start border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john.doe@company.com" required />

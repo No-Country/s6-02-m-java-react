@@ -31,9 +31,7 @@ export const authSlice = createSlice({
             state.status = 'not-authorized'
             state.token = ""
             state.page = 1
-            state.profile ={};
          }
-
      }
 });
 

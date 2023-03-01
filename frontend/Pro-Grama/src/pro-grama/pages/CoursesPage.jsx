@@ -1,32 +1,37 @@
-import { CoursesData } from "../../helpers";
+import { useEffect, useState } from "react";
+import { languages } from "../../helpers";
 import { AiOutlineHeart, AiOutlineUnorderedList } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import CourseImg from "../../assets/curso-js.jpeg";
+
+import { useDispatch, useSelector } from "react-redux";
+import { getCourses, setCourses } from "../../store/course";
 import { Link } from "react-router-dom";
 
+import CourseImg from "../../assets/curso-js.jpeg";
+
 function CoursesPage() {
-  const [language, setLanguage] = useState("todos");
+  const { courses: CoursesData, filteredCourses } = useSelector(
+    (state) => state.course
+  );
+  const dispatch = useDispatch();
 
-  // Peticion del URL del Curso
-
-  const [data, setData] = useState([]);
-  const [listCourses, setListCourses] = useState([]);
   useEffect(() => {
-    axios
-      .get("http://pro-grama-production.up.railway.app/course/public")
-      .then((res) => setListCourses(res.data.response));
+    dispatch(getCourses());
   }, []);
-  const handleChange = (e) => {
-    setLanguage(e.target.value);
+
+  const handleClick = () => {
+    dispatch(setCourses());
+    dispatch(getCourses());
   };
 
   const courses = () => {
-    const result = CoursesData.filter(
-      (course) => course.technology.toLowerCase() === language.toLowerCase()
-    );
-    if (language === "todos") return CoursesData;
+    if (filteredCourses.length) {
+      return filteredCourses;
+    }
+    if (!filteredCourses.length) {
+      return CoursesData;
+    }
     return result;
   };
 
@@ -34,10 +39,16 @@ function CoursesPage() {
     <div className="min-h-screen w-screen">
       <div className="flex gap-6 justify-between items-center mb-12">
         <h1 className="text-5xl my-2 ml-10 text-white">Todos los cursos</h1>
+        <button
+          className="bg-BlueMedium text-white p-2 rounded-lg border outline-white border-white"
+          onClick={handleClick}
+        >
+          Ver todos
+        </button>
       </div>
       <div className="grid gap-6 w-full grid-cols-1 sm:grid-cols-2 justify-items-center md:justify-items-start md:grid-cols-courses justify-center">
-        {listCourses.length ? (
-          listCourses.map((course) => (
+        {courses().length ? (
+          courses().map((course) => (
             <div
               className="flex flex-col max-w-sm border-2 rounded-xl border-gray-500"
               key={course.id}
@@ -51,7 +62,9 @@ function CoursesPage() {
               />
               <div className="description-course px-4 py-5 flex flex-col justify-start">
                 <div className="title-fav flex flex-row items-center justify-between  pb-4">
-                  <Link to={`/CourseDetail/${course.id}`}><h1 className="text-xl text-white">{course.title}</h1></Link>
+                  <Link to={`/CourseDetail/${course.id}`}>
+                    <h1 className="text-xl text-white">{course.title}</h1>
+                  </Link>
                   <AiOutlineHeart className="text-xl text-white" />
                 </div>
                 <div className="details flex flex-row justify-between items-center">
@@ -75,7 +88,7 @@ function CoursesPage() {
             </div>
           ))
         ) : (
-          <p>No se encontraron cursos de {language}</p>
+          <p>No se encontraron cursos</p>
         )}
       </div>
     </div>

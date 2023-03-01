@@ -4,19 +4,16 @@ import { UpdateUser } from "../components/ProfileSections/UpdateUser";
 
 export const ProfilePage = () => {
   const[state,setState] = useState(false)
-  const handleChange = ()=>{
-    setState(!state);
-  }
   if(state === true){
     return(
-      <UpdateUser handleChange={handleChange} />
+      <UpdateUser />
     )
   }
   return (
     <>
       <div className=" h-full  lg:max-h-screen w-full">
         <div>
-          <ProfileUserInfo handleChange={handleChange} />
+          <ProfileUserInfo />
         </div>
       </div>
     </>
