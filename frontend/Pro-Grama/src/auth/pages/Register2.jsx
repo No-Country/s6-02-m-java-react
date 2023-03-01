@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
 import { HeaderBSide } from '../../pro-grama/components'
 import { ProgressBar } from '../components'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from '../hooks/useForm'
 import { setPage, setRegisterForm } from '../../store/auth/authSlice'
-import Swal from 'sweetalert2'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const initial={
   userName:"",
   password: "",
@@ -37,9 +34,6 @@ export const Register2 = () => {
     e.preventDefault();
     setFormSubmit(true)
     if(!isFormValid) return;
-    if(password !== confirmPassword){
-      return Swal.fire('Validation error', 'passwords must match', 'error');
-    }
     dispatch(setRegisterForm(form))
     dispatch(setPage());
   }
@@ -52,44 +46,38 @@ export const Register2 = () => {
         <form className=" w-fit  lg:w-[28rem] ">
           <div class="mb-6">
             <label for="text" class="block mb-2 text-sm font-medium text-white ">Nombre de usuario:</label>
-            <input type="text" id="text" name='userName' value={userName} onChange={onInputChange} class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john doe" required />
+            <input type="text" id="text" name='userName' value={userName} onChange={onInputChange} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john doe" required />
             {
               !!userNameValid && formSubmit && <span className='text-red-500'>{userNameValid}</span>
             }
           </div>
           <div class="mb-6">
             <label for="password" class="block mb-2 text-sm font-medium text-white ">Contraseña:</label>
-            <input type="password" name="password" value={password} onChange={onInputChange} id="password" class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john doe" required />
+            <input type="password" name="password" value={password} onChange={onInputChange} id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-40 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john doe" required />
             {
               !!passwordValid && formSubmit && <span className='text-red-500'>{passwordValid}</span>
             }
             <div class="flex items-center mb-1 mt-2">
-                <span className='text-white font-medium'>
-                  <FontAwesomeIcon icon={faCheck} className="text-sm font-semibold " />
-                    Minimo 8 caracteres
-                  </span>
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 accent-Green  text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-white">Minimo 8 caracteres</label>
             </div>
             <div class="flex items-center mb-1">
-              <span className='text-white font-medium'>
-              <FontAwesomeIcon icon={faCheck} className="text-sm font-semibold" />
-                incluir al menos una minuscula y mayuscula
-                </span>
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 accent-Green text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-white ">incluir al menos una minuscula y mayuscula</label>
             </div>
             <div class="flex items-center">
-                <span className='text-white font-medium'>
-                <FontAwesomeIcon icon={faCheck} className="text-sm font-semibold" />
-                  incluir al menos un numero y un caracter especial
-                  </span>
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 accent-Green"/>
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-white ">incluir al menos un numero</label>
             </div>
           </div>
           <div class="mb-6">
             <label for="confirmPassword" class="block mb-2 text-sm font-medium text-white ">Confirmar Contraseña:</label>
-            <input type="password" name='confirmPassword' value={confirmPassword} onChange={onInputChange} id="confirmPassword" class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john doe" required />
+            <input type="password" name='confirmPassword' value={confirmPassword} onChange={onInputChange} id="confirmPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john doe" required />
           </div>
           
           <div className="flex justify-center items-center gap-9 mb-6">
               <Link to='/auth/register' class="font-medium text-Green hover:underline">Volver</Link>
-              <button type="button" onClick={handleSubmit} class="text-Green w-[200px] hover:text-white border border-Green hover:bg-Blue focus:ring-4 focus:outline-none focus:ring-Green font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2   dark:hover:text-white  dark:focus:ring-blue-800">Siguiente</button>
+              <button type="button" onClick={handleSubmit} class="text-Green w-[200px] hover:text-white border border-Green hover:bg-BlueDark focus:ring-4 focus:outline-none focus:ring-Green font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2   dark:hover:text-white  dark:focus:ring-blue-800">Siguiente</button>
           </div>
         </form>
       </div>

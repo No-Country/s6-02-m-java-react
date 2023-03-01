@@ -10,7 +10,7 @@ import { GrCircleQuestion } from "react-icons/gr";
 import { useAuthStore } from "../../hooks/useAuthStore";
 
 const SidebarItems = () => {
-  const{startLogout}= useAuthStore();
+  const { startLogout } = useAuthStore();
   return (
     <ul className="space-y-3 py-5 px-3 text-start navbar">
       <li>
