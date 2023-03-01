@@ -1,33 +1,31 @@
 import React from "react";
 import { Progress } from "flowbite-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const progressCardsInfo = [
   {
     id: 1,
     image:
-      "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpngGRjYX1ca7qAADU3K6eGLj7ShQE3L2otdzfryl_Y9Ht2QRoQKYQbsXd36XIxMbYOw0&usqp=CAU",
     title: "HTML",
-    paragraph: "Clase 1: Introduccion",
-    progress: 70,
+    paragraph: "Clase 12: Maquetación",
+    progress: 90,
   },
   {
     id: 2,
     image:
-      "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png",
     title: "CSS",
     paragraph: "Clase 6: Display Grid",
-    progress: 69,
+    progress: 60,
   },
   {
     id: 3,
     image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
     title: "JavaScript",
     paragraph: "Clase 3: Bucles",
-    progress: 40,
+    progress: 10,
   },
 ];
 
@@ -59,12 +57,6 @@ const ProgressCards = () => {
             </Link>
           </>
         ))}
-        {/* <div className="flex items-center">
-          <FontAwesomeIcon
-            icon={faChevronRight}
-            className="h-8 dark:text-gray-500 px-4"
-          />
-        </div> */}
       </div>
     </>
   );

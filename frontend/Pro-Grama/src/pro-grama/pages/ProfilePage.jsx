@@ -11,7 +11,7 @@ export const ProfilePage = () => {
   }
   return (
     <>
-      <div className="min-h-screen">
+      <div className="max-h-screen">
         <div>
           <ProfileUserInfo />
         </div>

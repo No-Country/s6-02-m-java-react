@@ -12,28 +12,31 @@ const ProfileUserInfo = () => {
       { headers: { Authorization: `Bearer ${token}` } }
     );
     setUser(data.response);
-    console.log(data.response);
+    // console.log(data.response);
+    dispatch(setProfile(data.response))
   };
   useEffect(() => {
     getUser();
   }, []);
 
   return (
-    <div className="border border-dashed border-red-400">
+    <div className="p-5 h-full">
       <div className="flex justify-between w-fit">
-        <div className="border border-dashed border-red-400 flex">
+        <div className=" flex">
           <div className="rounded-full h-20 w-20 bg-gray-400" />
-          <div className="row text-3xl px-4">
+          <div className="row text-3xl px-4 text-white">
             {user?.name} {user?.lastname}
-            <div className="col border border-dashed border-red-400 text-lg">
+            <div className="col text-white  text-lg">
               {user?.email}
             </div>
           </div>
         </div>
         <div className="flex justify-end">
-          <BiEdit className="text-4xl" />
+          <BiEdit className="text-4xl text-white font-bold" onClick={handleChange} />
         </div>
       </div>
+
+      <h1 className="text-4xl font-bold text-white text-center mt-20">No hay nada en estos momentos</h1>
     </div>
   );
 };

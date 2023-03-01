@@ -4,7 +4,7 @@ import { Card } from './card'
 export const CardContainer = () => {
   return (
     <>
-    <div className='flex justify-between flex-wrap p-2 '>
+    <div className='flex justify-between flex-wrap p-2 gap-16 '>
        {
           courses.map(course=>{
             return(

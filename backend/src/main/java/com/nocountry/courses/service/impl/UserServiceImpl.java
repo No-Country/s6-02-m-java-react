@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class UserServiceImpl implements IUserService {
     private final UserRepository userRepository;
     private final MessageSource messenger;
     private final CourseRepository courseRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public User getUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -51,8 +53,9 @@ public class UserServiceImpl implements IUserService {
 
         user.setEmail(requestDto.getEmail());
         user.setName(requestDto.getName());
-        user.setLastname(requestDto.getLastName());
-        user.setPassword(requestDto.getPassword());
+        user.setLastname(requestDto.getLastname());
+        if(requestDto.getPassword() != null && !requestDto.getPassword().equals(""))
+            user.setPassword(passwordEncoder.encode(requestDto.getPassword()));
 
         return mapper.map(userRepository.save(user), UserResponseDto.class);
     }
@@ -78,8 +81,8 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public List<BasicCourseResponseDto> addFavouriteCourseToUser(Long user_id, Long course_id) {
-        User user = findById(user_id);
+    public List<BasicCourseResponseDto> addFavouriteCourseToUser(Long course_id) {
+        User user = getUser();
         Course course =  courseRepository.findById(course_id).get();
         user.getIdCourses().add(course.getId());
         userRepository.save(user);

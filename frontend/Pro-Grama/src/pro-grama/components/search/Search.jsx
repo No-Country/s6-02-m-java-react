@@ -11,7 +11,7 @@ function Search() {
         setValue(e.target.value)
     }
 
-    return <div className="w-2/5 max-w-2/5 m-auto relative">
+    return <div className="w-2/5 max-w-2/5 m-auto hidden lg:block sm:relative">
         <div className="flex">
             <input type="text"
                 className="w-full relative p-2 rounded-lg border outline-white border-white bg-BlueMedium text-white"
@@ -29,7 +29,6 @@ function Search() {
         
         {(value && !isFilterOpen) && <SearchedListCourses courseName={value}/>}
     </div>
-  }
-  
-  export default Search;
-  
+}
+
+export default Search;

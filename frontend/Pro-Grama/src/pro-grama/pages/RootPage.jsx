@@ -3,7 +3,7 @@ import { Header, Sidebar } from "../components";
 
 const Root = () => {
   return (
-    <div className="grid grid-cols-layout h-screen">
+    <div className="grid grid-cols-layout min-h-screen w-screen">
       <Sidebar />
       <div className="bg-Blue">
         <Header />

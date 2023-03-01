@@ -1,7 +1,7 @@
 package com.nocountry.courses.controller;
 
-import com.nocountry.courses.dto.response.BasicCourseResponseDto;
-import com.nocountry.courses.handler.ResponseBuilder;
+import static com.nocountry.courses.handler.ResponseBuilder.*;
+
 import com.nocountry.courses.model.User;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/user")
@@ -25,7 +24,7 @@ public record UserController(UserServiceImpl userService) {
 
     @GetMapping("/me")
     public ResponseEntity<?> getMyUser() {
-        return ResponseBuilder.responseBuilder(HttpStatus.OK, userService.getMyUser());
+        return responseBuilder(HttpStatus.OK, userService.getMyUser());
     }
 
     @PutMapping("/update")
@@ -40,10 +39,6 @@ public record UserController(UserServiceImpl userService) {
             ResponseEntity.status(HttpServletResponse.SC_NO_CONTENT);
         }
         return ResponseEntity.ok(users);
-/*
-        return (users.isEmpty()) ? ResponseEntity.status(HttpServletResponse.SC_NO_CONTENT)
-                : ResponseEntity.ok(users);
-*/
     }
 
     @GetMapping("/get-by-id/{id}")
@@ -51,10 +46,8 @@ public record UserController(UserServiceImpl userService) {
         return ResponseEntity.ok(userService.findById(id));
     }
 
-
-    @GetMapping("/favourites/{user_id}/{course_id}")
-    public ResponseEntity<List<BasicCourseResponseDto>> addCourseToFavouriteList(@PathVariable Long user_id,
-                                                                                 @PathVariable Long course_id) {
-        return ResponseEntity.ok(userService.addFavouriteCourseToUser(user_id, course_id));
+    @GetMapping("/favourites/{course_id}")
+    public ResponseEntity<?> addCourseToFavouriteList(@PathVariable Long course_id) {
+            return responseBuilder(HttpStatus.OK, userService.addFavouriteCourseToUser(course_id));
     }
 }

@@ -3,7 +3,6 @@ package com.nocountry.courses.dto.response;
 import com.nocountry.courses.model.Course;
 import com.nocountry.courses.model.User;
 import com.nocountry.courses.model.enums.CourseStatus;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

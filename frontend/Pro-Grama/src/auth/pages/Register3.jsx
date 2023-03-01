@@ -7,19 +7,20 @@ import { ProgressBar } from "../components"
 export const Register3 = () => {
      const{registerForm}=useSelector(state=>state.auth)
      const{startRegister}=useAuthStore()
-     const{email,name,lastName,password}=registerForm
+     const{email,name,lastname,password}=registerForm
   const handleSubmit = (e)=>{
           e.preventDefault();
-          startRegister({email:email,name:name,lastName:lastName, password:password})
+        //   console.log({email,name,lastName,password});
+           startRegister({email:email,name:name,lastname:lastname, password:password})
   }
   return (
-    <div className="bg-BlueDark">
+    <div className="bg-BlueDark p-2 lg:p-0">
     <HeaderBSide />
     <ProgressBar />
-    <div className="flex flex-col justify-center items-center gap-10">
+    <div className="flex flex-col justify-center items-center gap-10 p-10 lg:p-0">
         <h3 className="font-bold text-3xl text-start text-white ">¿Sabes Programar?</h3>
-        <h6 className="w-[30rem] text-center text-white  ">Utilizaremos tu respuesta para recomendarte cursos que se adecúen a tu nivel de conocimientos y experiencia</h6>
-        <div className="flex gap-10 w-[38rem] text-center ">
+        <h6 className=" w-fit lg:w-[30rem] text-center text-white  ">Utilizaremos tu respuesta para recomendarte cursos que se adecúen a tu nivel de conocimientos y experiencia</h6>
+        <div className="flex flex-col  gap-10 w-fit lg:flex lg:w-[38rem] text-center ">
         <input type="checkbox" id="react-option" value="" class="hidden peer accent-Green" required 
         />
         <label for="react-option" class="inline-flex items-center justify-between w-full h-[15rem] p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           

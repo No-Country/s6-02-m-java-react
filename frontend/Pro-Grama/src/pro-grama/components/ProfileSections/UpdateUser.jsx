@@ -1,26 +1,61 @@
 import React, { useState } from 'react'
 import { useForm } from '../../../auth/hooks/useForm'
+import { AiFillSave } from 'react-icons/ai'
+import { faX } from '@fortawesome/free-solid-svg-icons'
+
+import { useSelector } from 'react-redux'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Swal from 'sweetalert2'
+import { useAuthStore } from '../../../hooks/useAuthStore'
 
 const initialForm ={
-    email: "",
-    name:"",
-    lastName:"",
-    password:""
+    newPassword:"",
+    confirmPassword: "",
 }
+let passwordRegex = /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!&$%&? "]).*$/
 const formValidations = {
     email: [(value)=> value.includes('@'), 'email must have @'],
     name: [(value)=>  value.length >=4, 'Name is required' ],
-    lastName: [(value)=>  value.length >=4, 'Name is required' ],
-    password: [(value)=> value.length >= 6, 'Password must have more than 6 letters'],
+    lastname: [(value)=>  value.length >=4, 'Name is required' ],
+    password: [(value)=> value.length >= 8, 'Password must have more than 6 letters'],
+    // newPassword: [(value)=> passwordRegex.test(value), 'Password must at least have 8 characters and special character and uppercase'],
+    // confirmPassword:[(value)=> value.length >= 8, 'Password must have more than 6 letters']
   }
-export const UpdateUser = () => {
-    const{onInputChange,email,name,lastName,password, formState,emailValid,nameValid,lastNameValid,passwordValid, isFormValid}=useForm(initialForm, formValidations)
+  const passwordValidations ={
+    newPassword: [(value)=> passwordRegex.test(value), 'Password must at least have 8 characters and special character and uppercase'],
+     confirmPassword:[(value)=> value.length >= 8, 'Password must have more than 6 letters']
+  }
+
+
+export const UpdateUser = ({handleChange}) => {
+   
     const [formSubmit, setformSubmit] = useState(false)
+    const{profile}=useSelector(state=> state.auth)
+    const{onInputChange,email,name,lastname,password,formState,emailValid,nameValid,lastnameValid,passwordValid, 
+        isFormValid}=useForm(profile, formValidations)
+     const{onInputChange:onPasswordChange, newPassword, newPasswordValid, confirmPassword, formState:passwordState, isFormValid:isPasswordsValid}= useForm(initialForm,passwordValidations)   
+    // console.log(profile)
+    const{startUpdatingProfile}= useAuthStore()
+    const[open, setOpen] = useState(false)
+     const handleOpen = ()=>{
+        setOpen(!open)
+     }
     const handleSubmit = (e)=>{
         e.preventDefault()
         setformSubmit(true)
-        if(!isFormValid) return;
-        console.log(formState)
+        if(!open){
+            if(!isFormValid) return;
+            startUpdatingProfile({name:name,lastname:lastname,email:email,password:password})
+            console.log("funciono")
+            return;
+        }
+        if(!isFormValid || !isPasswordsValid) return;
+        if(newPassword !== confirmPassword){
+            return Swal.fire('Validation error', 'passwords must match', 'error')
+        }
+         startUpdatingProfile({name:name, lastname:lastname, email:email, password:newPassword})
+        console.log({...formState, ...passwordState})
     }
   return (
     <>
@@ -28,43 +63,68 @@ export const UpdateUser = () => {
     <div className='flex justify-center items-center'>
      <form className='bg-slate-200 drop-shadow-lg w-[34rem] p-6 h-fit mt-3 mb-4 rounded-xl ' onSubmit={handleSubmit}>
      <div class="mb-6">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email address:</label>
-            <input type="email" name='email' value={email} onChange={onInputChange} id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required />
+            <label for="email" class="block mb-2 text-sm font-medium text-white ">Email address:</label>
+            <input type="email" name='email' value={email} onChange={onInputChange} id="email" class="bg-Blue border self-start border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john.doe@company.com" required />
             {
                 (!!emailValid && formSubmit)
                 ? <span className='text-lg text-red-500'>{emailValid}</span>
                 : null
             }
         </div>
-        <div class="mb-6">
-            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Name:</label>
-            <input type="text" name='name' value={name} onChange={onInputChange}  id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john doe" required />
+        <div className='flex justify-between gap-4'>
+        <div class="mb-6 w-full">
+            <label for="name" class="block mb-2 text-sm font-medium text-white ">Name:</label>
+            <input type="text" name='name' value={name} onChange={onInputChange}  id="name" class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="john doe" required />
             {
                 (!!nameValid && formSubmit)
                 ? <span className='text-lg text-red-500'>{nameValid}</span>
                 : null
             }
         </div> 
-        <div class="mb-6">
-            <label for="lastName" class="block mb-2 text-sm font-medium text-gray-900 ">Last Name:</label>
-            <input type="text" name='lastName' value={lastName} onChange={onInputChange}   id="lastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john doe" required />
+        <div class="mb-6 w-full">
+            <label for="lastName" class="block mb-2 text-sm font-medium text-white ">Last Name:</label>
+            <input type="text" name='lastname' value={lastname} onChange={onInputChange}   id="lastName" class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="john doe" required />
             {
-                (!!lastNameValid && formSubmit)
-                ? <span className='text-lg text-red-500'>{lastNameValid}</span>
+                (!!lastnameValid && formSubmit)
+                ? <span className='text-lg text-red-500'>{lastnameValid}</span>
                 : null
             }
         </div> 
-        <div class="mb-6">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Password:</label>
-            <input type="password" name='password' value={password} onChange={onInputChange}   id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"  required />
+        </div>
+        <div className='flex  items-center gap-3' >
+        <div class="mb-6 w-[18.5rem] ">
+            <label for="password" class="block mb-2 text-sm font-medium text-white ">Password:</label>
+            <input type="password" name='password' value={password} onChange={onInputChange}   id="password" class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  required />
             {
                 (!!passwordValid && formSubmit)
                 ? <span className='text-lg text-red-500'>{passwordValid}</span>
                 : null
             }
-        </div> 
-        <div className='flex justify-center'>
-        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Actualizar</button>
+        </div>
+        <button type="button" onClick={handleOpen}  class="text-Green mt-3 w-[200px] h-fit hover:text-white border border-Green hover:bg-Blue focus:ring-4 focus:outline-none focus:ring-Green font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2   dark:hover:text-white  dark:focus:ring-blue-800">Cambiar contraseña</button>
+        </div>
+        <div className={ open ? 'flex justify-between gap-4' : 'hidden'}>
+        <div class="mb-6 w-full ">
+            <label for="newPassword" class="block mb-2 text-sm font-medium text-white "> New Password:</label>
+            <input type="password" name='newPassword' value={newPassword} onChange={onPasswordChange}   id="newPassword" class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  />
+            {
+                (!!newPasswordValid && formSubmit)
+                ? <span className='text-lg text-red-500'>{newPasswordValid}</span>
+                : null
+            }
+        </div>
+        <div class="mb-6 w-full ">
+            <label for="confirmPassword" class="block mb-2 text-sm font-medium text-white ">ConfirmPassword:</label>
+            <input type="password" name='confirmPassword' value={confirmPassword} onChange={onPasswordChange}   id="password" class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-white dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"  />
+        </div>
+        </div>
+        <div className='flex justify-end mt-6'>
+        <button type="submit" class="text-white  bg-Green hover:bg-Blue focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2  focus:outline-none dark:focus:ring-blue-800">
+         <div className='flex items-center justify-center'>  
+        <AiFillSave className='text-center text-lg font-extrabold' />
+         <span className='font-extrabold'>Guardar cambios</span>  
+         </div>  
+         </button>
         </div> 
      </form>
      </div>

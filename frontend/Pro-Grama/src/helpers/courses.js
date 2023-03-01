@@ -1,30 +1,23 @@
 export const courses = [
     {
-        name: 'React',
-        level: 'Intermedio',
+        name: 'Curso de Programacion desde 0',
+        level: 'Basic',
         modules: 15,
         hours: 20,
-        img:"https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        img:"https://tecnokids.com/wp-content/uploads/2020/02/mobile-1-400x400.png",
     },
     {
-        name: 'Angular',
-        level: 'Principiante',
+        name: 'Curso de Programacion Reactiva',
+        level: 'Intermediate',
         modules: 15,
-        hours: 35,
-        img:"https://cdn.windowsreport.com/wp-content/uploads/2020/06/angular-logo-2.png"
+        hours: 28,
+        img:"https://developer.okta.com/assets-jekyll/blog/reactive-java/project-reactor-ad725390e026e8c38210d2059033a21cd92afaf4cfb7879965b4eafd4a6a69ca.png"
     },
     {
-        name: 'Vue js',
-        level: 'Avanzado',
+        name: 'Curso Completo de React desde 0',
+        level: 'Intermediate',
         modules: 25,
         hours: 35,
-        img:"https://th.bing.com/th/id/R.df4c2f21e428850a4ee001c4e283a784?rik=M%2fDYAUEAYDdNIQ&pid=ImgRaw&r=0",
+        img:"https://pbs.twimg.com/profile_images/446356636710363136/OYIaJ1KK_400x400.png",
     },
-    {
-        name: 'Node js',
-        level: 'Intermedio',
-        modules: 22,
-        hours: 21,
-        img:"https://th.bing.com/th/id/OIP.s5j5kFK-urpNTrVLlv9-ogHaEK?pid=ImgDet&rs=1",
-    }
 ]
