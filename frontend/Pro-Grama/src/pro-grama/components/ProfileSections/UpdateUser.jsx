@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { useForm } from '../../../auth/hooks/useForm'
+import { useNavigate } from 'react-router-dom'
 import { AiFillSave } from 'react-icons/ai'
 import { faX } from '@fortawesome/free-solid-svg-icons'
-
 import { useSelector } from 'react-redux'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Swal from 'sweetalert2'
 import { useAuthStore } from '../../../hooks/useAuthStore'
@@ -29,12 +28,13 @@ const formValidations = {
 
 
 export const UpdateUser = ({handleChange}) => {
-   
+
     const [formSubmit, setformSubmit] = useState(false)
     const{profile}=useSelector(state=> state.auth)
-    const{onInputChange,email,name,lastname,password,formState,emailValid,nameValid,lastnameValid,passwordValid, 
+    const navigate = useNavigate();
+    const{onInputChange,email,name,lastname,password,formState,emailValid,nameValid,lastnameValid,passwordValid,
         isFormValid}=useForm(profile, formValidations)
-     const{onInputChange:onPasswordChange, newPassword, newPasswordValid, confirmPassword, formState:passwordState, isFormValid:isPasswordsValid}= useForm(initialForm,passwordValidations)   
+     const{onInputChange:onPasswordChange, newPassword, newPasswordValid, confirmPassword, formState:passwordState, isFormValid:isPasswordsValid}= useForm(initialForm,passwordValidations)
     // console.log(profile)
     const{startUpdatingProfile}= useAuthStore()
     const[open, setOpen] = useState(false)
@@ -46,7 +46,7 @@ export const UpdateUser = ({handleChange}) => {
         setformSubmit(true)
         if(!open){
             if(!isFormValid) return;
-            startUpdatingProfile({name:name,lastname:lastname,email:email,password:password})
+            startUpdatingProfile({name:name,lastname:lastname,email:email})
             console.log("funciono")
             return;
         }
@@ -59,6 +59,27 @@ export const UpdateUser = ({handleChange}) => {
     }
   return (
     <>
+    <div className='mt-5 w-full h-full flex justify-between items-center p-5 '>
+    <div className=" flex">
+          <div className="rounded-full h-20 w-20 bg-gray-400" />
+          <div className="row text-3xl px-4 text-white">
+            {profile?.name} {profile?.lastname}
+            <div className="col  text-lg text-white">
+              Modifica los datos de tu perfil
+            </div>
+          </div>
+        </div>
+        <div >
+        <button type="button" onClick={handleChange} class="focus:outline-none w-[15rem] text-Green bg-Blue hover:bg-Blue focus:ring-4 border-2 border-Green font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   dark:focus:ring-green-800">
+            <div className='flex justify-center items-center gap-5'>
+            <FontAwesomeIcon icon={faX} className="text-lg text-Green"  />
+             <span className='text-lg text-green'>Cancel</span>
+            </div>
+            </button>
+        </div>
+    </div>
+    <br />
+    <hr />
     <h3 className='text-center text-3xl font-bold'>Actualizar Cuenta</h3>
     <div className='flex justify-center items-center'>
      <form className='bg-slate-200 drop-shadow-lg w-[34rem] p-6 h-fit mt-3 mb-4 rounded-xl ' onSubmit={handleSubmit}>
@@ -80,7 +101,7 @@ export const UpdateUser = ({handleChange}) => {
                 ? <span className='text-lg text-red-500'>{nameValid}</span>
                 : null
             }
-        </div> 
+        </div>
         <div class="mb-6 w-full">
             <label for="lastName" class="block mb-2 text-sm font-medium text-white ">Last Name:</label>
             <input type="text" name='lastname' value={lastname} onChange={onInputChange}   id="lastName" class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="john doe" required />
@@ -89,7 +110,7 @@ export const UpdateUser = ({handleChange}) => {
                 ? <span className='text-lg text-red-500'>{lastnameValid}</span>
                 : null
             }
-        </div> 
+        </div>
         </div>
         <div className='flex  items-center gap-3' >
         <div class="mb-6 w-[18.5rem] ">
@@ -120,12 +141,12 @@ export const UpdateUser = ({handleChange}) => {
         </div>
         <div className='flex justify-end mt-6'>
         <button type="submit" class="text-white  bg-Green hover:bg-Blue focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2  focus:outline-none dark:focus:ring-blue-800">
-         <div className='flex items-center justify-center'>  
+         <div className='flex items-center justify-center'>
         <AiFillSave className='text-center text-lg font-extrabold' />
-         <span className='font-extrabold'>Guardar cambios</span>  
-         </div>  
+         <span className='font-extrabold'>Guardar cambios</span>
+         </div>
          </button>
-        </div> 
+        </div>
      </form>
      </div>
     </>

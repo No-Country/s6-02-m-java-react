@@ -106,7 +106,7 @@ export const Description = () => {
           </Button>
         </div>
         <div className='max-lg:w-full w-4/12'>
-          <ListaVideos lessons={course?.lessons} />
+          <ListaVideos title={course?.title} lessons={course?.lessons} />
         </div>
       </div>
     </>

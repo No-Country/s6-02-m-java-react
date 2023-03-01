@@ -20,18 +20,18 @@ const ProfileUserInfo = () => {
   }, []);
 
   return (
-    <div className="p-5 h-full">
+    <div className="p-5 h-full w-full">
       <div className="flex justify-between w-fit">
         <div className=" flex">
           <div className="rounded-full h-20 w-20 bg-gray-400" />
-          <div className="row text-3xl px-4 text-white">
+          <div className="row text-3xl px-4 text-white w-full">
             {user?.name} {user?.lastname}
             <div className="col text-white  text-lg">
               {user?.email}
             </div>
           </div>
         </div>
-        <div className="flex justify-end">
+        <div>
           <BiEdit className="text-4xl text-white font-bold" onClick={handleChange} />
         </div>
       </div>

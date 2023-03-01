@@ -3,13 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 export const lessonsSlice = createSlice({
     name: 'lessons',
     initialState: {
-        urlVideo: ""
+        curso: {}
     },
     reducers: {
-         setUrlVideo: (state, {payload})=>{
-            state.urlVideo = payload
+         setCurso: (state, {payload})=>{
+            state.curso = payload
          }
  }})  
 
 
-export const { setUrlVideo } = lessonsSlice.actions;
+export const { setCurso } = lessonsSlice.actions;

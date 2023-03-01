@@ -21,7 +21,7 @@ export const Login = () => {
       <HeaderBSide />
 
       {/* LEFT SIDE */}
-      <div className="flex flex-col justify-center w-full h-full lg:text-center bg-BlueDark lg:block  lg:w-[50%] lg:h-[115vh]">
+      <div className="flex flex-col justify-start w-full h-full lg:text-center bg-BlueDark lg:block  lg:w-[50%] lg:h-[115vh]">
         <div className="p-10 lg:py-34 lg:p-20 ">
           <h2 className="text-4xl text-white flex justify-start mb-4 align-content-center">
             Te damos la bienvenida!
