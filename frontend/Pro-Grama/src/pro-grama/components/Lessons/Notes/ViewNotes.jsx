@@ -1,32 +1,39 @@
 import React, { useEffect, useState } from 'react'
 import { TiPencil } from 'react-icons/ti'
 import { FiBookOpen, FiEdit3, FiSave } from 'react-icons/fi'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { VscClose } from 'react-icons/vsc'
 import { NotesMap } from './NotesMap'
-import { addNoteThunk } from '../../../../store/notes/thunks'
+import { addNoteThunk, fetchAllNotes } from '../../../../store/notes/thunks'
 
-const ViewNotes = ({ lessonId }) => {
-  const [notes, setNotes] = useState([])
+const ViewNotes = () => {
+  const dispatch = useDispatch()
+  const { notes } = useSelector((state) => state.notes)
+  useEffect(() => {
+    dispatch(fetchAllNotes())
+  }, [dispatch])
   const [openForm, setOpenForm] = useState(false)
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-  const dispatch = useDispatch()
-  // const { notes } = useNotesStore()
+
   const toogleForm = (e) => {
     e.preventDefault()
     setOpenForm(!openForm)
   }
   const handleSubmit = (event) => {
     event.preventDefault()
+    const data = { title, content }
+
     // if (selectedNote) {
-    //   dispatch(updateNote({
-    //     id: selectedNote.id,
-    //     title: title,
-    //     content: content
-    //   }))
+    //   dispatch(
+    //     updateNote({
+    //       id: selectedNote.id,
+    //       title: title,
+    //       content: content
+    //     })
+    //   )
     // } else {
-    dispatch(addNoteThunk({ title, content, lessonId: 1, id: 1 }))
+    dispatch(addNoteThunk(data))
     // }
     setTitle('')
     setContent('')
@@ -51,7 +58,7 @@ const ViewNotes = ({ lessonId }) => {
             {notes.length === 0 ? (
               <p className=' text-lg items-center'>No hay notas</p>
             ) : (
-              <NotesMap note={notes} />
+              notes.map((note) => <NotesMap key={note.id} notes={note} />)
             )}
           </div>
         </div>
