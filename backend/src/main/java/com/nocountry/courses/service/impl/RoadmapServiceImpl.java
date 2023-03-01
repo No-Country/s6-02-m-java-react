@@ -74,7 +74,10 @@ public class RoadmapServiceImpl implements IRoadmapService {
 
     @Override
     public void delete(Long id) {
-
+        if(!repository.existsById(id)){
+            throw new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(), null, Locale.getDefault()));
+        }
+        repository.deleteById(id);
     }
 
     @Override

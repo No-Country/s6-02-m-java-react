@@ -26,4 +26,10 @@ public record RoadmapController(IRoadmapService service) {
     public ResponseEntity<?> update(@PathVariable("id") Long id, @Valid @RequestBody RoadmapRequestDto roadmap){
         return responseBuilder(HttpStatus.OK, service.update(id, roadmap));
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        service.delete(id);
+    }
+
 }
