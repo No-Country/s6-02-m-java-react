@@ -10,4 +10,6 @@ import java.util.List;
 public interface IRoadmapService extends ICrudService<RoadmapResponseDto, RoadmapRequestDto> {
 
     List<RoadmapResponseDto> findAllByUserId(Long id);
+
+    void delete(Long id);
 }
