@@ -26,12 +26,12 @@ export const Login = () => {
     startLogin({email:email, password:password})
   }
   return (
-    <div className="bg-BlueDark h-fit ">
+    <div className="bg-BlueDark h-[95vh] lg:h-[105vh] ">
       <HeaderBSide />
 
       {/* LEFT SIDE */}
-      <div className="text-center bg-BlueDark w-[50%] h-[100vh]">
-        <div className="m-auto py-36 p-28">
+      <div className="flex flex-col justify-center w-full h-full lg:text-center bg-BlueDark lg:block  lg:w-[50%] lg:h-[115vh]">
+        <div className="p-10 lg:py-34 lg:p-20 ">
           <h2 className="text-4xl text-white flex justify-start mb-4 align-content-center">
             Te damos la bienvenida!
           </h2>
@@ -130,7 +130,7 @@ export const Login = () => {
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="text-center absolute left-[50%] top-[5rem] bg-green-900 w-[50%] h-[90vh]">
+      <div className=" hidden lg:block lg:text-center lg:absolute lg:left-[50%] lg:top-[5rem] lg:bg-green-900 lg:w-[50%] lg:h-[115vh]">
         <img src={ProGrama} alt="Programa" className="w-full h-full object-cover" />
       </div>
     </div>

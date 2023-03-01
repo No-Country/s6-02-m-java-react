@@ -12,15 +12,15 @@ import { useState } from "react";
 const initialForm ={
   email: "",
   name:"",
-  lastName:""
+  lastname:""
 }
 const formValidations ={
   email:[(value)=>value.includes('@'), 'email must have @'],
   name: [(value)=>  value.length >=4, 'Name is required' ],
-  lastName: [(value)=>  value.length >=4, 'Name is required' ],
+  lastname: [(value)=>  value.length >=4, 'Name is required' ],
 }
 export const Register = () => {
-    const{onInputChange,formState, email,name,lastName, isFormValid,emailValid,nameValid,lastNameValid}=useForm(initialForm,formValidations)
+    const{onInputChange,formState, email,name,lastname, isFormValid,emailValid,nameValid,lastnameValid}=useForm(initialForm,formValidations)
      const[formSubmit, setFormSubmit]=useState(false)
    const dispatch = useDispatch()
 
@@ -33,12 +33,12 @@ export const Register = () => {
 
     }
   return (
-    <div className="bg-Blue">
+    <div className="bg-Blue p-2 h-[103vh] lg:p-0 lg:h-fit ">
       <HeaderBSide />
       <ProgressBar />
-      <div className="flex flex-col justify-center items-center gap-8">
-        <h3 className="font-bold text-3xl text-center text-white ">¡Hola! vamos a crear tu perfil</h3>
-        <form className="w-[28rem] " onSubmit={handleSubmit}>
+      <div className=" p-10  lg:flex lg:flex-col lg:justify-center lg:items-center gap-8 ">
+        <h3 className="font-bold text-2xl lg:text-3xl text-center text-white ">¡Hola! vamos a crear tu perfil</h3>
+        <form className=" w-fit mt-5  lg:w-[28rem] lg:mt-0 " onSubmit={handleSubmit}>
           <div class="mb-6">
             <label for="email" class="block mb-2 text-sm font-medium text-white ">Email address:</label>
             <input type="email" name="email" value={email} onChange={onInputChange} id="email" class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john.doe@company.com" required />
@@ -55,9 +55,9 @@ export const Register = () => {
           </div>
           <div class="mb-6">
             <label for="apellido" class="block mb-2 text-sm font-medium text-white ">Apellido:</label>
-            <input type="text" name="lastName" value={lastName} onChange={onInputChange} id="apellido" class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john doe" required />
+            <input type="text" name="lastname" value={lastname} onChange={onInputChange} id="apellido" class="bg-Blue border border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john doe" required />
             {
-              (!!lastNameValid && formSubmit) ? <span className="text-red-500">{lastNameValid}</span> : null
+              (!!lastnameValid && formSubmit) ? <span className="text-red-500">{lastnameValid}</span> : null
             }
           </div>
           <div class="flex items-center mb-6">

@@ -3,7 +3,7 @@ import {faList, faClock} from "@fortawesome/free-solid-svg-icons";
 
 export const Card = ({name,level,modules,hours,img}) => {
   return (
-    <div class="w-[22rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-5 hover:drop-shadow-2xl">
+    <div class="w-[25rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-5 hover:drop-shadow-2xl">
     <a href="#">
         <img class="rounded-t-lg object-contain" src={img} alt="" />
     </a>

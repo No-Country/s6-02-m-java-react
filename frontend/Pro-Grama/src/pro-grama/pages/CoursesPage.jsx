@@ -35,7 +35,7 @@ function CoursesPage() {
       <div className="flex gap-6 justify-between items-center mb-12">
         <h1 className="text-5xl my-2 ml-10 text-white">Todos los cursos</h1>
       </div>
-      <div className="grid gap-6 w-full grid-cols-1 sm:grid-cols-2 justify-items-center md:justify-items-start md:grid-cols-courses justify-center">
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 justify-items-center md:justify-items-start md:grid-cols-courses justify-center">
         {listCourses.length ? (
           listCourses.map((course) => (
             <div
@@ -51,7 +51,9 @@ function CoursesPage() {
               />
               <div className="description-course px-4 py-5 flex flex-col justify-start">
                 <div className="title-fav flex flex-row items-center justify-between  pb-4">
-                  <Link to={`/CourseDetail/${course.id}`}><h1 className="text-xl text-white">{course.title}</h1></Link>
+                  <Link to={`/CourseDetail/${course.id}`}>
+                    <h1 className="text-xl text-white">{course.title}</h1>
+                  </Link>
                   <AiOutlineHeart className="text-xl text-white" />
                 </div>
                 <div className="details flex flex-row justify-between items-center">
