@@ -4,6 +4,7 @@ import com.nocountry.courses.dto.request.NoteRequestDto;
 import com.nocountry.courses.dto.response.NoteResponseDto;
 import com.nocountry.courses.handler.exception.ResourceNotFoundException;
 import com.nocountry.courses.mapper.GenericMapper;
+import com.nocountry.courses.model.Course;
 import com.nocountry.courses.model.Lesson;
 import com.nocountry.courses.model.Note;
 import com.nocountry.courses.model.User;
@@ -27,11 +28,7 @@ public class NoteServiceImpl implements INoteService {
 
     private final GenericMapper mapper;
     private final NoteRepository repository;
-
     private final LessonRepository lessonRepository;
-
-    private final UserRepository userRepository;
-
     private final IUserService userService;
     private final MessageSource messenger;
 
@@ -53,7 +50,7 @@ public class NoteServiceImpl implements INoteService {
 
         User user = userService.getUser();
 
-        Lesson lesson = lessonRepository.findById(request.getLessonId()).orElseThrow(()->new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(), null, Locale.getDefault())));
+        Lesson lesson = lessonRepository.findById(request.getLessonId()).orElseThrow(()->new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(), new Object[] {Note.class.getName(), request.getLessonId() }, Locale.getDefault())));
 
         Note note = mapper.map(request, Note.class);
 
@@ -68,7 +65,7 @@ public class NoteServiceImpl implements INoteService {
     @Override
     public NoteResponseDto update(Long id, NoteRequestDto request){
 
-        Note note = repository.findById(id).orElseThrow(()->new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(), null, Locale.getDefault())));
+        Note note = repository.findById(id).orElseThrow(()->new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),  new Object[] {Note.class.getName(), id }, Locale.getDefault())));
 
         note.setTitle(request.getTitle());
         note.setContent(request.getContent());
@@ -80,7 +77,10 @@ public class NoteServiceImpl implements INoteService {
 
     @Override
     public void delete(Long id) {
-
+        if(!repository.existsById(id)){
+            throw new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(), null, Locale.getDefault()));
+        }
+        repository.deleteById(id);
     }
 
 

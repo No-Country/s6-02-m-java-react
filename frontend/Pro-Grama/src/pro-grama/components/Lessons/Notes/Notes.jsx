@@ -5,12 +5,12 @@ import ViewNotes from './ViewNotes'
 import { Ide } from './Ide'
 
 const Notes = () => {
-    return (
+  return (
     <>
-      {/* <Ide /> */}
-      <ViewNotes/>
+      <Ide />
+      <ViewNotes />
     </>
-  );
-};
+  )
+}
 
-export default Notes;
+export default Notes

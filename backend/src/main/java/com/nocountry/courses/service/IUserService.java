@@ -20,5 +20,5 @@ public interface IUserService {
 
     User findById(Long id);
 
-    List<BasicCourseResponseDto> addFavouriteCourseToUser(Long user_id, Long course_id);
+    List<BasicCourseResponseDto> addFavouriteCourseToUser(Long course_id);
 }
