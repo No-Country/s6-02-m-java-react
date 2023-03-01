@@ -1,32 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteNoteThunk, fetchNotesThunk } from '../../../../store/notes/thunks'
+import { deleteNoteThunk, fetchAllNotes } from '../../../../store/notes/thunks'
 
-export const NotesMap = ({ note }) => {
-  const notes = useSelector((state) => state.notes)
-  const dispatch = useDispatchh()
-
-  useEffect(() => {
-    dispatch(fetchNotesThunk())
-  }, [dispatch])
+export const NotesMap = ({ notes }) => {
+  const { title, content, lesson } = notes
+  
+  
+  const dispatch = useDispatch()
+  const [description, setDescription] = useState(false)
+  const toogleDescription = () => {
+    setDescription(!description)
+  }
 
   const handleDeleteNote = (id) => {
     dispatch(deleteNoteThunk(id))
   }
+  const handleUpdateNote = (id) => {}
+  //scrollbar-none
   return (
-    <div
-      key={note.id}
-      className='grid grid-cols-1 gap-2 scrollbar-none text-base'>
-      <div className='flex justify-between items-center'>
-        <p className='text-lg cursor-pointer' onClick={onSelect}>
-          {note.title}
+    <div className='grid text-base text-white '>
+      <div className='flex p-2'>
+        <p
+          className='text-lg p-2 cursor-pointer text-white'
+          onClick={toogleDescription}>
+          {title}
         </p>
       </div>
-      <div className='flex justify-between items-center'>
-        <p className='text-lg'>{note.content}</p>
-      </div>
-      <div>
-        <button onClick={() => handleDeleteNote(note.id)}>Eliminar</button>
+      <div className={`items-center  ${description ? 'grid' : 'hidden'}`}>
+        <div>
+          <p className='text-lg'>{content}</p>
+          <p className='text-lg text-gray-500'>
+            nota creada en: {lesson.title}
+          </p>
+        </div>
+        <div className='flex justify-evenly text-white'>
+          <button onClick={() => handleDeleteNote(notes.id)}>Eliminar</button>
+          <button>Actualizar</button>
+        </div>
       </div>
     </div>
   )
