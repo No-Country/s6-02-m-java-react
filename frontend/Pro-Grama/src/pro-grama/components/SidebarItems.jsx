@@ -7,10 +7,8 @@ import { VscSignIn } from "react-icons/vsc";
 import { BiNotepad } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { GrCircleQuestion } from "react-icons/gr";
-import { useAuthStore } from "../../hooks/useAuthStore";
 
 const SidebarItems = () => {
-  const{startLogout}= useAuthStore();
   return (
     <ul className="space-y-3 py-5 px-3 text-start navbar">
       <li>
@@ -55,7 +53,7 @@ const SidebarItems = () => {
         </Link>
       </li>
 
-      <li onClick={startLogout}>
+      <li>
         <Link
           to="/"
           className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"

@@ -8,7 +8,7 @@ export const CardContainer = () => {
        {
           courses.map(course=>{
             return(
-                <Card {...course} />
+                <Card key={course.name} {...course} />
             )
           })
        }

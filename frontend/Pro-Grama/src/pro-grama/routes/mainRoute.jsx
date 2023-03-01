@@ -25,6 +25,7 @@ export const MainRoute = () => {
         <Route path="/ProfilePage" element={<ProfilePage />} />
         <Route path="/faqs" element={<Faqs/>} />
       </Route>
+      <Route path="/Home" element={<LandingPage />} />
       <Route path="/*" element={<Navigate to="/" />} />
     </Routes>
   );

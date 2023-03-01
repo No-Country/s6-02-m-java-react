@@ -10,8 +10,10 @@ import { GrPlay } from 'react-icons/gr'
 import { Button } from 'flowbite-react'
 import './curso.css'
 import { ListaVideos } from './ListaVideos'
+import Sidebar from '../Sidebar'
 import axios from 'axios'
 /*importacion datos desde JSON*/
+import course from '../../../helpers/infoCourseData.json'
 import CourseImg from '../../../assets/curso-js.jpeg'
 import { useParams } from 'react-router-dom'
 
@@ -19,12 +21,14 @@ export const Description = () => {
   const [hearthPress, setHearthPress] = useState(true)
 
   let { id } = useParams()
+
   const handleHearth = () => {
     setHearthPress(!hearthPress)
   }
   const [course, setCourse] = useState([])
 
   const getCourse = async () => {
+    // try {
     const token = localStorage.getItem('token')
     let response = await axios.get(
       `https://pro-grama-production.up.railway.app/course/${id}`,
@@ -32,18 +36,21 @@ export const Description = () => {
         headers: { Authorization: `Bearer ${token}` }
       }
     )
-    if (response.status === 200) {
-      setCourse(response.data.response)
-    }
+    console.log(response.data.response)
+    setCourse(response.data.response)
+    // return true
+    // } catch (err) {
+    //   console.log(err)
+    //   return false
+    // }
   }
   useEffect(() => {
     getCourse()
   }, [id])
 
-  if(course.length === 0){
-    return <span>No hay leccion actual</span>
-  }
+  // console.log(course)
 
+  // "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmciLCJpYXQiOjE2NzcwNzk4NzgsImV4cCI6MTY3NzEyMzA3OH0.yNKc9dzU1tPej8lz1kUzCXmBP8CWJXA-55ci8uPBybM"
   return (
     <>
       {/* <Sidebar/> */}
@@ -67,6 +74,7 @@ export const Description = () => {
       </div>
       <div className='flex max-md:px-8 justify-between gap-8 max-lg:flex-wrap px-12'>
         <div className='flex-col w-8/12 max-lg:w-full'>
+          {/*imagen provisoria para poder trabajar*/}
           <img
             className='rounded-xl'
             src={course.imageUrl === 'image_url' ? CourseImg : course.imageUrl}
@@ -75,7 +83,7 @@ export const Description = () => {
             <p className='py-4 flex items-center gap-2 text-white'>
               {' '}
               <AiOutlineUnorderedList fill='white' />
-              {`${course.lessons?.length} Lecciones`}
+              {/* {`${course.lessons.length} Lecciones`} */}
             </p>
             <p className='py-4 flex items-center gap-2 text-white'>
               {' '}

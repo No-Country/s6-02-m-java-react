@@ -59,29 +59,9 @@ export const UpdateUser = ({handleChange}) => {
     }
   return (
     <>
-    <div className='mt-5 w-full flex justify-between items-center p-5 '>
-    <div className=" flex">
-          <div className="rounded-full h-20 w-20 bg-gray-400" />
-          <div className="row text-3xl px-4 text-white">
-            {profile?.name} {profile?.lastname}
-            <div className="col  text-lg text-white">
-              Modifica los datos de tu perfil
-            </div>
-          </div>
-        </div>
-        <div >
-        <button type="button" onClick={handleChange} class="focus:outline-none w-[15rem] text-Green bg-Blue hover:bg-Blue focus:ring-4 border-2 border-Green font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   dark:focus:ring-green-800"> 
-            <div className='flex justify-center items-center gap-5'>
-            <FontAwesomeIcon icon={faX} className="text-lg text-Green"  />
-             <span className='text-lg text-green'>Cancel</span>
-            </div>
-            </button>
-        </div>
-    </div>
-    <br />
-    <hr />
+    <h3 className='text-center text-3xl font-bold'>Actualizar Cuenta</h3>
     <div className='flex justify-center items-center'>
-     <form className='  p-6 h-fit mt-3 w-[40rem] mb-4 flex flex-col ' onSubmit={handleSubmit}>
+     <form className='bg-slate-200 drop-shadow-lg w-[34rem] p-6 h-fit mt-3 mb-4 rounded-xl ' onSubmit={handleSubmit}>
      <div class="mb-6">
             <label for="email" class="block mb-2 text-sm font-medium text-white ">Email address:</label>
             <input type="email" name='email' value={email} onChange={onInputChange} id="email" class="bg-Blue border self-start border-white text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john.doe@company.com" required />
