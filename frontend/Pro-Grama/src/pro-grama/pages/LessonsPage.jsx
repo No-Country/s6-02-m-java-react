@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux'
 import { setCurso } from '../../store/lessons/lessonSlice'
 
 import LessonsCourses from '../components/Lessons/LessonsCourses'
-import Notes from '../components/Lessons/Notes/Notes'
 
 const LessonsPage = () => {
   const dispatch = useDispatch();
