@@ -8,4 +8,6 @@ import java.util.List;
 public interface INoteService extends ICrudService<NoteResponseDto, NoteRequestDto> {
 
     List<NoteResponseDto> findAllByUserId();
+
+    void delete(Long id);
 }
