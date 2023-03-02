@@ -11,6 +11,7 @@ import { useAuthStore } from '../../hooks/useAuthStore'
 
 const SidebarItems = () => {
   const { startLogout } = useAuthStore()
+  const idLesson = JSON.parse(localStorage.getItem('lesson'))
   return (
     <ul className='space-y-3 py-5 px-3 text-start navbar'>
       <li>
@@ -33,7 +34,7 @@ const SidebarItems = () => {
 
       <li>
         <Link
-          to='/CourseDetail'
+          to={`/CourseLessons/${idLesson?.id}`}
           className='flex items-center  p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'>
           <FaChalkboardTeacher className='flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white' />
           <span className='flex-1 ml-3 whitespace-nowrap hidden'>
