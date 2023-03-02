@@ -15,14 +15,14 @@ Documentación -> [Docs](https://pro-grama-production.up.railway.app/swagger-ui/
 
 ### Aplicacion:
 
-Aplicación Web -> [PRO.grama](https://programa-clon-usig.vercel.app/landing)
+Aplicación Web -> [PRO.grama](https://pro-grama.netlify.app/)
 
 _Para el despliegue del proyecto se utilizaron las siguientes herramientas:_
 
 | Base de datos MySQL | [Railway](https://railway.app/) |
 | ----------------- | ------------------------------ |
 
-| React (Frontend) | [Vercel](https://vercel.com/) |
+| React (Frontend) | [Netlify](https://app.netlify.com/) |
 | ----------------- | ------------------------------ |
 
 | Java (Backend)    | [Railway](https://railway.app/) |
@@ -42,7 +42,11 @@ _Para el despliegue del proyecto se utilizaron las siguientes herramientas:_
 
 * Lenguaje -> JavaScript
 * React
-* Bootstrap 5
+* Tailwind css
+* Flowbite
+* Axios
+* Redux-Toolkit
+* React-router-dom
 * Libreria de alertas -> [SweetAlerts2](https://sweetalert2.github.io/)
 * Fonts -> [Google Fonts](https://fonts.google.com/)
 
