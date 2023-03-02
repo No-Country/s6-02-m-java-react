@@ -5,6 +5,7 @@ import {
   FiFileText,
   FiTrendingUp,
 } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const WhyPro = () => {
   return (
@@ -58,13 +59,15 @@ const WhyPro = () => {
             </div>
           </div>
         </div>
-        <div className="text-center">
-          <button class="relative overflow-hidden text-md font-medium text-BlueDark rounded-lg  bg-Green hover:text-GrayDark dark:text-white focus:ring-4 focus:outline-none focus:ring-GreenLight dark:focus:ring-Green">
-            <span className="flex px-16 py-2.5 text-BlueDark">
-              <FiArrowDownLeft className="text-2xl" />
-              Comienza Ya
-            </span>
-          </button>
+        <div className="text-center mb-20">
+          <Link to="/auth/login">
+            <button class="relative overflow-hidden text-md font-medium text-BlueDark rounded-lg  bg-Green hover:text-GrayDark dark:text-white focus:ring-4 focus:outline-none focus:ring-GreenLight dark:focus:ring-Green">
+              <span className="flex px-16 py-3 text-BlueDark">
+                <FiArrowDownLeft className="text-2xl" />
+                Comienza Ya
+              </span>
+            </button>
+          </Link>
         </div>
       </div>
     </>

@@ -1,12 +1,12 @@
-import React from 'react'
-import { BiTimeFive } from 'react-icons/bi'
-import './curso.css'
-import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { setCurso } from '../../../store/lessons/lessonSlice'
+import React from "react";
+import { BiTimeFive } from "react-icons/bi";
+import "./curso.css";
+import { json, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCurso } from "../../../store/lessons/lessonSlice";
 
 export const ListaVideos = ({ lessons, title }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   if (lessons) {
     lessons.sort((a, b) => a.id - b.id)
@@ -27,12 +27,11 @@ export const ListaVideos = ({ lessons, title }) => {
                     key={curso.index}
                     className='flex justify-between px-2 items-center m-3'>
                     <Link
-                      className=' '
-                      onClick={() =>
-                        dispatch(setCurso({ ...curso, course: title }))
-                      }
-                      to={`/CourseLessons/${curso.id}`}
-                      href={curso?.urlVideo}>
+                      className=" "
+                      onClick={() => dispatch(setCurso({...curso, course:title}))}
+                      to="/CourseLessons"
+                      href={curso?.urlVideo}
+                    >
                       {curso.title}
                     </Link>
                     <div className='flex items-center gap-2 '>
