@@ -29,12 +29,9 @@ export const fetchAllNotes = createAsyncThunk(
   'notes/fetchAllNotes',
   async (_, thunkAPI) => {
     const url = `https://pro-grama-production.up.railway.app/note/my-notes` // URL de la API para obtener todas las notas
-
     try {
-      const response = await axios.get(url, config)
-      console.log(110) // pasamos la configuración con el token
-      return response.data.response 
-
+      const response = await axios.get(url, config) 
+      return response.data.response
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data) // manejo del error
     }

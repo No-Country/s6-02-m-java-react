@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { FiCode } from 'react-icons/fi'
 import { VscClose } from 'react-icons/vsc'
-import './styles.css'
 export const Ide = () => {
   const [view, setView] = useState(false)
   const handleIde = () => {
@@ -10,11 +9,11 @@ export const Ide = () => {
 
   return (
     <>
-      <div className='bg-BlueLight rounded-xl text-lg p-4 mb-5 mr-5 grid gap-2  text-white sm:hidden lg:grid'>
+      <div className='bg-BlueLight rounded-xl  p-4 mb-5 mr-5  gap-2  text-white hidden lg:grid text-xl'>
         <h2>Practica desde nuestro IDE</h2>
         <p>Sin tener que salir de la clase</p>
         <button
-          className='w-24 p-4 rounded-md bg-Green text-black'
+          className='p-4 rounded-md bg-Green text-black font-semibold uppercase text-lg hover:text-BlueLink transition-colors'
           onClick={handleIde}>
           Practicar
         </button>

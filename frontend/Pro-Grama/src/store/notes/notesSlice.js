@@ -5,9 +5,7 @@ export const notesSlice = createSlice({
   name: 'notes',
   initialState: { notes: [], status: null, error: null },
   reducers: {
-    addNote: (state, action) => {
-      state.push(action.payload)
-    },
+    
     removeNote: (state, action) => {
       return state.filter((note) => note.id !== action.payload)
     },
