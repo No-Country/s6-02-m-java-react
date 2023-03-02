@@ -7,7 +7,7 @@ const LessonsPage = () => {
   return (
     <>
       <LessonsCourses />
-      {/* <Notes /> */}
+      
     </>
   )
 }

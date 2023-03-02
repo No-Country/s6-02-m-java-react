@@ -36,7 +36,7 @@ export const Description = () => {
         headers: { Authorization: `Bearer ${token}` }
       }
     )
-    console.log(response.data.response)
+    // console.log(response.data.response)
     setCourse(response.data.response)
     // return true
     // } catch (err) {
@@ -77,8 +77,9 @@ export const Description = () => {
           {/*imagen provisoria para poder trabajar*/}
           <img
             className='rounded-xl'
-            src={course.imageUrl === 'image_url' ? CourseImg : course.imageUrl}
-          ></img>
+            src={
+              course.imageUrl === 'image_url' ? CourseImg : course.imageUrl
+            }></img>
           <div className='flex justify-between px-4 py-2 my-8 rounded-xl bg-[#0D2438]'>
             <p className='py-4 flex items-center gap-2 text-white'>
               {' '}
@@ -99,8 +100,7 @@ export const Description = () => {
           </div>
           <Button
             color='gray'
-            className='h-8 mt-6 text-Green border-Green bg-transparent hover:bg-Green hover:text-Blue mb-16'
-          >
+            className='h-8 mt-6 text-Green border-Green bg-transparent hover:bg-Green hover:text-Blue mb-16'>
             <AiOutlinePlus className='mr-2 ' />
             Agregar a la hoja de ruta
           </Button>
