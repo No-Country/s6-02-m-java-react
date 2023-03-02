@@ -1,5 +1,4 @@
 import React from "react";
-import { FiHeadphones } from "react-icons/fi";
 
 const Valores = () => {
   return (
@@ -62,15 +61,6 @@ const Valores = () => {
             </p>
           </div>
         </div>
-      </div>
-
-      <div className="text-center py-8">
-        <button class="relative overflow-hidden text-md font-medium text-BlueDark rounded-lg  bg-Green hover:text-GrayDark dark:text-white focus:ring-4 focus:outline-none focus:ring-GreenLight dark:focus:ring-Green">
-          <span className="flex px-16 py-2.5 text-BlueDark">
-            <FiHeadphones className="text-2xl" />
-            Discord
-          </span>
-        </button>
       </div>
     </div>
   );

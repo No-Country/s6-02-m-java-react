@@ -1,13 +1,16 @@
 import React from "react";
 import { BiTimeFive } from "react-icons/bi";
 import "./curso.css";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCurso } from "../../../store/lessons/lessonSlice";
 
 export const ListaVideos = ({ lessons, title }) => {
   const dispatch = useDispatch();
-
+   const handleLessons = (lesson)=>{
+      localStorage.setItem('lesson', JSON.stringify(lesson))
+      dispatch(setCurso( JSON.parse(localStorage.getItem('lesson'))))
+   }
   if (lessons) {
     lessons.sort((a, b) => a.id - b.id)
     return (
@@ -28,7 +31,7 @@ export const ListaVideos = ({ lessons, title }) => {
                   >
                     <Link
                       className=" "
-                      onClick={() => dispatch(setCurso({...curso, course:title}))}
+                      onClick={() => handleLessons({...curso,course:title})}
                       to="/CourseLessons"
                       href={curso?.urlVideo}
                     >
