@@ -6,12 +6,12 @@ import { AiOutlineClockCircle } from 'react-icons/ai'
 
 /*importacion datos desde JSON*/
 import data from '../../../helpers/infoCourseData.json'
-import Notes from './Notes/Notes'
 import { useSelector } from 'react-redux'
+import Notes from './Notes/Notes'
 
 const LessonsCourses = () => {
   const { curso } = useSelector((state) => state.lessons)
-  
+
   return (
     <div className='flex max-md:px-8 justify-between gap-8 max-lg:flex-wrap pb-24 '>
       <div className='flex-col w-8/12 max-lg:w-full'>

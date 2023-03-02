@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { TiPencil } from 'react-icons/ti'
-import { FiBookOpen, FiEdit3, FiSave } from 'react-icons/fi'
+import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { VscClose } from 'react-icons/vsc'
-import { NotesMap } from './NotesMap'
 import { addNoteThunk, fetchAllNotes } from '../../../../store/notes/thunks'
+import { VscClose } from 'react-icons/vsc'
+import { FiBookOpen, FiEdit3, FiSave } from 'react-icons/fi'
+import { NotesMap } from './NotesMap'
 
 const ViewNotes = () => {
   const dispatch = useDispatch()
@@ -34,7 +33,7 @@ const ViewNotes = () => {
   return (
     <>
       <div className='bg-BlueLight rounded-xl text-lg p-2 mt-8   mb-5 mr-5 grid gap-2 text-white max-h-[474px] overflow-auto scrollbar-none'>
-        <div className='flex justify-between m-2 items-center'>
+        <div className='flex justify-between m-2 items-center text-2xl'>
           <h2>Mis Notas</h2>
           <div
             className='flex items-center cursor-pointer text-Green'
@@ -64,17 +63,17 @@ const ViewNotes = () => {
             type='text'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className='bg-transparent px-3 appearance-none  focus:outline-none focus:shadow-outline text-white'
+            className='bg-transparent px-3 pb-2 appearance-none  focus:outline-none focus:shadow-outline text-white'
             placeholder='Ecribe un Titulo'
           />
           <textarea
             cols='5'
             rows='1'
-            className='bg-transparent resize-none outline-none py-1 px-3 h-60 border-b-2 border-t-2 text-white'
+            className='bg-transparent resize-none outline-none py-1 px-3 h-60 md:h-52 h-40 border-b-2 border-t-2 text-white'
             placeholder='Escribe Tus Notas'
             value={content}
             onChange={(e) => setContent(e.target.value)}></textarea>
-          <div className='flex justify-center gap-2 my-3'>
+          <div className='grid justify-center gap-2 my-3 lg:grid md:flex 2xl:flex items-center md:content-center'>
             <button
               onClick={toogleForm}
               className='flex justify-center items-center text-sm gap-2 py-4 px-9 text-Green'>
@@ -82,7 +81,7 @@ const ViewNotes = () => {
             </button>
             <button
               type='submit'
-              className='flex items-center content-center gap-2 p-4 bg-Green rounded-xl'>
+              className='flex items-center justify-center gap-2 p-4 bg-Green rounded-xl md:p-2 md:px-4 '>
               <FiSave size={40} />
               Submit
             </button>
