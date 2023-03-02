@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { TiPencil } from 'react-icons/ti'
 import { FiBookOpen, FiEdit3, FiSave } from 'react-icons/fi'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,28 +9,27 @@ import { addNoteThunk, fetchAllNotes } from '../../../../store/notes/thunks'
 const ViewNotes = () => {
   const dispatch = useDispatch()
   const { notes } = useSelector((state) => state.notes)
-  // console.log(notes)
-  useEffect(() => {
-    dispatch(fetchAllNotes())
-  }, [])
   const [openForm, setOpenForm] = useState(false)
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
+  useEffect(() => {
+    dispatch(fetchAllNotes())
+  }, [])
   const toogleForm = (e) => {
     e.preventDefault()
-    setTitle('')
     setContent('')
+    setTitle('')
     setOpenForm(!openForm)
   }
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     const data = { title, content }
-    dispatch(addNoteThunk(data))
-    dispatch(fetchAllNotes())
+    await dispatch(addNoteThunk(data))
+    await dispatch(fetchAllNotes())
     setOpenForm(!openForm)
-    setTitle('')
     setContent('')
+    setTitle('')
   }
   return (
     <>
@@ -64,9 +63,9 @@ const ViewNotes = () => {
           <input
             type='text'
             value={title}
+            onChange={(e) => setTitle(e.target.value)}
             className='bg-transparent px-3 appearance-none  focus:outline-none focus:shadow-outline text-white'
             placeholder='Ecribe un Titulo'
-            onChange={(e) => setTitle(e.target.value)}
           />
           <textarea
             cols='5'
