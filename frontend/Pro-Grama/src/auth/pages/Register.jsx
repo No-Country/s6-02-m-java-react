@@ -41,14 +41,14 @@ export const Register = () => {
         <form className=" w-fit mt-2  lg:w-[28rem] lg:mt-0 " onSubmit={handleSubmit}>
           <div class="mb-6">
             <label for="email" class="block mb-2 text-sm font-medium text-white ">Email address:</label>
-            <input type="email" name="email" value={email} onChange={onInputChange} id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required />
+            <input type="email" name="email" value={email} onChange={onInputChange} id="email" class="bg-Blue border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required />
             {
               (!!emailValid && formSubmit) ? <span className="text-red-500">{emailValid}</span> : null
             }
           </div> 
           <div class="mb-6">
             <label for="name" class="block mb-2 text-sm font-medium text-white ">Nombre:</label>
-            <input type="text" name="name" value={name} onChange={onInputChange} id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john doe" required />
+            <input type="text" name="name" value={name} onChange={onInputChange} id="name" class="bg-Blue border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john doe" required />
             {
               (!!nameValid && formSubmit) ? <span className="text-red-500">{nameValid}</span> : null
             }
@@ -65,7 +65,7 @@ export const Register = () => {
                 <label for="default-checkbox" class="ml-2 text-sm font-medium text-white ">Acepto Termino y condiciones</label>
           </div>
           <div className="flex justify-center items-center gap-9 mb-6">
-              <a href="#" class="font-medium text-Green  hover:underline">Volver</a>
+              <Link to='auth/login' class="font-medium text-Green  hover:underline">Volver</Link>
               <button type="submit" class="text-Green  w-[200px] hover:text-white border border-Green  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-Green dark:text-Green dark:hover:text-white dark:hover:bg-BlueDark dark:focus:ring-Green">Siguiente</button>
           </div>
           <div className="flex justify-center">

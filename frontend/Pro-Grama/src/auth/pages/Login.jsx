@@ -5,11 +5,13 @@ import { AiFillGoogleCircle } from "react-icons/ai";
 import { useForm } from "../hooks/useForm";
 import { useAuthStore } from "../../hooks/useAuthStore";
 import ProGrama from '../../assets/Pro-grama.jpeg'
+import { useSelector } from "react-redux";
 const initalForm ={
   email:"",
   password:""
 }
 export const Login = () => {
+  const{error}=useSelector(state=> state.auth)
   const{onInputChange,formState,email,password}=useForm(initalForm)
   const{startLogin}= useAuthStore()
   const handleSubmit = (e)=>{
@@ -93,6 +95,9 @@ export const Login = () => {
             >
               Iniciar Sesión
             </button>
+            {
+              error.length > 0 && <span className="text-red-500">{error}</span>
+            }
             <button
               type="submit"
               className="text-Green bg-BlueDark hover:bg-GreenLight focus:ring-4 focus:outline-none border-Green focus:ring-blue-300 font-medium rounded-lg text-sm w-[100%] py-3 text-center  dark:hover:bg-green-800"

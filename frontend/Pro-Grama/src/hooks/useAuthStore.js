@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { onlogout, setProfile, setToken, setUser } from '../store/auth/authSlice';
+import { onlogout, setError, setProfile, setToken, setUser } from '../store/auth/authSlice';
 export const useAuthStore = () => {
   const dispatch = useDispatch();
  
@@ -13,6 +13,7 @@ export const useAuthStore = () => {
         dispatch(setUser(localStorage.getItem('user')))
       } catch (error) {
         console.log(error)
+        dispatch(setError("Opps algo salio mal"))
         dispatch(onlogout());
       }
    }

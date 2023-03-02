@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Swal from "sweetalert2";
 import { useAuthStore } from "../../../hooks/useAuthStore";
+import Profile from '../../../assets/profile.png'
 
 const initialForm = {
   newPassword: "",
@@ -95,7 +96,9 @@ export const UpdateUser = ({ handleChange }) => {
     <>
       <div className="mt-5 w-full flex justify-between items-center p-5 ">
         <div className=" flex">
-          <div className="rounded-full h-20 w-20 bg-gray-400" />
+         <div>
+            <img src={Profile} alt="Profile" className="text-white h-13  w-12" />
+          </div>
           <div className="row text-3xl px-4 text-white">
             {profile?.name} {profile?.lastname}
             <div className="col  text-lg text-white">
