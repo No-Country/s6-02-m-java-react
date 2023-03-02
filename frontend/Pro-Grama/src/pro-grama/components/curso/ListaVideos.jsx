@@ -1,7 +1,7 @@
 import React from "react";
 import { BiTimeFive } from "react-icons/bi";
 import "./curso.css";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCurso } from "../../../store/lessons/lessonSlice";
 
@@ -9,7 +9,7 @@ export const ListaVideos = ({ lessons, title }) => {
   const dispatch = useDispatch();
 
   if (lessons) {
-    lessons.sort((a, b) => a.id - b.id)
+    lessons.sort((a, b) => a.id - b.id);
     return (
       <div>
         <div className="bg-Blue rounded-xl text-lg p-1 text-white list-video">
@@ -19,7 +19,6 @@ export const ListaVideos = ({ lessons, title }) => {
           </div>
           <div className="overflow-y-auto list-video_scroll scrollbar-none text-base">
             {lessons.map((curso, index) => {
-              console.log(curso.urlVideo)
               return (
                 <>
                   <div
@@ -28,8 +27,10 @@ export const ListaVideos = ({ lessons, title }) => {
                   >
                     <Link
                       className=" "
-                      onClick={() => dispatch(setCurso({...curso, course:title}))}
-                      to="/CourseLessons"
+                      onClick={() =>
+                        dispatch(setCurso({ ...curso, course: title }))
+                      }
+                      to={`/CourseLessons/${curso.id}`}
                       href={curso?.urlVideo}
                     >
                       {curso.title}

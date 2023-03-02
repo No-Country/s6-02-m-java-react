@@ -34,7 +34,7 @@ export const Description = () => {
         headers: { Authorization: `Bearer ${token}` },
       }
     );
-    console.log(response.data.response);
+    // console.log(response.data.response)
     setCourse(response.data.response);
     // return true
     // } catch (err) {
@@ -59,7 +59,7 @@ export const Description = () => {
     <>
       <div className="flex max-md:px-8 my-6 max-md:flex-col px-12">
         <div className="flex justify-between items-center w-full max-md:w-full">
-          <h2 className="text-2xl text-white">{`Curso de ${course.title}`}</h2>
+          <h2 className="text-2xl text-white">{`${course.title}`}</h2>
           <div className="flex justify-end">
             <Button color="white" onClick={handleHearth}>
               {hearthPress ? (
@@ -68,7 +68,7 @@ export const Description = () => {
                 <AiFillHeart className="w-8 h-8 fill-Green" />
               )}
             </Button>
-            <Button className="h-8 text-black max-md:w-full max-md:mt-4 dark:bg-Green dark:hover:bg-GreenLight">
+            <Button className="h-8 text-black max-md:w-full max-md:mt-4 bg-Green dark:bg-Green dark:hover:bg-GreenLight">
               <GrPlay className="mr-2" />
               Comenzar curso
             </Button>
@@ -79,10 +79,10 @@ export const Description = () => {
         <div className="flex-col w-8/12 max-lg:w-full">
           {/*imagen provisoria para poder trabajar*/}
           <img
-            className="rounded-xl lg:w-full lg:h-[38rem] object-cover"
+            className="rounded-xl w-full lg:w-full lg:h-[38rem] object-cover"
             src={course.imageUrl === "image_url" ? CourseImg : course.imageUrl}
           ></img>
-          <div className="flex justify-between gap-6  px-4 py-2 my-8 rounded-xl bg-[#0D2438]">
+          <div className="flex justify-between px-4 py-2 my-8 rounded-xl bg-[#0D2438]">
             <p className="py-4 flex items-center gap-2 text-white">
               {" "}
               <AiOutlineUnorderedList fill="white" />

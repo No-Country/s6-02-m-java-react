@@ -10,27 +10,19 @@ import Notes from "./Notes/Notes";
 import { useSelector } from "react-redux";
 
 const LessonsCourses = () => {
-  const {curso } = useSelector((state) => state.lessons);
+  const { curso } = useSelector((state) => state.lessons);
+
   return (
-    <div className="flex max-md:px-8 justify-between gap-8 max-lg:flex-wrap pb-24">
+    <div className="flex max-md:px-8 justify-between gap-8 max-lg:flex-wrap pb-24 ">
       <div className="flex-col w-8/12 max-lg:w-full">
         <div className="flex justify-between items-center py-4">
           <div className="text-white">
-            <h2 className="text-3xl py-1">{`Curso de ${curso?.course}`}</h2>
+            <h2 className="text-3xl py-1">{`${curso?.course}`}</h2>
             <p className="py-1">{`Clase ${curso?.title}. `}</p>
             <p className="flex items-center gap-2 py-1">
               <AiOutlineClockCircle />
               {`${curso.duration} minutos`}
             </p>
-          </div>
-          <div>
-            <Button
-              className="h-8 text-black hover:bg-slate-300  max-md:w-full max-md:mt-4"
-              style={{ backgroundColor: "#6BFF81" }}
-            >
-              <GrPlay className="mr-2" />
-              Comenzar curso
-            </Button>
           </div>
         </div>
 
