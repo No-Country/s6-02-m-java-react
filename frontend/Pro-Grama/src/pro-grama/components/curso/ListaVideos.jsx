@@ -7,50 +7,47 @@ import { setCurso } from "../../../store/lessons/lessonSlice";
 
 export const ListaVideos = ({ lessons, title }) => {
   const dispatch = useDispatch();
-   const handleLessons = (lesson)=>{
-      localStorage.setItem('lesson', JSON.stringify(lesson))
-      dispatch(setCurso( JSON.parse(localStorage.getItem('lesson'))))
-   }
+
   if (lessons) {
     lessons.sort((a, b) => a.id - b.id)
     return (
       <div>
-        <div className="bg-Blue rounded-xl text-lg p-1 text-white list-video">
-          <div className="flex justify-between p-5 items-center">
+        <div className='bg-Blue rounded-xl text-lg p-1 text-white list-video'>
+          <div className='flex justify-between p-5 items-center'>
             <p>{lessons.length} Lecciones</p>
             <p>1-{lessons.length}</p>
           </div>
-          <div className="overflow-y-auto list-video_scroll scrollbar-none text-base">
+          <div className='overflow-y-auto list-video_scroll scrollbar-none text-base'>
             {lessons.map((curso, index) => {
               console.log(curso.urlVideo)
+              console.log(curso)
               return (
                 <>
                   <div
                     key={curso.index}
-                    className="flex justify-between px-2 items-center m-3"
-                  >
+                    className='flex justify-between px-2 items-center m-3'>
                     <Link
                       className=" "
-                      onClick={() => handleLessons({...curso,course:title})}
+                      onClick={() => dispatch(setCurso({...curso, course:title}))}
                       to="/CourseLessons"
                       href={curso?.urlVideo}
                     >
                       {curso.title}
                     </Link>
-                    <div className="flex items-center gap-2 ">
+                    <div className='flex items-center gap-2 '>
                       <BiTimeFive />
                       <p>{curso.duration} min</p>
                     </div>
                   </div>
-                  <hr class="h-px mx-2 bg-gray-200 border-0 dark:bg-gray-700 last:h-0" />
+                  <hr class='h-px mx-2 bg-gray-200 border-0 dark:bg-gray-700 last:h-0' />
                 </>
-              );
+              )
             })}
           </div>
         </div>
       </div>
-    );
+    )
   } else {
-    return <span></span>;
+    return <span></span>
   }
-};
+}
