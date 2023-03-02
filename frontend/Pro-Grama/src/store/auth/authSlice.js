@@ -8,7 +8,8 @@ export const authSlice = createSlice({
         registerForm:{},
         page: 1,
         profile:{},
-        user: ""
+        user: "",
+        error: "",
     },
     reducers: {
         setUser: (state, {payload})=>{
@@ -31,9 +32,13 @@ export const authSlice = createSlice({
             state.status = 'not-authorized'
             state.token = ""
             state.page = 1
+         },
+         setError: (state, {payload})=>{
+            state.error = payload
          }
+        
      }
 });
 
 
-export const { setRegisterForm, setPage, setToken, onlogout, setProfile, setUser } = authSlice.actions;
+export const { setRegisterForm, setPage, setToken, onlogout, setProfile, setUser, setError } = authSlice.actions;
