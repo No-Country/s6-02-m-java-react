@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HeaderLanding = () => {
   return (
@@ -61,9 +62,11 @@ const HeaderLanding = () => {
       </div>
       <div className="py-4 flex justify-center">
         <button class="relative inline-flex items-center justify-center p-0.5  overflow-hidden text-md font-medium text-BlueDark rounded-lg group bg-gradient-to-br from-Green to-Green group-hover:from-Green group-hover:to-Blue focus:ring-4 focus:outline-none focus:ring-GreenLight dark:focus:ring-Green">
-          <span class="relative px-16 py-2.5 transition-all ease-in duration-75 bg-Green rounded-md group-hover:bg-opacity-0">
-            Comienza Ya
-          </span>
+          <Link to="/auth/login">
+            <span className="flex justify-center items-center px-8 py-0 md:py-2 border border-Green rounded-md text-BlueDark bg-Green">
+              Comienza Ya
+            </span>
+          </Link>
         </button>
       </div>
     </div>
