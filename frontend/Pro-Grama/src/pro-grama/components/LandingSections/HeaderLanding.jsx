@@ -56,8 +56,8 @@ const HeaderLanding = () => {
       </svg>
       <div className="text-center text-3xl py-8 font-weight-light">
         <h2>
-          Pablabras motivacionales que incentiven al estudio y al uso de esta
-          pagina para estudiar.
+          Aprender nuevas tecnologías es siempre un desafío, estamos aquí para
+          hacerlo más simple.
         </h2>
       </div>
       <div className="py-4 flex justify-center">
